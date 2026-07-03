@@ -65,15 +65,37 @@ function header(prefix, waText){
 </div></header>`;
 }
 
-function footer(prefix, note){
-  return `<footer><div class="wrap-wide">
-<div class="flinks" style="margin-bottom:20px">
-<a href="${prefix}index.html">Home</a>
-<a href="${prefix}overzicht.html">Alle onderwerpen</a>
-<a href="${prefix}tools/transitievergoeding-berekenen.html">Transitievergoeding berekenen</a>
+const DEFAULT_FOOT_NOTE = "Onafhankelijke informatie voor werknemers. Geen juridisch advies op maat.";
+const fixCaps = s => s.replace(/\bvso\b/gi,"VSO").replace(/\bww\b/gi,"WW").replace(/\bai\b/gi,"AI");
+const labelFromSlug = slug => { const t = slug.replace(/-/g," "); return fixCaps(t.charAt(0).toUpperCase()+t.slice(1)); };
+
+function footer(prefix, note, wrapClass){
+  wrapClass = wrapClass || "wrap-wide";
+  const links = arr => arr.map(x=>`<a href="${prefix}${x.href}">${x.label}</a>`).join("");
+  const scen = scenarios.map(s=>({ href:`vaststellingsovereenkomst/${s.slug}.html`, label:labelFromSlug(s.slug) }));
+  const cits = cities.map(c=>({ href:`vso-hulp/${c.slug}.html`, label:c.name }));
+  const cos  = companies.map(c=>({ href:`reorganisatie/vaststellingsovereenkomst-${c.slug}.html`, label:c.name }));
+  return `<footer><div class="${wrapClass}">
+<div class="foottop">
+<a href="${prefix}index.html" class="brand"><span class="mark">EH</span><span>Eerste hulp<br><b>bij VSO</b></span></a>
+<p class="foot-intro">Van paniek naar een goede, veilige deal, met een specialist die jouw kant kiest. Meestal zonder kosten voor jou.</p>
+<div class="flinks">
+<a href="${prefix}reorganisatie/index.html">Reorganisatie</a>
+<a href="${prefix}vaststellingsovereenkomst/index.html">Situaties</a>
+<a href="${prefix}vso-hulp/index.html">Steden</a>
+<a href="${prefix}tools/transitievergoeding-berekenen.html">Berekenen</a>
+<a href="${prefix}overzicht.html">Alles</a>
 <a href="${waLink("Hoi, ik heb een vaststellingsovereenkomst gekregen en wil graag een gratis check.")}">WhatsApp</a>
+<a href="mailto:hello@eerstehulpbijvso.nl">E-mail</a>
+<a href="https://www.linkedin.com/company/eerstehulpbijvso/" target="_blank" rel="noopener">LinkedIn</a>
 </div>
-<div class="fbot"><span>© <span id="yr"></span> Eerste hulp bij VSO · KvK 00000000</span><span>${note || "Onafhankelijke informatie voor werknemers. Geen juridisch advies op maat."}</span></div>
+</div>
+<div class="footcols">
+<div class="footcol one"><h4>Jouw situatie</h4><div class="linkgrid">${links(scen)}</div></div>
+<div class="footcol"><h4>Hulp per stad</h4><div class="linkgrid">${links(cits)}</div></div>
+<div class="footcol"><h4>Ontslag per bedrijf</h4><div class="linkgrid">${links(cos)}</div></div>
+</div>
+<div class="fbot"><span>© <span id="yr"></span> Eerste hulp bij VSO · KvK 00000000</span><span>${note || DEFAULT_FOOT_NOTE}</span></div>
 </div></footer>`;
 }
 
@@ -452,6 +474,9 @@ const pillars = [pillarReorg, pillarVso, pillarCity];
 
 buildOverview({ companies:companyPages, cities:cityPages, scenarios:scenarioPages, combos:comboPages });
 buildSitemap([...pillars, ...companyPages, ...cityPages, ...scenarioPages, ...comboPages]);
+
+// footer voor de handgemaakte homepage (prefix "" + smalle wrap), om in index.html te plakken
+fs.writeFileSync(path.join(__dirname, "_footer-home.html"), footer("", null, "wrap"), "utf8");
 
 console.log("Gegenereerd:");
 console.log(`  ${pillars.length} pillar-pagina's`);

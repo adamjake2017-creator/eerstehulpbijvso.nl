@@ -93,6 +93,15 @@ footer{position:relative;z-index:2;padding:60px 0 36px;color:var(--ink-soft);mar
 .fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--ink-mute)}
 footer .flinks a{color:var(--ink-soft);font-size:14px;margin-right:18px}
 footer .flinks a:hover{color:var(--gold-deep)}
+.foottop{display:flex;flex-wrap:wrap;gap:18px 40px;justify-content:space-between;align-items:flex-start}
+.foot-intro{max-width:300px;font-size:14px;color:var(--ink-soft)}
+.footcols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;margin:28px 0;padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.footcol h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:14px}
+.footcol .linkgrid{column-count:2;column-gap:20px}
+.footcol.one .linkgrid{column-count:1}
+.footcol .linkgrid a{display:block;font-size:13px;padding:4px 0;color:var(--ink-soft);break-inside:avoid;transition:.2s}
+.footcol .linkgrid a:hover{color:var(--gold-deep)}
+@media(max-width:820px){.footcols{grid-template-columns:1fr;gap:22px}}
 
 /* floating whatsapp */
 .wa{position:fixed;right:22px;bottom:22px;z-index:50;display:inline-flex;align-items:center;gap:10px;background:#1f7a4d;color:#fff;padding:14px 20px 14px 16px;border-radius:var(--r);font-size:14px;font-weight:500;box-shadow:0 16px 34px -12px rgba(31,122,77,.6);transition:.25s}
