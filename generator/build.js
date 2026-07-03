@@ -405,6 +405,8 @@ function buildSitemap(all){
     `${SITE}/`,
     `${SITE}/overzicht/`,
     `${SITE}/tools/transitievergoeding-berekenen/`,
+    `${SITE}/tools/ww-veilig-scan/`,
+    `${SITE}/tools/bedenktermijn-berekenen/`,
     ...all.map(a => a.url)
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
@@ -449,7 +451,11 @@ const pillarVso = buildPillar({
   lead:"Elke vaststellingsovereenkomst is anders, en elke situatie vraagt om net andere aandacht. Ziek, zwanger, na een lang dienstverband of met een concurrentiebeding: kies hieronder wat op jou van toepassing is.",
   sections:[
     { title:"Alle situaties", items:scenarioPages },
-    { title:"Handige hulpmiddelen", items:[{ rel:"tools/transitievergoeding-berekenen.html", label:"Transitievergoeding berekenen 2026" }] }
+    { title:"Handige hulpmiddelen", items:[
+      { rel:"tools/transitievergoeding-berekenen.html", label:"Transitievergoeding berekenen 2026" },
+      { rel:"tools/ww-veilig-scan.html", label:"Is jouw VSO WW-veilig? Doe de scan" },
+      { rel:"tools/bedenktermijn-berekenen.html", label:"Hoeveel bedenktijd heb je nog?" }
+    ] }
   ],
   bandH:"Twijfel je?<br>Vraag het ons, <em>gratis</em>.",
   bandP:"Eén appje en een specialist kijkt met je mee. Vrijblijvend en zonder dat je vandaag iets hoeft te beslissen."

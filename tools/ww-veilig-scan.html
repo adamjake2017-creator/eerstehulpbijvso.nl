@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Is jouw VSO WW-veilig? Doe de gratis scan | Eerste hulp bij VSO</title>
+<meta name="description" content="Beantwoord 5 korte vragen en zie direct of je vaststellingsovereenkomst je WW-uitkering veiligstelt. Gratis WW-veilig-scan, daarna een echte check via WhatsApp." />
+<meta name="keywords" content="is mijn vso ww-veilig, ww na vaststellingsovereenkomst, vso ww uitkering, vaststellingsovereenkomst ww veilig, ww-veilig scan" />
+<link rel="canonical" href="https://eerstehulpbijvso.nl/tools/ww-veilig-scan/" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="nl_NL" />
+<meta property="og:title" content="Is jouw VSO WW-veilig? Doe de gratis scan" />
+<meta property="og:description" content="5 korte vragen en je weet direct of je uitkering veilig is." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/style.css" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Wanneer is een vaststellingsovereenkomst WW-veilig?","acceptedAnswer":{"@type":"Answer","text":"Als duidelijk is dat het ontslag op initiatief van de werkgever is, op een neutrale of bedrijfseconomische grond, zonder verwijt aan jou en zonder dringende reden, en de einddatum de fictieve opzegtermijn respecteert. Ook moet de wettelijke bedenktermijn zijn vermeld."}},
+    {"@type":"Question","name":"Verlies ik mijn WW als ik teken?","acceptedAnswer":{"@type":"Answer","text":"Niet als de overeenkomst goed is opgesteld. Het UWV kijkt of je niet verwijtbaar werkloos bent geworden. Laat je overeenkomst daarom checken voordat je tekent."}}
+  ]
+}
+</script>
+<style>
+  .scan{margin-top:8px}
+  .q{padding:22px 0;border-bottom:1px solid var(--line)}
+  .qtext{font-family:'Fraunces',serif;font-size:19px;color:var(--ink);margin-bottom:14px}
+  .opts{display:flex;gap:10px;flex-wrap:wrap}
+  .opts button{padding:11px 20px;border-radius:var(--r);border:1px solid var(--line);background:#fff;font-family:inherit;font-size:14px;color:var(--ink-soft);cursor:pointer;transition:.18s}
+  .opts button:hover{border-color:var(--gold)}
+  .opts button.sel-ja{background:#1f7a4d;border-color:#1f7a4d;color:#fff}
+  .opts button.sel-nee{background:#b4462f;border-color:#b4462f;color:#fff}
+  .opts button.sel-onb{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+  .meterwrap{margin-top:10px;height:12px;border-radius:var(--r);background:var(--cream-2);overflow:hidden}
+  .meterbar{height:100%;width:0;border-radius:var(--r);background:linear-gradient(90deg,#b4462f,#c9922f,#1f7a4d);transition:width .5s ease}
+  .verdict{margin-top:26px;border-radius:22px;padding:30px 30px;border:1px solid var(--line);background:var(--paper);display:none}
+  .verdict.show{display:block}
+  .verdict .tag{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:var(--r);color:#fff;margin-bottom:14px}
+  .verdict h3{font-size:26px;margin-bottom:8px}
+  .verdict p{color:var(--ink-soft);font-size:16px}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<header id="hdr">
+  <div class="bar">
+    <a href="../index.html" class="brand"><span class="mark">EH</span><span>Eerste hulp<br><b>bij VSO</b></span></a>
+    <a href="https://wa.me/31645733083?text=Hoi%2C%20ik%20wil%20graag%20een%20gratis%20check%20van%20mijn%20vaststellingsovereenkomst." class="cta-top">Gratis check →</a>
+  </div>
+</header>
+
+<main>
+  <section class="page">
+    <div class="wrap">
+      <p class="crumb reveal"><a href="../index.html">Home</a> › Tools › WW-veilig-scan</p>
+      <p class="eyebrow reveal">Gratis scan · 5 vragen</p>
+      <h1 class="title reveal">Is jouw VSO<br><em>WW-veilig?</em></h1>
+      <p class="lead reveal">De grootste angst bij een vaststellingsovereenkomst is je uitkering verliezen. Beantwoord vijf korte vragen en zie direct hoe je ervoor staat. Weet je een antwoord niet zeker? Dat is juist een reden om het te laten checken, en dat doen we gratis.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="card reveal">
+        <div class="meterwrap"><div class="meterbar" id="bar"></div></div>
+        <div class="scan" id="scan">
+          <div class="q" data-q="1"><p class="qtext">1. Staat er in je overeenkomst dat het initiatief bij de wérkgever ligt, op een neutrale of bedrijfseconomische grond?</p><div class="opts"><button data-v="ja">Ja</button><button data-v="nee">Nee</button><button data-v="onb">Weet ik niet</button></div></div>
+          <div class="q" data-q="2"><p class="qtext">2. Is er géén sprake van een dringende reden of een verwijt aan jou (zoals disfunctioneren of een conflict dat aan jou wordt toegeschreven)?</p><div class="opts"><button data-v="ja">Ja, dat klopt</button><button data-v="nee">Nee</button><button data-v="onb">Weet ik niet</button></div></div>
+          <div class="q" data-q="3"><p class="qtext">3. Respecteert de einddatum de (fictieve) opzegtermijn die je werkgever normaal in acht moet nemen?</p><div class="opts"><button data-v="ja">Ja</button><button data-v="nee">Nee</button><button data-v="onb">Weet ik niet</button></div></div>
+          <div class="q" data-q="4"><p class="qtext">4. Wordt de wettelijke bedenktermijn (14 of 21 dagen) in de overeenkomst genoemd?</p><div class="opts"><button data-v="ja">Ja</button><button data-v="nee">Nee</button><button data-v="onb">Weet ik niet</button></div></div>
+          <div class="q" data-q="5"><p class="qtext">5. Ben je op dit moment niet ziek of arbeidsongeschikt?</p><div class="opts"><button data-v="ja">Klopt, ik ben niet ziek</button><button data-v="nee">Ik ben wel ziek</button><button data-v="onb">Weet ik niet</button></div></div>
+        </div>
+
+        <div class="verdict" id="verdict">
+          <span class="tag" id="vtag"></span>
+          <h3 id="vtitle"></h3>
+          <p id="vtext"></p>
+          <a id="vwa" class="btn btn-wa" style="margin-top:22px" href="#">Laat mijn VSO gratis checken</a>
+        </div>
+      </div>
+      <p class="hint reveal" style="margin-top:16px;max-width:720px;color:var(--ink-mute);font-size:13px">Deze scan geeft een eerste indicatie op basis van de belangrijkste WW-voorwaarden. Het is geen juridisch advies; alleen een volledige check van je overeenkomst geeft zekerheid.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <h2 class="big reveal">Meer <em>hulpmiddelen</em></h2>
+      <div class="prose reveal"><ul>
+        <li><a href="transitievergoeding-berekenen.html" style="color:var(--gold-deep)">Bereken je transitievergoeding 2026</a></li>
+        <li><a href="bedenktermijn-berekenen.html" style="color:var(--gold-deep)">Hoeveel bedenktijd heb je nog?</a></li>
+      </ul></div>
+    </div>
+  </section>
+
+  <div class="band reveal">
+    <h2>Twijfel is een<br>reden om te <em>checken</em>.</h2>
+    <p>Wat je scan ook zegt: één appje en een specialist kijkt gratis met je mee, voordat je iets tekent.</p>
+    <a class="btn btn-primary" href="https://wa.me/31645733083?text=Hoi%2C%20ik%20heb%20de%20WW-veilig-scan%20gedaan%20en%20wil%20graag%20een%20gratis%20check.">Stuur ons een WhatsApp</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap-wide">
+    <div class="flinks" style="margin-bottom:20px">
+      <a href="../index.html">Home</a>
+      <a href="../overzicht.html">Alle onderwerpen</a>
+      <a href="transitievergoeding-berekenen.html">Transitievergoeding berekenen</a>
+      <a href="https://wa.me/31645733083">WhatsApp</a>
+    </div>
+    <div class="fbot"><span>© <span id="yr"></span> Eerste hulp bij VSO · KvK 00000000</span><span>Deze scan geeft een indicatie, geen juridisch advies.</span></div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/31645733083?text=Hoi%2C%20ik%20heb%20een%20vaststellingsovereenkomst%20gekregen%20en%20wil%20graag%20een%20gratis%20check." target="_blank" rel="noopener" aria-label="Stuur een WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.6.2s-.7.9-.9 1.1c-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5s-.6-1.5-.9-2.1c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.8.8-1 1.9-.6 3 .5 1.4 1.3 2.6 2.5 3.8 1.7 1.7 3.2 2.3 4.6 2.7.9.2 1.6.2 2.2-.1.6-.3 1.7-1 1.9-1.6.2-.5.2-1 .1-1.1-.1-.1-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-2.9.8.8-2.8-.2-.3a8.2 8.2 0 1 1 7.1 4z"/></svg>
+  <span class="lbl">Stuur ons een <b>WhatsApp</b></span>
+</a>
+
+<script>
+  const hdr=document.getElementById('hdr');
+  addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>30));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  const answers={};
+  const bar=document.getElementById('bar');
+  const verdict=document.getElementById('verdict');
+  document.querySelectorAll('.q').forEach(q=>{
+    const id=q.dataset.q;
+    q.querySelectorAll('button').forEach(b=>{
+      b.addEventListener('click',()=>{
+        q.querySelectorAll('button').forEach(x=>x.className='');
+        const v=b.dataset.v;
+        b.classList.add(v==='ja'?'sel-ja':v==='nee'?'sel-nee':'sel-onb');
+        answers[id]=v;
+        update();
+      });
+    });
+  });
+
+  function update(){
+    const vals=Object.values(answers);
+    const ja=vals.filter(v=>v==='ja').length;
+    const onb=vals.filter(v=>v==='onb').length;
+    bar.style.width=(vals.length/5*100)+'%';
+    if(vals.length<5){ verdict.classList.remove('show'); return; }
+    // eindscore
+    bar.style.width=(ja/5*100)+'%';
+    let tag,color,title,text;
+    if(ja===5){ color='#1f7a4d'; tag='Ziet er goed uit'; title='Je VSO lijkt WW-veilig'; text='Op de belangrijkste punten zit het goed. Toch is het verstandig om de details en de vergoeding te laten checken, want daar valt vaak nog winst te halen.'; }
+    else if(ja>=3){ color='#c9922f'; tag='Aandachtspunten'; title='Er zijn aandachtspunten'; text='Op een of meer punten is je uitkering nog niet zeker gesteld. Laat dit checken voordat je tekent, dan voorkom je een gat in je inkomen.'; }
+    else { color='#b4462f'; tag='Let op'; title='Risico voor je WW'; text='Zo lijkt je overeenkomst je uitkering niet goed te beschermen. Teken nog niets en laat het eerst controleren.'; }
+    if(onb>0){ text+=' Je gaf '+onb+' keer "weet ik niet" aan, en juist die punten checken wij graag gratis voor je.'; }
+    document.getElementById('vtag').style.background=color;
+    document.getElementById('vtag').textContent=tag;
+    document.getElementById('vtitle').textContent=title;
+    document.getElementById('vtext').textContent=text;
+    const t=encodeURIComponent('Hoi, ik heb de WW-veilig-scan gedaan (score '+ja+'/5) en wil graag een gratis check van mijn vaststellingsovereenkomst.');
+    document.getElementById('vwa').href='https://wa.me/31645733083?text='+t;
+    verdict.classList.add('show');
+    verdict.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+</script>
+</body>
+</html>

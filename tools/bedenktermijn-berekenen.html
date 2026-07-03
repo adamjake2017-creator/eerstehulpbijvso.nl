@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bedenktermijn vaststellingsovereenkomst berekenen: 14 of 21 dagen | Eerste hulp bij VSO</title>
+<meta name="description" content="Bereken hoeveel bedenktijd je nog hebt na het tekenen van je vaststellingsovereenkomst. 14 dagen, of 21 als de termijn niet is vermeld. Zie direct je uiterste datum." />
+<meta name="keywords" content="bedenktermijn vaststellingsovereenkomst, bedenktijd vso 14 of 21 dagen, vso terugtrekken, ontbinden vaststellingsovereenkomst, bedenktermijn berekenen" />
+<link rel="canonical" href="https://eerstehulpbijvso.nl/tools/bedenktermijn-berekenen/" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="nl_NL" />
+<meta property="og:title" content="Bedenktermijn vaststellingsovereenkomst berekenen (14 of 21 dagen)" />
+<meta property="og:description" content="Zie direct hoeveel bedenktijd je nog hebt en tot wanneer je kosteloos kunt terugkomen op je handtekening." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/style.css" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Hoelang is de bedenktermijn bij een vaststellingsovereenkomst?","acceptedAnswer":{"@type":"Answer","text":"Je hebt na ondertekening 14 dagen bedenktijd. Staat die termijn niet in de overeenkomst vermeld, dan is het 21 dagen."}},
+    {"@type":"Question","name":"Kan ik binnen de bedenktermijn terugkomen op mijn handtekening?","acceptedAnswer":{"@type":"Answer","text":"Ja. Binnen de bedenktermijn mag je de vaststellingsovereenkomst zonder opgaaf van reden schriftelijk ontbinden. Je hoeft geen reden te geven."}}
+  ]
+}
+</script>
+<style>
+  .bwrap{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:8px}
+  .bresult{background:linear-gradient(160deg,var(--paper),#fff);border:1px solid var(--line);border-radius:24px;padding:34px 30px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+  .bresult .big-num{font-family:'Fraunces',serif;font-size:clamp(52px,9vw,84px);line-height:1;color:var(--gold-deep)}
+  .bresult .unit{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-top:6px}
+  .bresult .sub{font-size:14px;color:var(--ink-soft);max-width:320px;margin:16px auto 0}
+  .bresult.warn .big-num{color:#b4462f}
+  .toggle{display:flex;align-items:flex-start;gap:10px;margin-top:6px;font-size:14px;color:var(--ink-soft);cursor:pointer}
+  .toggle input{margin-top:4px}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<header id="hdr">
+  <div class="bar">
+    <a href="../index.html" class="brand"><span class="mark">EH</span><span>Eerste hulp<br><b>bij VSO</b></span></a>
+    <a href="https://wa.me/31645733083?text=Hoi%2C%20ik%20heb%20een%20vraag%20over%20mijn%20bedenktermijn%20en%20wil%20graag%20een%20gratis%20check." class="cta-top">Gratis check →</a>
+  </div>
+</header>
+
+<main>
+  <section class="page">
+    <div class="wrap">
+      <p class="crumb reveal"><a href="../index.html">Home</a> › Tools › Bedenktermijn</p>
+      <p class="eyebrow reveal">Bedenktijd · 14 of 21 dagen</p>
+      <h1 class="title reveal">Hoeveel bedenktijd<br>heb je <em>nog?</em></h1>
+      <p class="lead reveal">Heb je al getekend? Rustig aan, want dat is niet definitief. Je hebt wettelijk bedenktijd om zonder opgaaf van reden terug te komen op je handtekening. Vul in wanneer je tekende en zie precies hoeveel dagen je nog hebt.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="card reveal">
+        <div class="bwrap">
+          <div>
+            <div class="field">
+              <label for="datum">Wanneer heb je getekend?</label>
+              <input id="datum" type="date" />
+              <p class="hint">Nog niet getekend? Dan zit je sowieso goed, teken niets voordat je het hebt laten checken.</p>
+            </div>
+            <label class="toggle"><input id="niet" type="checkbox" /> <span>De bedenktermijn stond <strong>niet</strong> in mijn overeenkomst vermeld (dan geldt 21 dagen in plaats van 14).</span></label>
+          </div>
+          <div class="bresult" id="res">
+            <div class="big-num" id="num">–</div>
+            <div class="unit" id="unit">dagen bedenktijd</div>
+            <p class="sub" id="sub">Vul je tekendatum in om te zien hoeveel tijd je nog hebt.</p>
+            <a id="wa" class="btn btn-wa" style="margin-top:22px;align-self:center;display:none" href="#">Laat mijn VSO nu checken</a>
+          </div>
+        </div>
+      </div>
+      <p class="hint reveal" style="margin-top:16px;max-width:720px;color:var(--ink-mute);font-size:13px">Binnen de bedenktermijn mag je de overeenkomst schriftelijk ontbinden zonder reden. Deze tool geeft een indicatie; laat je situatie bij twijfel altijd checken.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <h2 class="big reveal">Zo werkt de <em>bedenktermijn</em></h2>
+      <div class="prose reveal">
+        <p>De wet geeft je na het tekenen van een vaststellingsovereenkomst een afkoelingsperiode. Binnen die termijn kun je je bedenken en de overeenkomst ongedaan maken, zonder dat je hoeft uit te leggen waarom.</p>
+        <ul>
+          <li>Standaard heb je <strong>14 dagen</strong> bedenktijd na ondertekening.</li>
+          <li>Staat de bedenktermijn <strong>niet</strong> in de overeenkomst? Dan wordt het <strong>21 dagen</strong>.</li>
+          <li>Je ontbindt schriftelijk, bijvoorbeeld per brief of e-mail, zonder opgaaf van reden.</li>
+          <li>Gebruik deze tijd om je overeenkomst goed te laten controleren.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="band reveal">
+    <h2>Gebruik je<br>bedenktijd <em>slim</em>.</h2>
+    <p>Elke dag telt. Stuur ons je overeenkomst, dan checken we binnen je termijn gratis of alles klopt en of er meer in zit.</p>
+    <a class="btn btn-primary" href="https://wa.me/31645733083?text=Hoi%2C%20ik%20zit%20in%20mijn%20bedenktermijn%20en%20wil%20graag%20een%20gratis%20check.">Stuur ons een WhatsApp</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap-wide">
+    <div class="flinks" style="margin-bottom:20px">
+      <a href="../index.html">Home</a>
+      <a href="../overzicht.html">Alle onderwerpen</a>
+      <a href="transitievergoeding-berekenen.html">Transitievergoeding berekenen</a>
+      <a href="ww-veilig-scan.html">WW-veilig-scan</a>
+      <a href="https://wa.me/31645733083">WhatsApp</a>
+    </div>
+    <div class="fbot"><span>© <span id="yr"></span> Eerste hulp bij VSO · KvK 00000000</span><span>Deze tool geeft een indicatie, geen juridisch advies.</span></div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/31645733083?text=Hoi%2C%20ik%20heb%20een%20vaststellingsovereenkomst%20gekregen%20en%20wil%20graag%20een%20gratis%20check." target="_blank" rel="noopener" aria-label="Stuur een WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.6.2s-.7.9-.9 1.1c-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5s-.6-1.5-.9-2.1c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.8.8-1 1.9-.6 3 .5 1.4 1.3 2.6 2.5 3.8 1.7 1.7 3.2 2.3 4.6 2.7.9.2 1.6.2 2.2-.1.6-.3 1.7-1 1.9-1.6.2-.5.2-1 .1-1.1-.1-.1-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-2.9.8.8-2.8-.2-.3a8.2 8.2 0 1 1 7.1 4z"/></svg>
+  <span class="lbl">Stuur ons een <b>WhatsApp</b></span>
+</a>
+
+<script>
+  const hdr=document.getElementById('hdr');
+  addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>30));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  const datum=document.getElementById('datum'), niet=document.getElementById('niet');
+  const res=document.getElementById('res'), num=document.getElementById('num'), unit=document.getElementById('unit'), sub=document.getElementById('sub'), wa=document.getElementById('wa');
+  const fmt=d=>d.toLocaleDateString('nl-NL',{day:'numeric',month:'long',year:'numeric'});
+
+  function calc(){
+    const d=new Date(datum.value);
+    if(isNaN(d)){ res.classList.remove('warn'); num.textContent='–'; unit.textContent='dagen bedenktijd'; sub.textContent='Vul je tekendatum in om te zien hoeveel tijd je nog hebt.'; wa.style.display='none'; return; }
+    const termijn=niet.checked?21:14;
+    const deadline=new Date(d); deadline.setDate(deadline.getDate()+termijn);
+    const today=new Date(); today.setHours(0,0,0,0);
+    const left=Math.ceil((deadline-today)/86400000);
+    wa.style.display='inline-flex';
+    if(left>0){
+      res.classList.remove('warn');
+      num.textContent=left;
+      unit.textContent=left===1?'dag te gaan':'dagen te gaan';
+      sub.innerHTML='Je kunt nog tot en met <strong>'+fmt(deadline)+'</strong> kosteloos terugkomen op je handtekening. Gebruik die tijd om je overeenkomst te laten checken.';
+      wa.href='https://wa.me/31645733083?text='+encodeURIComponent('Hoi, ik heb nog '+left+' dagen bedenktijd (tot '+fmt(deadline)+') en wil graag een gratis check van mijn vaststellingsovereenkomst.');
+    } else {
+      res.classList.add('warn');
+      num.textContent='0';
+      unit.textContent='dagen over';
+      sub.innerHTML='Je bedenktermijn liep af op <strong>'+fmt(deadline)+'</strong>. Er kunnen tóch nog mogelijkheden zijn, afhankelijk van je situatie. Laat het ons gratis bekijken.';
+      wa.href='https://wa.me/31645733083?text='+encodeURIComponent('Hoi, mijn bedenktermijn is verstreken en ik wil graag weten wat mijn opties zijn.');
+    }
+  }
+  datum.addEventListener('input',calc);
+  niet.addEventListener('change',calc);
+</script>
+</body>
+</html>
