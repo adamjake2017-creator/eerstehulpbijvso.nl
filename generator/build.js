@@ -13,6 +13,7 @@ const ORG_LD = `<script type="application/ld+json">${JSON.stringify({
   "@context":"https://schema.org","@type":"LegalService","@id":SITE+"/#org",
   name:"Eerste hulp bij VSO", url:SITE+"/",
   logo:SITE+"/assets/logo.png", image:SITE+"/assets/logo.png",
+  address:{"@type":"PostalAddress",streetAddress:"Vlierweg 12",postalCode:"1032 LG",addressLocality:"Amsterdam",addressCountry:"NL"},
   description:"Platform dat werknemers met een vaststellingsovereenkomst binnen 15 minuten koppelt aan een arbeidsrechtspecialist voor een betere, WW-veilige deal.",
   areaServed:"NL", availableLanguage:"nl", telephone:"+31645733083", priceRange:"Gratis check, kosten meestal vergoed door werkgever",
   sameAs:["https://www.linkedin.com/company/eerstehulpbijvso/"]
@@ -113,7 +114,7 @@ function footer(prefix, note, wrapClass){
 <div class="footcol"><h4>Hulp per stad</h4><div class="linkgrid">${links(cits)}</div></div>
 <div class="footcol"><h4>Ontslag per bedrijf</h4><div class="linkgrid">${links(cos)}</div></div>
 </div>
-<div class="fbot"><span>© <span id="yr"></span> Eerste hulp bij VSO · KvK 00000000</span><span><a href="${prefix}privacy.html">Privacyverklaring</a> · <a href="${prefix}voorwaarden.html">Algemene voorwaarden</a></span><span>${note || DEFAULT_FOOT_NOTE}</span></div>
+<div class="fbot"><span>© <span id="yr"></span> Eerste hulp bij VSO · Vlierweg 12, 1032 LG Amsterdam · KvK 64043770</span><span><a href="${prefix}privacy.html">Privacyverklaring</a> · <a href="${prefix}voorwaarden.html">Algemene voorwaarden</a></span><span>${note || DEFAULT_FOOT_NOTE}</span></div>
 </div></footer>`;
 }
 
