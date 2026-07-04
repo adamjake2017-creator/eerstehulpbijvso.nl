@@ -132,7 +132,7 @@ function band(prefix, h, p, waText){
 function buildCompany(co){
   const prefix = "../";
   const rel = `reorganisatie/vaststellingsovereenkomst-${co.slug}.html`;
-  const url = `${SITE}/reorganisatie/vaststellingsovereenkomst-${co.slug}/`;
+  const url = `${SITE}/reorganisatie/vaststellingsovereenkomst-${co.slug}.html`;
   const waText = `Hoi, ik werk bij ${co.name} en heb een vaststellingsovereenkomst gekregen. Ik wil graag een gratis check.`;
   const city = cityBySlug[co.hq];
   const faq = [
@@ -192,7 +192,7 @@ ${band(prefix, "Je hebt jaren gegeven.<br>Kom nu op voor <em>jezelf</em>.", "Gra
 function buildCity(ci){
   const prefix = "../";
   const rel = `vso-hulp/${ci.slug}.html`;
-  const url = `${SITE}/vso-hulp/${ci.slug}/`;
+  const url = `${SITE}/vso-hulp/${ci.slug}.html`;
   const waText = `Hoi, ik zoek in ${ci.name} hulp bij mijn vaststellingsovereenkomst. Ik wil graag een gratis check.`;
   const locals = companiesByCity[ci.slug] || [];
   const faq = [
@@ -247,7 +247,7 @@ ${band(prefix, "Je staat er in ${ci.name} niet<br>alleen <em>voor</em>.".replace
 function buildScenario(sc){
   const prefix = "../";
   const rel = `vaststellingsovereenkomst/${sc.slug}.html`;
-  const url = `${SITE}/vaststellingsovereenkomst/${sc.slug}/`;
+  const url = `${SITE}/vaststellingsovereenkomst/${sc.slug}.html`;
   const waText = `Hoi, ik heb een vraag over mijn vaststellingsovereenkomst (${sc.h1.toLowerCase()}). Ik wil graag een gratis check.`;
   const faq = [
     { q:"Moet ik direct tekenen?", a:"Nee, je hebt altijd een wettelijke bedenktermijn van 14 dagen (21 dagen als die niet is vermeld). Teken nooit onder druk." },
@@ -300,7 +300,7 @@ function buildCombo(co){
   if(!ci) return null;
   const prefix = "../";
   const rel = `reorganisatie/vso-${co.slug}-in-${ci.slug}.html`;
-  const url = `${SITE}/reorganisatie/vso-${co.slug}-in-${ci.slug}/`;
+  const url = `${SITE}/reorganisatie/vso-${co.slug}-in-${ci.slug}.html`;
   const waText = `Hoi, ik werk bij ${co.name} in ${ci.name} en heb een vaststellingsovereenkomst gekregen. Ik wil graag een gratis check.`;
   const faq = [
     { q:`Ik werk bij ${co.name} in ${ci.name}, kan ik snel hulp krijgen?`, a:"Ja, binnen 15 minuten heb je een specialist aan de lijn die zowel je werkgever als de regionale arbeidsmarkt kent." },
@@ -382,7 +382,7 @@ function buildOverview(groups){
     title:"Alle onderwerpen | Eerste hulp bij VSO",
     desc:"Overzicht van alle hulp bij vaststellingsovereenkomsten: per bedrijf, per stad en per situatie. Vind jouw onderwerp en krijg binnen 15 minuten een specialist.",
     keywords:"vaststellingsovereenkomst hulp, vso per bedrijf, vso per stad, ontslag scenario's",
-    canonical:`${SITE}/overzicht/`, prefix, ogType:"website"
+    canonical:`${SITE}/overzicht.html`, prefix, ogType:"website"
   })
   + header(prefix, "Hoi, ik heb een vaststellingsovereenkomst gekregen en wil graag een gratis check.")
   + `<main><section class="page"><div class="wrap">
@@ -403,10 +403,10 @@ ${section("Per stad", groups.cities)}
 function buildSitemap(all){
   const urls = [
     `${SITE}/`,
-    `${SITE}/overzicht/`,
-    `${SITE}/tools/transitievergoeding-berekenen/`,
-    `${SITE}/tools/ww-veilig-scan/`,
-    `${SITE}/tools/bedenktermijn-berekenen/`,
+    `${SITE}/overzicht.html`,
+    `${SITE}/tools/transitievergoeding-berekenen.html`,
+    `${SITE}/tools/ww-veilig-scan.html`,
+    `${SITE}/tools/bedenktermijn-berekenen.html`,
     ...all.map(a => a.url)
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
