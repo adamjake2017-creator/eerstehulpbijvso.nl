@@ -46,6 +46,7 @@ function head({title, desc, keywords, canonical, ogType="article", prefix, faq})
 <meta property="og:title" content="${title}" /><meta property="og:description" content="${desc}" />
 <meta property="og:url" content="${canonical}" />
 ${FONT}
+<link rel="icon" type="image/png" href="${prefix}assets/favicon.png" />
 <link rel="stylesheet" href="${prefix}assets/style.css" />
 ${faqLd}
 </head><body><div class="grain"></div>`;
@@ -53,7 +54,7 @@ ${faqLd}
 
 function header(prefix, waText){
   return `<header id="hdr"><div class="bar">
-<a href="${prefix}index.html" class="brand"><span class="mark">EH</span><span>Eerste hulp<br><b>bij VSO</b></span></a>
+<a href="${prefix}index.html" class="brand"><img class="mark" src="${prefix}assets/logo.png" alt="Eerste hulp bij VSO" /><span>Eerste hulp<br><b>bij VSO</b></span></a>
 <nav class="pnav">
 <a href="${prefix}reorganisatie/index.html">Reorganisatie</a>
 <a href="${prefix}vaststellingsovereenkomst/index.html">Situaties</a>
@@ -77,7 +78,7 @@ function footer(prefix, note, wrapClass){
   const cos  = companies.map(c=>({ href:`reorganisatie/vaststellingsovereenkomst-${c.slug}.html`, label:c.name }));
   return `<footer><div class="${wrapClass}">
 <div class="foottop">
-<a href="${prefix}index.html" class="brand"><span class="mark">EH</span><span>Eerste hulp<br><b>bij VSO</b></span></a>
+<a href="${prefix}index.html" class="brand"><img class="mark" src="${prefix}assets/logo.png" alt="Eerste hulp bij VSO" /><span>Eerste hulp<br><b>bij VSO</b></span></a>
 <p class="foot-intro">Van paniek naar een goede, veilige deal, met een specialist die jouw kant kiest. Meestal zonder kosten voor jou.</p>
 <div class="flinks">
 <a href="${prefix}reorganisatie/index.html">Reorganisatie</a>
