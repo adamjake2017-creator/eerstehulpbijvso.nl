@@ -39,11 +39,16 @@ const FONT = `<link rel="preconnect" href="https://fonts.googleapis.com" /><link
 
 const WA_SVG = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.6.2s-.7.9-.9 1.1c-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5s-.6-1.5-.9-2.1c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.8.8-1 1.9-.6 3 .5 1.4 1.3 2.6 2.5 3.8 1.7 1.7 3.2 2.3 4.6 2.7.9.2 1.6.2 2.2-.1.6-.3 1.7-1 1.9-1.6.2-.5.2-1 .1-1.1-.1-.1-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-2.9.8.8-2.8-.2-.3a8.2 8.2 0 1 1 7.1 4z"/></svg>`;
 
-function head({title, desc, keywords, canonical, ogType="article", prefix, faq}){
+function head({title, desc, keywords, canonical, ogType="article", prefix, faq, crumbs, extraLd}){
   const faqLd = faq ? `<script type="application/ld+json">${JSON.stringify({
     "@context":"https://schema.org","@type":"FAQPage",
     mainEntity: faq.map(f => ({ "@type":"Question", name:f.q, acceptedAnswer:{ "@type":"Answer", text:f.a }}))
   })}</script>` : "";
+  const crumbLd = (crumbs && crumbs.length) ? `<script type="application/ld+json">${JSON.stringify({
+    "@context":"https://schema.org","@type":"BreadcrumbList",
+    itemListElement: crumbs.map((c,i)=>({ "@type":"ListItem", position:i+1, name:c.name, item:c.url }))
+  })}</script>` : "";
+  const moreLd = extraLd || "";
   return `<!DOCTYPE html><html lang="nl"><head>
 <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>${title}</title>
@@ -57,7 +62,9 @@ ${FONT}
 <link rel="icon" type="image/png" href="${prefix}assets/favicon.png" />
 <link rel="stylesheet" href="${prefix}assets/style.css" />
 ${ORG_LD}
+${crumbLd}
 ${faqLd}
+${moreLd}
 </head><body><div class="grain"></div>`;
 }
 
@@ -160,6 +167,7 @@ function buildCompany(co){
     { href:`tools/transitievergoeding-berekenen.html`, label:"Bereken je transitievergoeding 2026" }
   ];
   const html = head({
+    crumbs:[{name:"Home",url:SITE+"/"},{name:"Reorganisatie",url:SITE+"/reorganisatie/"},{name:co.name,url}],
     title:`Vaststellingsovereenkomst bij ${co.name}? Dit zijn je rechten | Eerste hulp bij VSO`,
     desc:`Kreeg je een vaststellingsovereenkomst bij ${co.name}? Teken niets. Binnen 15 minuten een specialist die je WW veiligstelt en een betere deal onderhandelt. Gratis check via WhatsApp.`,
     keywords:`vaststellingsovereenkomst ${co.name.toLowerCase()}, ontslag ${co.name.toLowerCase()}, reorganisatie ${co.name.toLowerCase()}, boventallig ${co.name.toLowerCase()}`,
@@ -219,6 +227,7 @@ function buildCity(ci){
   const localEmployers = locals.length
     ? `<p>Grote werkgevers in en rond ${ci.name} waar reorganisaties spelen, zijn onder meer ${locals.map(c=>c.name).join(", ")}. Werk je daar? Dan kennen wij de context.</p>` : "";
   const html = head({
+    crumbs:[{name:"Home",url:SITE+"/"},{name:"VSO-hulp",url:SITE+"/vso-hulp/"},{name:ci.name,url}],
     title:`Vaststellingsovereenkomst-hulp in ${ci.name} | Gratis check binnen 1 dag — Eerste hulp bij VSO`,
     desc:`VSO gekregen in ${ci.name}? Binnen 15 minuten een specialist aan de lijn die je WW veiligstelt en een betere deal onderhandelt. Gratis check, meestal zonder kosten voor jou.`,
     keywords:`vaststellingsovereenkomst ${ci.name.toLowerCase()}, ontslagjurist ${ci.name.toLowerCase()}, vso hulp ${ci.name.toLowerCase()}, arbeidsrecht ${ci.name.toLowerCase()}`,
@@ -270,7 +279,10 @@ function buildScenario(sc){
     { href:`vaststellingsovereenkomst/tijdens-ziekte.html`, label:"Vaststellingsovereenkomst tijdens ziekte" },
     { href:`tools/transitievergoeding-berekenen.html`, label:"Bereken je transitievergoeding 2026" }
   ].filter(l => !l.href.endsWith(`${sc.slug}.html`));
+  const howToLd = `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"HowTo",name:"In 3 stappen van vaststellingsovereenkomst naar een goede deal",step:[{"@type":"HowToStep",position:1,name:"Deel je situatie",text:"Stuur ons een appje en vertel kort wat er speelt. Binnen 15 minuten heb je een specialist aan de lijn."},{"@type":"HowToStep",position:2,name:"Wij beoordelen je situatie",text:"We beoordelen je situatie en overeenkomst en leggen precies uit waar je staat."},{"@type":"HowToStep",position:3,name:"Wij onderhandelen",text:"We onderhandelen een betere, veilige deal en regelen dat de werkgever de kosten draagt."}]})}</script>`;
   const html = head({
+    crumbs:[{name:"Home",url:SITE+"/"},{name:"Vaststellingsovereenkomst",url:SITE+"/vaststellingsovereenkomst/"},{name:labelFromSlug(sc.slug),url}],
+    extraLd:howToLd,
     title:`${sc.h1} | Eerste hulp bij VSO`,
     desc:`${sc.intro.slice(0,150)}`,
     keywords:`${sc.h1.toLowerCase()}, vaststellingsovereenkomst, ${sc.slug.replace(/-/g," ")}, vso ${sc.slug.replace(/-/g," ")}`,
@@ -290,6 +302,19 @@ function buildScenario(sc){
 
 <section class="block"><div class="wrap"><h2 class="big reveal">Onze <em>checklist</em></h2>
 <div class="prose reveal">${checklist(sc.check)}</div></div></section>
+
+<section class="block"><div class="wrap"><h2 class="big reveal">VSO of ontslag via de <em>rechter?</em></h2>
+<div class="prose reveal">
+<table class="cmp"><thead><tr><th>Aspect</th><th>Vaststellingsovereenkomst</th><th>Ontslag via UWV of kantonrechter</th></tr></thead>
+<tbody>
+<tr><td>Hoe het gaat</td><td>In onderling overleg, met een handtekening</td><td>Eenzijdig, via een procedure</td></tr>
+<tr><td>Snelheid</td><td>Vaak binnen enkele weken geregeld</td><td>Kan maanden duren</td></tr>
+<tr><td>WW-recht</td><td>Blijft veilig als de overeenkomst neutraal is opgesteld</td><td>Blijft in de regel behouden</td></tr>
+<tr><td>Onderhandelingsruimte</td><td>Groot, vergoeding en voorwaarden zijn bespreekbaar</td><td>Beperkt, de rechter of het UWV beslist</td></tr>
+<tr><td>Bedenktermijn</td><td>14 dagen (21 als niet vermeld)</td><td>Niet van toepassing</td></tr>
+</tbody></table>
+<p>Verreweg de meeste ontslagen lopen via een vaststellingsovereenkomst, juist omdat er ruimte is om er samen goed uit te komen. Wij zorgen dat je die ruimte optimaal benut.</p>
+</div></div></section>
 
 ${steps(
   `Stuur ons een appje en vertel kort wat er speelt. Binnen 15 minuten heb je een specialist aan de lijn.`,
@@ -324,6 +349,7 @@ function buildCombo(co){
     { href:`tools/transitievergoeding-berekenen.html`, label:"Bereken je transitievergoeding 2026" }
   ];
   const html = head({
+    crumbs:[{name:"Home",url:SITE+"/"},{name:"Reorganisatie",url:SITE+"/reorganisatie/"},{name:co.name+" in "+ci.name,url}],
     title:`Vaststellingsovereenkomst bij ${co.name} in ${ci.name}? Zo sta je sterk | Eerste hulp bij VSO`,
     desc:`Werk je bij ${co.name} in ${ci.name} en kreeg je een VSO? Teken niets. Binnen 15 minuten een specialist die je WW veiligstelt en een betere deal onderhandelt.`,
     keywords:`vaststellingsovereenkomst ${co.name.toLowerCase()} ${ci.name.toLowerCase()}, ontslag ${co.name.toLowerCase()} ${ci.name.toLowerCase()}, vso ${co.slug} ${ci.slug}`,
@@ -367,7 +393,7 @@ function buildPillar({ folder, title, desc, keywords, eyebrow, h1html, lead, sec
   const sec = (t, items) => `<section class="block"><div class="wrap"><h2 class="big reveal">${t}</h2><div class="prose reveal"><ul>${
     items.map(i=>`<li><a href="${prefix}${i.rel}" style="color:var(--gold-deep)">${i.label}</a></li>`).join("")
   }</ul></div></div></section>`;
-  const html = head({ title, desc, keywords, canonical:url, prefix, ogType:"website" })
+  const html = head({ crumbs:[{name:"Home",url:SITE+"/"},{name:title.split(" | ")[0],url}], title, desc, keywords, canonical:url, prefix, ogType:"website" })
   + header(prefix, waText)
   + `<main><section class="page"><div class="wrap">
 <p class="crumb reveal"><a href="${prefix}index.html">Home</a> › ${title.split(" | ")[0]}</p>
@@ -391,6 +417,7 @@ function buildOverview(groups){
     items.map(i=>`<li><a href="${prefix}${i.rel}" style="color:var(--gold-deep)">${i.label}</a></li>`).join("")
   }</ul></div></div></section>`;
   const html = head({
+    crumbs:[{name:"Home",url:SITE+"/"},{name:"Alle onderwerpen",url:SITE+"/overzicht.html"}],
     title:"Alle onderwerpen | Eerste hulp bij VSO",
     desc:"Overzicht van alle hulp bij vaststellingsovereenkomsten: per bedrijf, per stad en per situatie. Vind jouw onderwerp en krijg binnen 15 minuten een specialist.",
     keywords:"vaststellingsovereenkomst hulp, vso per bedrijf, vso per stad, ontslag scenario's",

@@ -59,6 +59,11 @@ h2.big em{font-style:italic;color:var(--gold-deep)}
 .prose ul{margin:16px 0 0 0;list-style:none}
 .prose li{color:var(--ink-soft);font-size:16px;padding:9px 0 9px 30px;position:relative;border-bottom:1px solid var(--line)}
 .prose li::before{content:"✓";position:absolute;left:0;top:9px;color:var(--gold-deep);font-family:'Fraunces',serif}
+.prose table.cmp{width:100%;border-collapse:collapse;margin-top:18px;font-size:14.5px}
+.prose table.cmp th,.prose table.cmp td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.prose table.cmp thead th{font-family:'Fraunces',Georgia,serif;font-weight:500;color:var(--ink);border-bottom:1.5px solid var(--gold)}
+.prose table.cmp td:first-child{font-weight:500;color:var(--ink)}
+@media(max-width:640px){.prose table.cmp{font-size:12.5px}.prose table.cmp th,.prose table.cmp td{padding:9px 7px}}
 
 /* cards */
 .card{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:34px 32px;box-shadow:var(--shadow)}
