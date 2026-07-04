@@ -106,6 +106,16 @@
   .cta-top:hover{background:var(--gold-deep)}
   header.scrolled{background:rgba(243,236,224,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
   .menu-btn{display:none}
+  .navtoggle{display:none;background:none;border:none;cursor:pointer;padding:8px;flex:none;position:relative;z-index:41}
+  .navtoggle span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px;transition:.3s}
+  .navtoggle.on span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .navtoggle.on span:nth-child(2){opacity:0}
+  .navtoggle.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobilemenu{display:none;position:fixed;inset:0;z-index:40;background:rgba(243,236,224,.98);backdrop-filter:blur(10px);flex-direction:column;justify-content:center;gap:2px;padding:80px 34px 40px}
+  .mobilemenu.open{display:flex}
+  .mobilemenu a{font-family:'Fraunces',Georgia,serif;font-size:26px;color:var(--ink);padding:16px 0;border-bottom:1px solid var(--line);text-decoration:none}
+  .mobilemenu a.btn-wa,.mobilemenu a.cta-top{margin-top:24px;border:none;border-radius:var(--r);text-align:center;background:#1f7a4d;color:#fff;font-family:'Inter',sans-serif;font-size:16px;font-weight:500;padding:16px;border-bottom:none}
+  body.menu-open{overflow:hidden}
 
   /* ---------- hero ---------- */
   .hero{position:relative;z-index:2;text-align:center;padding:190px 0 90px}
@@ -212,7 +222,8 @@
 
   @media(max-width:900px){
     nav.pills,.cta-top{display:none}
-    .menu-btn{display:inline-flex;background:var(--ink);color:var(--cream);border:none;padding:11px 18px;border-radius:var(--r);font-size:13px;cursor:pointer}
+    .menu-btn{display:none}
+    .navtoggle{display:block}
     .two{grid-template-columns:1fr;gap:36px}
     .steps,.guar,.strip .wrap{grid-template-columns:1fr}
     .strip .item{border-right:none;border-bottom:1px solid var(--line)}
@@ -244,6 +255,7 @@
     </nav>
     <a href="#check" class="cta-top">Gratis check →</a>
     <a href="#check" class="menu-btn">Gratis check</a>
+    <button class="navtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -487,6 +499,7 @@
   });
 
   document.getElementById('yr').textContent=new Date().getFullYear();
+  (function(){var t=document.querySelector('.navtoggle');if(!t)return;var m=document.createElement('div');m.className='mobilemenu';document.querySelectorAll('.pnav a, nav.pills a').forEach(function(a){m.appendChild(a.cloneNode(true))});var c=document.querySelector('.cta-top');if(c){var cc=c.cloneNode(true);cc.classList.add('btn-wa');m.appendChild(cc)}document.body.appendChild(m);function cl(){m.classList.remove('open');document.body.classList.remove('menu-open');t.classList.remove('on')}t.addEventListener('click',function(){var o=m.classList.toggle('open');document.body.classList.toggle('menu-open',o);t.classList.toggle('on',o)});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',cl)})})();
 </script>
 </body>
 </html>
