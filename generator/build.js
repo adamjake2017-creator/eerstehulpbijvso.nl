@@ -95,7 +95,7 @@ function footer(prefix, note, wrapClass){
 <div class="footcol"><h4>Hulp per stad</h4><div class="linkgrid">${links(cits)}</div></div>
 <div class="footcol"><h4>Ontslag per bedrijf</h4><div class="linkgrid">${links(cos)}</div></div>
 </div>
-<div class="fbot"><span>© <span id="yr"></span> Eerste hulp bij VSO · KvK 00000000</span><span>${note || DEFAULT_FOOT_NOTE}</span></div>
+<div class="fbot"><span>© <span id="yr"></span> Eerste hulp bij VSO · KvK 00000000</span><span><a href="${prefix}privacy.html">Privacyverklaring</a> · <a href="${prefix}voorwaarden.html">Algemene voorwaarden</a></span><span>${note || DEFAULT_FOOT_NOTE}</span></div>
 </div></footer>`;
 }
 
@@ -404,6 +404,8 @@ function buildSitemap(all){
   const urls = [
     `${SITE}/`,
     `${SITE}/overzicht.html`,
+    `${SITE}/privacy.html`,
+    `${SITE}/voorwaarden.html`,
     `${SITE}/tools/transitievergoeding-berekenen.html`,
     `${SITE}/tools/ww-veilig-scan.html`,
     `${SITE}/tools/bedenktermijn-berekenen.html`,
