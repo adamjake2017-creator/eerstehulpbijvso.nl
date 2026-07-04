@@ -9,6 +9,14 @@ const { WA, companies, cities, scenarios } = require("./data.js");
 
 const ROOT = path.join(__dirname, "..");
 const SITE = "https://eerstehulpbijvso.nl";
+const ORG_LD = `<script type="application/ld+json">${JSON.stringify({
+  "@context":"https://schema.org","@type":"LegalService","@id":SITE+"/#org",
+  name:"Eerste hulp bij VSO", url:SITE+"/",
+  logo:SITE+"/assets/logo.png", image:SITE+"/assets/logo.png",
+  description:"Platform dat werknemers met een vaststellingsovereenkomst binnen 15 minuten koppelt aan een arbeidsrechtspecialist voor een betere, WW-veilige deal.",
+  areaServed:"NL", availableLanguage:"nl", telephone:"+31645733083", priceRange:"Gratis check, kosten meestal vergoed door werkgever",
+  sameAs:["https://www.linkedin.com/company/eerstehulpbijvso/"]
+})}</script>`;
 
 const cityBySlug = Object.fromEntries(cities.map(c => [c.slug, c]));
 const companiesByCity = {};
@@ -48,6 +56,7 @@ function head({title, desc, keywords, canonical, ogType="article", prefix, faq})
 ${FONT}
 <link rel="icon" type="image/png" href="${prefix}assets/favicon.png" />
 <link rel="stylesheet" href="${prefix}assets/style.css" />
+${ORG_LD}
 ${faqLd}
 </head><body><div class="grain"></div>`;
 }
