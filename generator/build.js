@@ -104,6 +104,7 @@ function footer(prefix, note, wrapClass){
 <a href="${prefix}vso-hulp/index.html">Steden</a>
 <a href="${prefix}tools/transitievergoeding-berekenen.html">Berekenen</a>
 <a href="${prefix}overzicht.html">Alles</a>
+<a href="${prefix}10-valkuilen-bij-een-vso.html">Gratis gids</a>
 <a href="${waLink("Hoi, ik heb een vaststellingsovereenkomst gekregen en wil graag een gratis check.")}">WhatsApp</a>
 <a href="mailto:hello@eerstehulpbijvso.nl">E-mail</a>
 <a href="https://www.linkedin.com/company/eerstehulpbijvso/" target="_blank" rel="noopener">LinkedIn</a>
@@ -444,6 +445,7 @@ function buildSitemap(all){
   const urls = [
     `${SITE}/`,
     `${SITE}/overzicht.html`,
+    `${SITE}/10-valkuilen-bij-een-vso.html`,
     `${SITE}/privacy.html`,
     `${SITE}/voorwaarden.html`,
     `${SITE}/tools/transitievergoeding-berekenen.html`,
@@ -496,7 +498,8 @@ const pillarVso = buildPillar({
     { title:"Handige hulpmiddelen", items:[
       { rel:"tools/transitievergoeding-berekenen.html", label:"Transitievergoeding berekenen 2026" },
       { rel:"tools/ww-veilig-scan.html", label:"Is jouw VSO WW-veilig? Doe de scan" },
-      { rel:"tools/bedenktermijn-berekenen.html", label:"Hoeveel bedenktijd heb je nog?" }
+      { rel:"tools/bedenktermijn-berekenen.html", label:"Hoeveel bedenktijd heb je nog?" },
+      { rel:"10-valkuilen-bij-een-vso.html", label:"Gratis gids: 10 valkuilen bij een VSO" }
     ] }
   ],
   bandH:"Twijfel je?<br>Vraag het ons, <em>gratis</em>.",
