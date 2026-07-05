@@ -70,7 +70,7 @@ ${moreLd}
 }
 
 function header(prefix, waText){
-  return `<header id="hdr"><div class="bar">
+  return `<header id="hdr"><a class="topbar" href="${prefix}10-valkuilen-bij-een-vso.html">📄 <b>Gratis gids:</b> 10 valkuilen bij een VSO →</a><div class="bar">
 <a href="${prefix}index.html" class="brand"><img class="mark" src="${prefix}assets/logo.png" alt="Eerste hulp bij VSO" /><span>Eerste hulp<br><b>bij VSO</b></span></a>
 <nav class="pnav">
 <a href="${prefix}reorganisatie/index.html">Reorganisatie</a>
