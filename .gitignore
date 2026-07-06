@@ -2,3 +2,9 @@ node_modules/
 .DS_Store
 Thumbs.db
 generator/_footer-home.html
+
+# interne strategie-documenten (niet publiceren)
+SEO-strategie.md
+CONTENTKALENDER.md
+FEATURE-ervaringen-per-werkgever.md
+INTAKE-formulier.md
