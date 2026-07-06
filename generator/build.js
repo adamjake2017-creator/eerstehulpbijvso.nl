@@ -445,6 +445,7 @@ function buildSitemap(all){
   const urls = [
     `${SITE}/`,
     `${SITE}/overzicht.html`,
+    `${SITE}/aanmelden.html`,
     `${SITE}/10-valkuilen-bij-een-vso.html`,
     `${SITE}/privacy.html`,
     `${SITE}/voorwaarden.html`,
