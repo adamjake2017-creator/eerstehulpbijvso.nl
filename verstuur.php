@@ -45,27 +45,39 @@ if (!empty($fouten)) {
     exit;
 }
 
-// Bestand veilig opslaan (optioneel)
+// Bestanden veilig opslaan (optioneel, meerdere toegestaan)
 $bestandinfo = "geen bestand geupload";
-if (isset($_FILES["bestand"]) && isset($_FILES["bestand"]["error"]) && $_FILES["bestand"]["error"] === UPLOAD_ERR_OK) {
-    $origineel = schoon(basename($_FILES["bestand"]["name"]));
-    $tmp       = $_FILES["bestand"]["tmp_name"];
-    $grootte   = (int)$_FILES["bestand"]["size"];
-    $ext       = strtolower(pathinfo($origineel, PATHINFO_EXTENSION));
+if (isset($_FILES["bestand"]) && isset($_FILES["bestand"]["name"]) && is_array($_FILES["bestand"]["name"])) {
     $toegestaan = ["pdf", "doc", "docx", "jpg", "jpeg", "png", "heic"];
-    $maxbytes   = 20 * 1024 * 1024; // 20 MB
+    $maxbytes   = 20 * 1024 * 1024; // 20 MB per bestand
+    $maxaantal  = 10;
+    $map = __DIR__ . "/vso-uploads";
+    if (!is_dir($map)) { @mkdir($map, 0750, true); }
 
-    if (in_array($ext, $toegestaan, true) && $grootte > 0 && $grootte <= $maxbytes && is_uploaded_file($tmp)) {
-        $map = __DIR__ . "/vso-uploads";
-        if (!is_dir($map)) { @mkdir($map, 0750, true); }
-        $veiligenaam = date("Ymd-His") . "-" . bin2hex(random_bytes(6)) . "." . $ext;
-        if (@move_uploaded_file($tmp, $map . "/" . $veiligenaam)) {
-            $bestandinfo = "Bestand ontvangen: " . $origineel . "\nOpgeslagen als: vso-uploads/" . $veiligenaam;
-        } else {
-            $bestandinfo = "Bestand ontvangen maar kon niet worden opgeslagen (origineel: " . $origineel . ")";
+    $regels = [];
+    $aantal = count($_FILES["bestand"]["name"]);
+    for ($i = 0; $i < $aantal && count($regels) < $maxaantal; $i++) {
+        if (($_FILES["bestand"]["error"][$i] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_OK) {
+            continue; // leeg veld of fout, overslaan
         }
-    } else {
-        $bestandinfo = "Bestand geweigerd, type of grootte niet toegestaan (origineel: " . $origineel . ")";
+        $origineel = schoon(basename($_FILES["bestand"]["name"][$i]));
+        $tmp       = $_FILES["bestand"]["tmp_name"][$i];
+        $grootte   = (int)$_FILES["bestand"]["size"][$i];
+        $ext       = strtolower(pathinfo($origineel, PATHINFO_EXTENSION));
+
+        if (in_array($ext, $toegestaan, true) && $grootte > 0 && $grootte <= $maxbytes && is_uploaded_file($tmp)) {
+            $veiligenaam = date("Ymd-His") . "-" . bin2hex(random_bytes(6)) . "." . $ext;
+            if (@move_uploaded_file($tmp, $map . "/" . $veiligenaam)) {
+                $regels[] = $origineel . " (opgeslagen als vso-uploads/" . $veiligenaam . ")";
+            } else {
+                $regels[] = $origineel . " (kon niet worden opgeslagen)";
+            }
+        } else {
+            $regels[] = $origineel . " (geweigerd: type of grootte niet toegestaan)";
+        }
+    }
+    if (!empty($regels)) {
+        $bestandinfo = count($regels) . " bestand(en):\n  " . implode("\n  ", $regels);
     }
 }
 

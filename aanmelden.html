@@ -85,9 +85,9 @@
           <textarea id="situatie" name="situatie" required placeholder="Bijvoorbeeld: ik heb een VSO gekregen en wil weten of ik mag onderhandelen."></textarea>
         </div>
         <div class="field">
-          <label for="bestand">Upload je VSO of andere stukken (optioneel)</label>
-          <input id="bestand" name="bestand" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.heic" />
-          <p class="hint">PDF, Word of een foto mag. Heb je 'm nu niet bij de hand? Dan sturen we 'm later gewoon samen aan.</p>
+          <label for="bestand">Upload je VSO en eventuele andere stukken (optioneel)</label>
+          <input id="bestand" name="bestand[]" type="file" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.heic" />
+          <p class="hint">Je mag meerdere bestanden tegelijk kiezen (PDF, Word of een foto). Heb je ze nu niet bij de hand? Dan sturen we ze later gewoon samen aan.</p>
         </div>
 
         <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" />
