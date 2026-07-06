@@ -78,6 +78,7 @@ function header(prefix, waText){
 <a href="${prefix}vso-hulp/index.html">Steden</a>
 <a href="${prefix}tools/transitievergoeding-berekenen.html">Berekenen</a>
 <a href="${prefix}overzicht.html">Alles</a>
+<a href="${prefix}aanmelden.html" class="hl">Aanmelden</a>
 </nav>
 <a href="${waLink(waText)}" class="cta-top">Gratis check →</a>
 <button class="navtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
