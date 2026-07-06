@@ -46,7 +46,7 @@
 
   <section class="block" style="padding-top:10px">
     <div class="wrap">
-      <form action="verstuur.php" method="post" class="card reveal">
+      <form action="verstuur.php" method="post" enctype="multipart/form-data" class="card reveal">
         <div class="field">
           <label for="naam">Je naam</label>
           <input id="naam" name="naam" type="text" required autocomplete="name" />
@@ -71,8 +71,23 @@
           </select>
         </div>
         <div class="field">
+          <label for="gezondheid">Speelt er ziekte of zwangerschap?</label>
+          <select id="gezondheid" name="gezondheid">
+            <option value="">Kies wat van toepassing is</option>
+            <option>Nee</option>
+            <option>Ja, ziekte of arbeidsongeschiktheid</option>
+            <option>Ja, zwangerschap of bevallingsverlof</option>
+            <option>Weet ik niet</option>
+          </select>
+        </div>
+        <div class="field">
           <label for="situatie">Beschrijf kort je situatie</label>
-          <textarea id="situatie" name="situatie" required placeholder="Bijvoorbeeld: ik heb een VSO gekregen en wil weten of ik mag onderhandelen. Er speelt ook ziekte."></textarea>
+          <textarea id="situatie" name="situatie" required placeholder="Bijvoorbeeld: ik heb een VSO gekregen en wil weten of ik mag onderhandelen."></textarea>
+        </div>
+        <div class="field">
+          <label for="bestand">Upload je VSO of andere stukken (optioneel)</label>
+          <input id="bestand" name="bestand" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.heic" />
+          <p class="hint">PDF, Word of een foto mag. Heb je 'm nu niet bij de hand? Dan sturen we 'm later gewoon samen aan.</p>
         </div>
 
         <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" />

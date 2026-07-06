@@ -8,3 +8,8 @@ SEO-strategie.md
 CONTENTKALENDER.md
 FEATURE-ervaringen-per-werkgever.md
 INTAKE-formulier.md
+
+# geuploade VSO-bestanden (runtime, blijven op de server)
+vso-uploads/*
+!vso-uploads/.htaccess
+!vso-uploads/index.html
