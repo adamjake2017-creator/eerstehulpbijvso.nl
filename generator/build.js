@@ -5,7 +5,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { WA, companies, cities, scenarios } = require("./data.js");
+const { WA, companies, cities, scenarios, companyNews, articles } = require("./data.js");
 
 const ROOT = path.join(__dirname, "..");
 const SITE = "https://eerstehulpbijvso.nl";
@@ -77,6 +77,7 @@ function header(prefix, waText){
 <a href="${prefix}vaststellingsovereenkomst/index.html">Situaties</a>
 <a href="${prefix}vso-hulp/index.html">Steden</a>
 <a href="${prefix}tools/transitievergoeding-berekenen.html">Berekenen</a>
+<a href="${prefix}blog/index.html">Kennisbank</a>
 <a href="${prefix}overzicht.html">Alles</a>
 <a href="${prefix}aanmelden.html" class="hl">Aanmelden</a>
 </nav>
@@ -106,6 +107,7 @@ function footer(prefix, note, wrapClass){
 <a href="${prefix}tools/transitievergoeding-berekenen.html">Berekenen</a>
 <a href="${prefix}overzicht.html">Alles</a>
 <a href="${prefix}10-valkuilen-bij-een-vso.html">Gratis gids</a>
+<a href="${prefix}blog/index.html">Kennisbank</a>
 <a href="${prefix}voor-werkgevers.html">Voor werkgevers</a>
 <a href="${waLink("Hoi, ik heb een vaststellingsovereenkomst gekregen en wil graag een gratis check.")}">WhatsApp</a>
 <a href="mailto:hello@eerstehulpbijvso.nl">E-mail</a>
@@ -151,6 +153,21 @@ function band(prefix, h, p, waText){
   return `<div class="band reveal"><h2>${h}</h2><p>${p}</p><a class="btn btn-primary" href="${waLink(waText)}">Stuur ons een WhatsApp</a></div>`;
 }
 
+const NL_MONTHS = ["januari","februari","maart","april","mei","juni","juli","augustus","september","oktober","november","december"];
+function fmtDate(iso){ const [y,m,d] = iso.split("-").map(Number); return `${d} ${NL_MONTHS[m-1]} ${y}`; }
+
+// "Actueel"-blok met geverifieerd reorganisatienieuws op een bedrijfspagina.
+function newsBox(n){
+  if(!n) return "";
+  const src = n.url ? `<a href="${n.url}" target="_blank" rel="noopener nofollow" style="color:var(--gold-deep)">${n.src}</a>` : n.src;
+  return `<div class="reveal" style="margin-top:24px;border:1px solid rgba(120,90,40,.18);border-left:4px solid var(--gold-deep);border-radius:14px;padding:22px 26px;background:rgba(190,150,70,.05)">
+<span style="display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);font-weight:600">● Actueel · geverifieerd</span>
+<p style="margin:10px 0 6px;font-family:Fraunces,serif;font-size:21px;line-height:1.3;color:var(--ink)">${n.fig}</p>
+<p style="margin:0 0 10px">${n.text}</p>
+<p style="margin:0;font-size:13px;color:var(--ink-mute)">Bron: ${src} · ${n.date} · geen officiële uiting van of namens het bedrijf</p>
+</div>`;
+}
+
 // ---- COMPANY PAGES ---------------------------------------------------------
 function buildCompany(co){
   const prefix = "../";
@@ -187,7 +204,9 @@ function buildCompany(co){
 </div></section>
 
 <section class="block"><div class="wrap"><h2 class="big reveal">Wat er nu bij ${co.name} <em>speelt</em></h2>
-<div class="prose reveal"><p>${co.reorg}</p><p>Als jou een vaststellingsovereenkomst wordt voorgelegd, is dat het moment om even pas op de plaats te maken. Niet uit wantrouwen, maar omdat de details in de ${co.sector} duizenden euro's en je uitkering kunnen bepalen.</p></div></div></section>
+<div class="prose reveal"><p>${co.reorg}</p><p>Als jou een vaststellingsovereenkomst wordt voorgelegd, is dat het moment om even pas op de plaats te maken. Niet uit wantrouwen, maar omdat de details in de ${co.sector} duizenden euro's en je uitkering kunnen bepalen.</p></div>
+${newsBox(companyNews[co.slug])}
+</div></section>
 
 <section class="block"><div class="wrap"><h2 class="big reveal">Waar je op moet <em>letten</em></h2>
 <div class="prose reveal">
@@ -414,6 +433,86 @@ ${band(prefix, bandH, bandP, waText)}
   return { url, label:title.split(" | ")[0], rel:`${folder}/index.html` };
 }
 
+// ---- KENNISBANK (BLOG) -----------------------------------------------------
+function buildArticle(a){
+  const prefix = "../";
+  const rel = `blog/${a.slug}.html`;
+  const url = `${SITE}/blog/${a.slug}.html`;
+  const waText = "Hoi, ik heb een vraag over mijn vaststellingsovereenkomst. Ik wil graag een gratis check.";
+  const related = articles.filter(x => x.slug !== a.slug).slice(0,3)
+    .map(x => ({ href:`blog/${x.slug}.html`, label:x.title }))
+    .concat([{ href:`tools/wat-is-mijn-vso-waard.html`, label:"Wat is mijn VSO waard? Check je aanbod" }]);
+  const artLd = `<script type="application/ld+json">${JSON.stringify({
+    "@context":"https://schema.org","@type":"Article",
+    headline:a.title, description:a.desc, datePublished:a.date, dateModified:a.date,
+    author:{"@type":"Organization",name:"Eerste hulp bij VSO",url:SITE+"/"},
+    publisher:{"@type":"Organization",name:"Eerste hulp bij VSO",logo:{"@type":"ImageObject",url:SITE+"/assets/logo.png"}},
+    mainEntityOfPage:url
+  })}</script>`;
+  const body = a.blocks.map(b => `<section class="block"><div class="wrap"><h2 class="big reveal">${b.h}</h2>
+<div class="prose reveal">${ b.list ? checklist(b.list) : `<p>${b.p}</p>` }</div></div></section>`).join("\n");
+  const html = head({
+    crumbs:[{name:"Home",url:SITE+"/"},{name:"Kennisbank",url:SITE+"/blog/"},{name:a.title,url}],
+    extraLd:artLd,
+    title:`${a.title} | Eerste hulp bij VSO`,
+    desc:a.desc,
+    keywords:`${a.cat.toLowerCase()}, vaststellingsovereenkomst, vso, ${a.slug.replace(/-/g," ")}`,
+    canonical:url, prefix, faq:a.faq
+  })
+  + header(prefix, waText)
+  + `<main><section class="page"><div class="wrap">
+<p class="crumb reveal"><a href="${prefix}index.html">Home</a> › <a href="${prefix}blog/index.html">Kennisbank</a> › ${a.cat}</p>
+<p class="eyebrow reveal">${a.cat} · ${fmtDate(a.date)} · ${a.read} min lezen</p>
+<h1 class="title reveal">${a.h1}</h1>
+<p class="lead reveal">${a.intro}</p>
+<div class="cta-row reveal"><a class="btn btn-wa" href="${waLink(waText)}">Stuur ons een WhatsApp</a><a class="btn btn-ghost" href="${prefix}tools/wat-is-mijn-vso-waard.html">Check je VSO-aanbod</a></div>
+</div></section>
+${body}
+${relatedBlock(prefix, related)}
+${band(prefix, "Speelt dit ook bij jou?<br>Vraag het ons, <em>gratis</em>.", "Eén appje en een specialist kijkt met je mee. Vrijblijvend en zonder dat je vandaag iets hoeft te beslissen.", waText)}
+</main>`
+  + footer(prefix)
+  + waFloat() + SCRIPT;
+  write(rel, html);
+  return { url, label:a.title, rel };
+}
+
+function buildBlogIndex(){
+  const prefix = "../";
+  const url = `${SITE}/blog/`;
+  const waText = "Hoi, ik heb een vaststellingsovereenkomst gekregen en wil graag een gratis check.";
+  const sorted = [...articles].sort((x,y) => y.date.localeCompare(x.date));
+  const cards = sorted.map(a => `<a class="reveal" href="${prefix}blog/${a.slug}.html" style="display:block;border:1px solid rgba(120,90,40,.16);border-radius:16px;padding:26px;text-decoration:none;color:inherit;background:rgba(190,150,70,.04)">
+<span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);font-weight:600">${a.cat}</span>
+<h3 style="font-family:Fraunces,serif;font-weight:400;font-size:23px;line-height:1.25;margin:12px 0 10px;color:var(--ink)">${a.title}</h3>
+<p style="margin:0 0 16px;color:var(--ink-mute);line-height:1.55">${a.desc}</p>
+<span style="font-size:13px;color:var(--ink-mute)">${fmtDate(a.date)} · ${a.read} min lezen</span></a>`).join("\n");
+  const html = head({
+    crumbs:[{name:"Home",url:SITE+"/"},{name:"Kennisbank",url}],
+    title:"Kennisbank over de vaststellingsovereenkomst | Eerste hulp bij VSO",
+    desc:"Heldere artikelen over je vaststellingsovereenkomst: reorganisatie, transitievergoeding, WW-behoud en actueel bedrijfsnieuws. Praktisch uitgelegd.",
+    keywords:"vaststellingsovereenkomst uitleg, vso kennisbank, transitievergoeding, ww behoud, reorganisatie 2026",
+    canonical:url, prefix, ogType:"website"
+  })
+  + header(prefix, waText)
+  + `<main><section class="page"><div class="wrap">
+<p class="crumb reveal"><a href="${prefix}index.html">Home</a> › Kennisbank</p>
+<p class="eyebrow reveal">Kennisbank</p>
+<h1 class="title reveal">Alles over je <em>VSO</em>, helder uitgelegd</h1>
+<p class="lead reveal">Van de reorganisatiegolf van 2026 tot het veiligstellen van je WW: hier lees je in gewone taal waar je op moet letten. En bij twijfel is één appje genoeg.</p>
+</div></section>
+<section class="block"><div class="wrap">
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px">
+${cards}
+</div></div></section>
+${band(prefix, "Liever direct een <em>antwoord?</em>", "Stuur ons een appje met jouw situatie. Binnen 15 minuten heb je een specialist aan de lijn.", waText)}
+</main>`
+  + footer(prefix)
+  + waFloat() + SCRIPT;
+  write("blog/index.html", html);
+  return { url, label:"Kennisbank", rel:"blog/index.html" };
+}
+
 // ---- OVERVIEW HUB + SITEMAP ------------------------------------------------
 function buildOverview(groups){
   const prefix = "";
@@ -433,6 +532,7 @@ function buildOverview(groups){
 <h1 class="title reveal">Vind <em>jouw</em> situatie</h1>
 <p class="lead reveal">Werk je bij een bedrijf dat reorganiseert, zoek je hulp in jouw stad, of speelt er een specifieke situatie? Kies je onderwerp hieronder. En weet: bij twijfel is één appje genoeg.</p>
 </div></section>
+${groups.articles ? section("Kennisbank", groups.articles) : ""}
 ${section("Per situatie", groups.scenarios)}
 ${section("Per bedrijf", groups.companies)}
 ${section("Per bedrijf en stad", groups.combos)}
@@ -469,6 +569,8 @@ const companyPages = companies.map(buildCompany);
 const cityPages = cities.map(buildCity);
 const scenarioPages = scenarios.map(buildScenario);
 const comboPages = companies.map(buildCombo).filter(Boolean);
+const articlePages = articles.map(buildArticle);
+const blogIndexPage = buildBlogIndex();
 
 const reorgScenarioSlugs = ["reorganisatie","boventallig-verklaard","ontslag-door-ai","na-overname-of-fusie"];
 const reorgScenarioPages = scenarioPages.filter(p => reorgScenarioSlugs.some(s => p.rel.endsWith(`/${s}.html`)));
@@ -500,6 +602,7 @@ const pillarVso = buildPillar({
   lead:"Elke vaststellingsovereenkomst is anders, en elke situatie vraagt om net andere aandacht. Ziek, zwanger, na een lang dienstverband of met een concurrentiebeding: kies hieronder wat op jou van toepassing is.",
   sections:[
     { title:"Alle situaties", items:scenarioPages },
+    { title:"Uit de kennisbank", items:articlePages },
     { title:"Handige hulpmiddelen", items:[
       { rel:"tools/transitievergoeding-berekenen.html", label:"Transitievergoeding berekenen 2026" },
       { rel:"tools/wat-is-mijn-vso-waard.html", label:"Wat is mijn VSO waard? Check je aanbod" },
@@ -529,8 +632,8 @@ const pillarCity = buildPillar({
 
 const pillars = [pillarReorg, pillarVso, pillarCity];
 
-buildOverview({ companies:companyPages, cities:cityPages, scenarios:scenarioPages, combos:comboPages });
-buildSitemap([...pillars, ...companyPages, ...cityPages, ...scenarioPages, ...comboPages]);
+buildOverview({ companies:companyPages, cities:cityPages, scenarios:scenarioPages, combos:comboPages, articles:articlePages });
+buildSitemap([...pillars, blogIndexPage, ...articlePages, ...companyPages, ...cityPages, ...scenarioPages, ...comboPages]);
 
 // footer voor de handgemaakte homepage (prefix "" + smalle wrap), om in index.html te plakken
 fs.writeFileSync(path.join(__dirname, "_footer-home.html"), footer("", null, "wrap"), "utf8");
@@ -541,5 +644,6 @@ console.log(`  ${companyPages.length} bedrijfspagina's`);
 console.log(`  ${cityPages.length} stadspagina's`);
 console.log(`  ${scenarioPages.length} scenariopagina's`);
 console.log(`  ${comboPages.length} bedrijf×stad-combinaties`);
+console.log(`  ${articlePages.length} kennisbank-artikelen + blog/index.html`);
 console.log(`  + overzicht.html en sitemap.xml`);
 console.log(`  TOTAAL: ${written.length} bestanden geschreven.`);

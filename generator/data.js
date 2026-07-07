@@ -347,7 +347,52 @@ const companies = [
     tone:"Je regelde werk voor anderen, regel nu je eigen deal met zorg." },
   { slug:"transavia", name:"Transavia", sector:"luchtvaart", hq:"hoofddorp", verified:false,
     reorg:"Luchtvaartmaatschappijen passen hun organisatie aan bij schommelende vraag, brandstofprijzen en vlootkeuzes.",
-    tone:"Je bracht mensen op reis, zet nu zelf een goede volgende stap." }
+    tone:"Je bracht mensen op reis, zet nu zelf een goede volgende stap." },
+  { slug:"uwv", name:"UWV", sector:"overheid & uitvoering", hq:"amsterdam", verified:false,
+    reorg:"Ook uitvoeringsorganisaties reorganiseren: digitalisering en politieke keuzes veranderen taken, waardoor functies verdwijnen of verschuiven.",
+    tone:"Je hielp anderen aan hun recht op een uitkering, nu telt jouw eigen situatie." },
+  { slug:"belastingdienst", name:"Belastingdienst", sector:"overheid & fiscaal", hq:"den-haag", verified:false,
+    reorg:"De Belastingdienst hervormt en automatiseert al jaren; bij reorganisaties en afsplitsingen veranderen functies ingrijpend.",
+    tone:"Je stond voor de publieke zaak, zorg nu dat je eigen zaak goed geregeld is." },
+  { slug:"prorail", name:"ProRail", sector:"spoor & infrastructuur", hq:"utrecht", verified:false,
+    reorg:"Semipublieke infrabeheerders herzien hun organisatie bij veranderende budgetten en politieke keuzes.",
+    tone:"Je hield het spoor veilig, houd nu ook je eigen route helder." },
+  { slug:"rijkswaterstaat", name:"Rijkswaterstaat", sector:"overheid & infrastructuur", hq:"utrecht", verified:false,
+    reorg:"Grote uitvoeringsdiensten stroomlijnen hun organisatie mee met opgaven en bezuinigingen.",
+    tone:"Je zorgde dat het land droog en bereikbaar bleef, zorg nu voor je eigen zekerheid." },
+  { slug:"gemeente-amsterdam", name:"Gemeente Amsterdam", sector:"overheid & bestuur", hq:"amsterdam", verified:false,
+    reorg:"Gemeenten reorganiseren bij bezuinigingen en veranderende taken; ook ambtenaren krijgen dan een beëindigingsvoorstel.",
+    tone:"Je werkte voor de stad, laat de stad nu ook eerlijk voor jou zijn." },
+  { slug:"amsterdam-umc", name:"Amsterdam UMC", sector:"zorg & ziekenhuis", hq:"amsterdam", verified:false,
+    reorg:"Ziekenhuizen staan onder financiële druk en reorganiseren ondersteunende en staffuncties, ook als de zorg zelf doorgaat.",
+    tone:"Je zorgde voor anderen, nu is het tijd dat iemand voor jou zorgt." },
+  { slug:"erasmus-mc", name:"Erasmus MC", sector:"zorg & ziekenhuis", hq:"rotterdam", verified:false,
+    reorg:"Academische ziekenhuizen herzien hun organisatie bij krappe budgetten en veranderende zorgvraag.",
+    tone:"Je stond aan het bed en achter de schermen, zorg nu goed voor je eigen toekomst." },
+  { slug:"umc-utrecht", name:"UMC Utrecht", sector:"zorg & ziekenhuis", hq:"utrecht", verified:false,
+    reorg:"Ook grote UMC's reorganiseren staf- en ondersteuningsafdelingen om de zorg betaalbaar te houden.",
+    tone:"Je hielp mensen beter worden, laat nu iemand met jou meedenken." },
+  { slug:"radboudumc", name:"Radboudumc", sector:"zorg & ziekenhuis", hq:"nijmegen", verified:false,
+    reorg:"Ziekenhuizen bezuinigen op overhead en ondersteuning, waardoor niet-zorgfuncties onder druk staan.",
+    tone:"Je gaf het beste van jezelf voor de patiënt, kom nu op voor jezelf." },
+  { slug:"parnassia-groep", name:"Parnassia Groep", sector:"geestelijke gezondheidszorg", hq:"den-haag", verified:false,
+    reorg:"GGZ-instellingen kampen met financiële druk en personeelstekorten, wat leidt tot reorganisaties in staf en overhead.",
+    tone:"Je hielp mensen met hun geest, houd nu je eigen rust vast." },
+  { slug:"universiteit-van-amsterdam", name:"Universiteit van Amsterdam", sector:"onderwijs & wetenschap", hq:"amsterdam", verified:false,
+    reorg:"Universiteiten reorganiseren bij dalende studentenaantallen en bezuinigingen op onderwijs en onderzoek.",
+    tone:"Je droeg kennis over, gebruik die scherpte nu voor je eigen situatie." },
+  { slug:"tu-delft", name:"TU Delft", sector:"onderwijs & wetenschap", hq:"delft", verified:false,
+    reorg:"Ook technische universiteiten passen hun organisatie aan bij veranderende financiering en studentaantallen.",
+    tone:"Je werkte aan de techniek van morgen, zet nu een goede stap voor jezelf." },
+  { slug:"universiteit-utrecht", name:"Universiteit Utrecht", sector:"onderwijs & wetenschap", hq:"utrecht", verified:false,
+    reorg:"Bezuinigingen in het hoger onderwijs raken zowel wetenschappelijke als ondersteunende functies.",
+    tone:"Je bracht studenten verder, laat nu iemand jóu verder helpen." },
+  { slug:"rijksuniversiteit-groningen", name:"Rijksuniversiteit Groningen", sector:"onderwijs & wetenschap", hq:"groningen", verified:false,
+    reorg:"Universiteiten in krimpregio's voelen dalende studentenaantallen extra, met reorganisaties tot gevolg.",
+    tone:"Je was een baken van kennis in het noorden, houd nu je eigen koers vast." },
+  { slug:"fontys", name:"Fontys Hogescholen", sector:"onderwijs & hbo", hq:"eindhoven", verified:false,
+    reorg:"Hogescholen herzien hun opleidingen en organisatie bij veranderende instroom en bekostiging.",
+    tone:"Je leidde een nieuwe generatie op, tijd om je eigen volgende stap te zetten." }
 ];
 
 // ---------------------------------------------------------------------------
@@ -551,4 +596,93 @@ const scenarios = [
     check:["Telt je volledige diensttijd mee?","Is de vergoeding passend bij je jaren?","Is er hulp bij het vinden van nieuw werk?","Sluit je WW naadloos aan?"] }
 ];
 
-module.exports = { WA, companies, cities, scenarios };
+// ---------------------------------------------------------------------------
+// ACTUEEL — geverifieerde reorganisatiecijfers per bedrijf (bron + datum).
+// Wordt getoond in een "Actueel"-blok op de bedrijfspagina. Geen officiële
+// uiting van of namens het bedrijf; puur openbaar nieuws, feitelijk geciteerd.
+// ---------------------------------------------------------------------------
+const companyNews = {
+  "asml": { fig:"≈ 1.400 banen in Nederland", text:"ASML kondigde eind januari 2026 een reorganisatie aan. Inmiddels ligt er een sociaal plan met een looptijd van twee jaar, ingegaan op 1 juni 2026.", src:"De Unie / Computable", url:"https://www.computable.nl/2026/05/12/asml-sluit-hoofdlijnen-akkoord-met-bonden/", date:"jan–mei 2026" },
+  "heineken": { fig:"5.000–6.000 functies wereldwijd, waarvan ± 400 op het hoofdkantoor in Amsterdam", text:"Heineken maakte in februari 2026 bekend de komende twee jaar duizenden functies te schrappen om de organisatie te vereenvoudigen.", src:"NOS / FD", url:"", date:"feb 2026" },
+  "abn-amro": { fig:"tot ≈ 5.200 banen (tot 2028)", text:"ABN AMRO schrapt de komende jaren duizenden banen om kosten te verlagen en zelfstandig te blijven.", src:"Banken.nl", url:"https://www.banken.nl/nieuws/26620/abn-amro-schrapt-5200-banen-in-strijd-voor-zelfstandigheid-en-hogere-beurswaarde", date:"2026" },
+  "ing": { fig:"≈ 1.250 banen", text:"ING schrapt banen, mede door de inzet van AI, als onderdeel van een kostenbesparing van € 350 miljoen.", src:"Banken.nl", url:"https://www.banken.nl/nieuws/26953/ing-schrapt-1250-banen-mede-door-inzet-van-ai", date:"2026" },
+  "philips": { fig:"≈ 1.100 banen in Nederland", text:"Philips schrapt opnieuw duizenden banen wereldwijd, waarvan een groot deel in Nederland.", src:"NOS", url:"https://nos.nl/l/2461804", date:"2026" },
+  "achmea": { fig:"≈ 2.400 medewerkers geraakt", text:"Achmea kondigde een reorganisatie aan die medewerkers raakt bij merken als Zilveren Kruis, Centraal Beheer en Interpolis, vooral in productontwikkeling, distributie, communicatie en marketing.", src:"Banknieuws", url:"https://www.banknieuws.info/2026/05/verzekeraar-achmea-schrapt-350-banen.html", date:"mei 2026" },
+  "zilveren-kruis": { fig:"onderdeel van de Achmea-reorganisatie (± 2.400)", text:"Bij Zilveren Kruis staan functies onder druk binnen de bredere Achmea-reorganisatie, met name in productontwikkeling, communicatie en marketing.", src:"Banknieuws", url:"https://www.banknieuws.info/2026/05/verzekeraar-achmea-schrapt-350-banen.html", date:"mei 2026" },
+  "centraal-beheer": { fig:"onderdeel van de Achmea-reorganisatie (± 2.400)", text:"Ook bij Centraal Beheer vervallen functies binnen de Achmea-reorganisatie die circa 2.400 medewerkers raakt.", src:"Banknieuws", url:"https://www.banknieuws.info/2026/05/verzekeraar-achmea-schrapt-350-banen.html", date:"mei 2026" },
+  "de-volksbank": { fig:"tot ≈ 950 banen (ASN Bank)", text:"Bij de Volksbank verdwijnen tot circa 950 banen als onderdeel van een breder kostenprogramma.", src:"Banken.nl", url:"https://www.banken.nl/nieuws/sector/reorganisatie", date:"2026" },
+  "triodos-bank": { fig:"≈ 270 fte", text:"Triodos Bank verkleinde haar personeelsbestand met circa 270 fte, onder druk van kosten en digitalisering.", src:"Banken.nl", url:"https://www.banken.nl/nieuws/sector/reorganisatie", date:"2026" }
+};
+
+// ---------------------------------------------------------------------------
+// KENNISBANK — artikelen. blocks: {h, p} of {h, list:[...]}.
+// ---------------------------------------------------------------------------
+const articles = [
+  { slug:"reorganisatiegolf-2026", cat:"Reorganisatie", date:"2026-07-01", read:6,
+    title:"De reorganisatiegolf van 2026: dit zijn je rechten bij een VSO",
+    h1:"De reorganisatiegolf van 2026: dit zijn je rechten",
+    desc:"In 2025 meldden 355 bedrijven een reorganisatie, het hoogste aantal in tien jaar. Wat betekent de golf van 2026 voor jou en je vaststellingsovereenkomst?",
+    intro:"ASML, Heineken, ABN AMRO, ING, Philips, Achmea: de lijst met grote werkgevers die in 2026 reorganiseren wordt met de week langer. Als jij een vaststellingsovereenkomst op je bureau krijgt, is het goed om te weten dat je verre van machteloos bent.",
+    blocks:[
+      { h:"Waarom 2026 anders voelt", p:"In 2025 meldden 355 bedrijven een reorganisatie bij het UWV, het hoogste aantal in tien jaar en 42% meer dan het jaar ervoor. Bijna 25.000 werknemers kregen ermee te maken. De meeste meldingen kwamen uit de zakelijke dienstverlening, de metaalindustrie en de chemie. In 2026 zet die lijn door, mede aangejaagd door AI en kostenbesparingen." },
+      { h:"Boventallig betekent niet dat je iets fout deed", p:"Bij een reorganisatie vervalt je functie om bedrijfseconomische redenen, niet omdat je slecht presteert. Je werkgever moet meestal het afspiegelingsbeginsel volgen: binnen vergelijkbare functies bepaalt een combinatie van leeftijdsgroepen en diensttijd wie boventallig wordt. Gaat dat niet zorgvuldig, dan sta je sterker dan je denkt." },
+      { h:"Je vier belangrijkste rechten", list:["Een wettelijke bedenktermijn van 14 dagen na ondertekening (21 dagen als die termijn niet in de overeenkomst staat).","Behoud van je WW-uitkering, mits de overeenkomst neutraal is opgesteld en het initiatief bij de werkgever ligt.","Minimaal de transitievergoeding, maar bij een sociaal plan vaak meer.","Ruimte om te onderhandelen over vergoeding, vrijstelling van werk, outplacement en de einddatum."] },
+      { h:"Wat je nú kunt doen", p:"Teken niets onder druk. Laat je overeenkomst controleren voordat de bedenktermijn verstrijkt, en vergelijk het aanbod met het sociaal plan en de wettelijke bodem. Eén gesprek met een specialist kan duizenden euro's en je WW-zekerheid schelen." }
+    ],
+    faq:[
+      { q:"Moet ik akkoord gaan omdat het een reorganisatie is?", a:"Nee. Ook bij een reorganisatie is een vaststellingsovereenkomst een voorstel waarover je mag onderhandelen. Je hoeft het eerste aanbod niet te accepteren." }
+    ] },
+  { slug:"asml-reorganisatie-wat-betekent-dit", cat:"Bedrijfsnieuws", date:"2026-06-20", read:5,
+    title:"ASML schrapt banen: wat betekent de reorganisatie voor jou?",
+    h1:"ASML schrapt banen: wat betekent dit voor jou?",
+    desc:"ASML kondigde eind januari 2026 een reorganisatie aan met circa 1.400 banen minder in Nederland. Wat betekent het sociaal plan voor jouw vaststellingsovereenkomst?",
+    intro:"Voor de Brainport-regio is ASML meer dan een werkgever: het is de motor onder duizenden banen bij toeleveranciers. De aangekondigde reorganisatie raakt daarom niet alleen ASML zelf.",
+    blocks:[
+      { h:"Wat er speelt", p:"ASML kondigde eind januari 2026 een reorganisatie aan waarbij circa 1.400 functies in Nederland verdwijnen. Na overleg met de vakbonden ligt er inmiddels een sociaal plan met een looptijd van twee jaar, ingegaan op 1 juni 2026. Zo'n sociaal plan bepaalt vaak een vergoeding boven de wettelijke transitievergoeding." },
+      { h:"Waarom het sociaal plan cruciaal is", p:"Ken je het sociaal plan niet, dan onderhandel je in het duister. Het legt bijvoorbeeld vast welke vergoeding, welke begeleiding naar ander werk en welke termijnen gelden. Controleer altijd of jouw persoonlijke aanbod klopt met wat het sociaal plan belooft." },
+      { h:"Ook toeleveranciers voelen het", p:"Rond Eindhoven en Veldhoven hangt een heel ecosysteem van hightech-toeleveranciers aan ASML. Werk je daar en verandert jouw situatie mee, dan gelden dezelfde rechten: bedenktermijn, WW-bescherming en onderhandelingsruimte." },
+      { h:"Wat je kunt doen", p:"Laat je overeenkomst naast het sociaal plan leggen voordat je tekent. Vaak zit er meer in dan het eerste voorstel, zeker bij een grote, goed geregelde reorganisatie." }
+    ] },
+  { slug:"transitievergoeding-2026", cat:"Geld & vergoeding", date:"2026-06-10", read:5,
+    title:"Transitievergoeding in 2026: hoe het écht werkt",
+    h1:"Transitievergoeding in 2026: hoe het écht werkt",
+    desc:"Hoe bereken je je transitievergoeding in 2026, wat is het maximum en waarom is het een bodem en geen plafond? Een heldere uitleg met rekenvoorbeeld.",
+    intro:"De transitievergoeding is het bedrag waar je bij ontslag in beginsel recht op hebt. Belangrijk om te weten: het is het minimum, niet het maximum.",
+    blocks:[
+      { h:"De berekening", p:"De transitievergoeding bedraagt een derde maandsalaris per gewerkt jaar, naar rato voor de resterende maanden en dagen. Onder maandsalaris valt niet alleen je bruto loon, maar ook vakantiegeld en vaste toeslagen zoals een dertiende maand of ploegentoeslag." },
+      { h:"Het maximum in 2026", p:"In 2026 is de transitievergoeding maximaal € 102.000 bruto. Verdien je meer dan dat op jaarbasis, dan is je maximum gelijk aan één bruto jaarsalaris." },
+      { h:"Een bodem, geen plafond", p:"De transitievergoeding is wettelijk het minimum. Bij een vaststellingsovereenkomst, en zeker bij een reorganisatie met sociaal plan, valt er vaak meer te onderhandelen: een hogere vergoeding, vrijstelling van werk met behoud van salaris, of een bijdrage aan omscholing." },
+      { h:"Rekenvoorbeeld", p:"Verdien je € 4.000 bruto per maand (inclusief vakantiegeld) en werk je tien jaar in dienst, dan is je transitievergoeding ongeveer € 13.300. Krijg je minder aangeboden, dan ligt je aanbod onder de wettelijke bodem en valt er vrijwel zeker meer te halen." }
+    ],
+    faq:[
+      { q:"Telt mijn vakantiegeld mee?", a:"Ja. Vakantiegeld en vaste toeslagen tellen mee bij het bepalen van je maandsalaris voor de transitievergoeding." }
+    ] },
+  { slug:"boventallig-verklaard-5-stappen", cat:"Reorganisatie", date:"2026-05-28", read:4,
+    title:"Boventallig verklaard? Dit zijn je eerste 5 stappen",
+    h1:"Boventallig verklaard? Dit zijn je eerste 5 stappen",
+    desc:"Net te horen gekregen dat je boventallig bent? Blijf rustig en doorloop deze vijf stappen voordat je iets tekent.",
+    intro:"Het bericht dat je functie vervalt komt bijna altijd hard aan. Toch is het belangrijkste wat je nu kunt doen: even niets tekenen en het hoofd koel houden.",
+    blocks:[
+      { h:"Stap 1 — Teken nog niets", p:"Een boventalligverklaring is geen ontslag. Zet geen handtekening en ga geen mondelinge toezeggingen aan. Alles wat je tekent, telt." },
+      { h:"Stap 2 — Vraag het sociaal plan op", p:"Bij een reorganisatie is er vaak een sociaal plan. Vraag het op en lees welke vergoeding, begeleiding en termijnen erin staan. Dit is je ijkpunt." },
+      { h:"Stap 3 — Controleer de afspiegeling", p:"Ga na of je werkgever de juiste functiegroep en het afspiegelingsbeginsel correct heeft toegepast. Fouten hierin geven je een sterkere positie." },
+      { h:"Stap 4 — Bereken je bodem", p:"Bereken je transitievergoeding, zodat je weet wat het wettelijke minimum is. Vergelijk dat met het aanbod." },
+      { h:"Stap 5 — Laat het checken", p:"Laat de overeenkomst controleren binnen je bedenktermijn. De kosten hiervoor worden vaak door de werkgever vergoed." }
+    ] },
+  { slug:"ww-veilig-bij-vso", cat:"WW & zekerheid", date:"2026-05-15", read:5,
+    title:"Zo houd je je WW veilig bij een vaststellingsovereenkomst",
+    h1:"Zo houd je je WW veilig bij een VSO",
+    desc:"Een verkeerd geformuleerde vaststellingsovereenkomst kan je WW-uitkering kosten. Dit zijn de voorwaarden waar je op moet letten.",
+    intro:"Een goede vergoeding is mooi, maar zonder WW-zekerheid kan een vaststellingsovereenkomst je duur komen te staan. Gelukkig is je WW veilig te stellen, mits de tekst klopt.",
+    blocks:[
+      { h:"Het initiatief moet bij de werkgever liggen", p:"Uit de overeenkomst moet duidelijk blijken dat het ontslag op initiatief van de werkgever is genomen. Neem je zelf ontslag, dan vervalt in de regel je recht op WW." },
+      { h:"Neutrale, niet-verwijtbare gronden", p:"De reden moet neutraal zijn: bedrijfseconomisch of een verstoorde arbeidsrelatie zonder verwijt aan jou. Staat er een dringende reden of een verwijt in, dan brengt dat je WW in gevaar." },
+      { h:"Respecteer de fictieve opzegtermijn", p:"De einddatum moet rekening houden met de opzegtermijn die zou gelden. Wordt die niet gerespecteerd, dan kan het UWV je WW een periode uitstellen, waardoor er een gat in je inkomen valt." },
+      { h:"Laat het controleren", p:"Deze voorwaarden lijken klein, maar één verkeerde formulering kan maanden WW kosten. Laat de tekst daarom altijd checken voordat je tekent." }
+    ],
+    faq:[
+      { q:"Kan ik mijn WW kwijtraken door een VSO te tekenen?", a:"Ja, als de overeenkomst verkeerd is opgesteld. Met neutrale gronden, het initiatief bij de werkgever en een correcte einddatum blijft je WW in de regel veilig." }
+    ] }
+];
+
+module.exports = { WA, companies, cities, scenarios, companyNews, articles };
