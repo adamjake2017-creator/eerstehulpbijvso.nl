@@ -106,6 +106,7 @@ function footer(prefix, note, wrapClass){
 <a href="${prefix}tools/transitievergoeding-berekenen.html">Berekenen</a>
 <a href="${prefix}overzicht.html">Alles</a>
 <a href="${prefix}10-valkuilen-bij-een-vso.html">Gratis gids</a>
+<a href="${prefix}voor-werkgevers.html">Voor werkgevers</a>
 <a href="${waLink("Hoi, ik heb een vaststellingsovereenkomst gekregen en wil graag een gratis check.")}">WhatsApp</a>
 <a href="mailto:hello@eerstehulpbijvso.nl">E-mail</a>
 <a href="https://www.linkedin.com/company/eerstehulpbijvso/" target="_blank" rel="noopener">LinkedIn</a>
@@ -450,7 +451,9 @@ function buildSitemap(all){
     `${SITE}/10-valkuilen-bij-een-vso.html`,
     `${SITE}/privacy.html`,
     `${SITE}/voorwaarden.html`,
+    `${SITE}/voor-werkgevers.html`,
     `${SITE}/tools/transitievergoeding-berekenen.html`,
+    `${SITE}/tools/wat-is-mijn-vso-waard.html`,
     `${SITE}/tools/ww-veilig-scan.html`,
     `${SITE}/tools/bedenktermijn-berekenen.html`,
     ...all.map(a => a.url)
@@ -499,6 +502,7 @@ const pillarVso = buildPillar({
     { title:"Alle situaties", items:scenarioPages },
     { title:"Handige hulpmiddelen", items:[
       { rel:"tools/transitievergoeding-berekenen.html", label:"Transitievergoeding berekenen 2026" },
+      { rel:"tools/wat-is-mijn-vso-waard.html", label:"Wat is mijn VSO waard? Check je aanbod" },
       { rel:"tools/ww-veilig-scan.html", label:"Is jouw VSO WW-veilig? Doe de scan" },
       { rel:"tools/bedenktermijn-berekenen.html", label:"Hoeveel bedenktijd heb je nog?" },
       { rel:"10-valkuilen-bij-een-vso.html", label:"Gratis gids: 10 valkuilen bij een VSO" }
