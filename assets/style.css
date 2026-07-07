@@ -127,6 +127,13 @@ footer .flinks a:hover{color:var(--gold-deep)}
 .footcol.one .linkgrid{column-count:1}
 .footcol .linkgrid a{display:block;font-size:13px;padding:4px 0;color:var(--ink-soft);break-inside:avoid;transition:.2s}
 .footcol .linkgrid a:hover{color:var(--gold-deep)}
+.footcol .morelinks{margin-top:8px}
+.footcol .morelinks>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:7px;color:var(--gold-deep);font-size:13px;font-weight:500;padding:4px 0}
+.footcol .morelinks>summary::-webkit-details-marker{display:none}
+.footcol .morelinks>summary::before{content:"+";display:inline-block;width:14px;text-align:center;font-weight:600}
+.footcol .morelinks[open]>summary::before{content:"\2013"}
+.footcol .morelinks>summary:hover{text-decoration:underline}
+.footcol .morelinks .linkgrid{margin-top:8px}
 @media(max-width:820px){.footcols{grid-template-columns:1fr;gap:22px}}
 
 /* floating whatsapp */

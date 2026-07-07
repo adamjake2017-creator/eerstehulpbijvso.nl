@@ -90,6 +90,17 @@ const DEFAULT_FOOT_NOTE = "Onafhankelijke informatie voor werknemers. Geen jurid
 const fixCaps = s => s.replace(/\bvso\b/gi,"VSO").replace(/\bww\b/gi,"WW").replace(/\bai\b/gi,"AI");
 const labelFromSlug = slug => { const t = slug.replace(/-/g," "); return fixCaps(t.charAt(0).toUpperCase()+t.slice(1)); };
 
+// Footer-kolom: ~12 toonaangevende links zichtbaar, de rest inklapbaar.
+// Alle links blijven in de DOM, dus Google crawlt ze ook ingeklapt.
+const FOOT_VISIBLE = 12;
+function footCol(h4, arr, noun, links){
+  const head = arr.slice(0, FOOT_VISIBLE), rest = arr.slice(FOOT_VISIBLE);
+  const more = rest.length
+    ? `<details class="morelinks"><summary>Alle ${arr.length} ${noun} tonen</summary><div class="linkgrid">${links(rest)}</div></details>`
+    : "";
+  return `<div class="footcol"><h4>${h4}</h4><div class="linkgrid">${links(head)}</div>${more}</div>`;
+}
+
 function footer(prefix, note, wrapClass){
   wrapClass = wrapClass || "wrap-wide";
   const links = arr => arr.map(x=>`<a href="${prefix}${x.href}">${x.label}</a>`).join("");
@@ -116,8 +127,8 @@ function footer(prefix, note, wrapClass){
 </div>
 <div class="footcols">
 <div class="footcol one"><h4>Jouw situatie</h4><div class="linkgrid">${links(scen)}</div></div>
-<div class="footcol"><h4>Hulp per stad</h4><div class="linkgrid">${links(cits)}</div></div>
-<div class="footcol"><h4>Ontslag per bedrijf</h4><div class="linkgrid">${links(cos)}</div></div>
+${footCol("Hulp per stad", cits, "steden", links)}
+${footCol("Ontslag per bedrijf", cos, "bedrijven", links)}
 </div>
 <div class="fbot"><span>© <span id="yr"></span> Eerste hulp bij VSO · Vlierweg 12, 1032 LG Amsterdam · KvK 64043770</span><span><a href="${prefix}privacy.html">Privacyverklaring</a> · <a href="${prefix}voorwaarden.html">Algemene voorwaarden</a></span><span>${note || DEFAULT_FOOT_NOTE}</span></div>
 </div></footer>`;
