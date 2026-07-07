@@ -90,15 +90,16 @@ const DEFAULT_FOOT_NOTE = "Onafhankelijke informatie voor werknemers. Geen jurid
 const fixCaps = s => s.replace(/\bvso\b/gi,"VSO").replace(/\bww\b/gi,"WW").replace(/\bai\b/gi,"AI");
 const labelFromSlug = slug => { const t = slug.replace(/-/g," "); return fixCaps(t.charAt(0).toUpperCase()+t.slice(1)); };
 
-// Footer-kolom: ~12 toonaangevende links zichtbaar, de rest inklapbaar.
-// Alle links blijven in de DOM, dus Google crawlt ze ook ingeklapt.
-const FOOT_VISIBLE = 12;
+// Footer-kolom: evenveel zichtbare links als de situatie-kolom (in één kolom,
+// voor visuele symmetrie), de rest inklapbaar. Alle links blijven in de DOM,
+// dus Google crawlt ze ook ingeklapt.
+const FOOT_VISIBLE = scenarios.length;
 function footCol(h4, arr, noun, links){
   const head = arr.slice(0, FOOT_VISIBLE), rest = arr.slice(FOOT_VISIBLE);
   const more = rest.length
     ? `<details class="morelinks"><summary>Alle ${arr.length} ${noun} tonen</summary><div class="linkgrid">${links(rest)}</div></details>`
     : "";
-  return `<div class="footcol"><h4>${h4}</h4><div class="linkgrid">${links(head)}</div>${more}</div>`;
+  return `<div class="footcol"><h4>${h4}</h4><div class="linkgrid solo">${links(head)}</div>${more}</div>`;
 }
 
 function footer(prefix, note, wrapClass){

@@ -124,7 +124,7 @@ footer .flinks a:hover{color:var(--gold-deep)}
 .footcols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;margin:28px 0;padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .footcol h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:14px}
 .footcol .linkgrid{column-count:2;column-gap:20px}
-.footcol.one .linkgrid{column-count:1}
+.footcol.one .linkgrid,.footcol .linkgrid.solo{column-count:1}
 .footcol .linkgrid a{display:block;font-size:13px;padding:4px 0;color:var(--ink-soft);break-inside:avoid;transition:.2s}
 .footcol .linkgrid a:hover{color:var(--gold-deep)}
 .footcol .morelinks{margin-top:8px}
