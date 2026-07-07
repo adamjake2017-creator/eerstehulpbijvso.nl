@@ -6,21 +6,38 @@ Kernwaarden: kwaliteit, service, volledige ontzorging en rust. Hulp is beschikba
 
 ## Kernpagina's
 - [Home](https://eerstehulpbijvso.nl/): wat we doen en hoe het werkt
-- [Alle onderwerpen](https://eerstehulpbijvso.nl/overzicht.html): volledig overzicht
-- [Ontslag door reorganisatie](https://eerstehulpbijvso.nl/reorganisatie/): rechten bij boventalligheid, per bedrijf
-- [Vaststellingsovereenkomst — alle situaties](https://eerstehulpbijvso.nl/vaststellingsovereenkomst/): ziekte, zwangerschap, concurrentiebeding, bedenktermijn, WW, en meer
-- [VSO-hulp per stad](https://eerstehulpbijvso.nl/vso-hulp/): lokale hulp in heel Nederland
+- [Alle onderwerpen](https://eerstehulpbijvso.nl/overzicht.html): volledig overzicht van alle pagina's
+- [Ontslag door reorganisatie](https://eerstehulpbijvso.nl/reorganisatie/): rechten bij boventalligheid, met een aparte pagina per bedrijf (128 bedrijven, o.a. ASML, Heineken, ABN AMRO, ING, Philips, Achmea)
+- [Vaststellingsovereenkomst — alle situaties](https://eerstehulpbijvso.nl/vaststellingsovereenkomst/): ziekte, zwangerschap, concurrentiebeding, bedenktermijn, WW, disfunctioneren, en meer
+- [VSO-hulp per stad](https://eerstehulpbijvso.nl/vso-hulp/): lokale hulp in 52 steden in heel Nederland
+- [Voor werkgevers](https://eerstehulpbijvso.nl/voor-werkgevers.html): begeleiding van reorganiserende bedrijven bij VSO-trajecten
+
+## Kennisbank
+Heldere artikelen over de vaststellingsovereenkomst.
+- [Kennisbank — overzicht](https://eerstehulpbijvso.nl/blog/)
+- [De reorganisatiegolf van 2026: je rechten](https://eerstehulpbijvso.nl/blog/reorganisatiegolf-2026.html)
+- [ASML schrapt banen: wat betekent dit voor jou?](https://eerstehulpbijvso.nl/blog/asml-reorganisatie-wat-betekent-dit.html)
+- [Transitievergoeding in 2026: hoe het écht werkt](https://eerstehulpbijvso.nl/blog/transitievergoeding-2026.html)
+- [Boventallig verklaard? Je eerste 5 stappen](https://eerstehulpbijvso.nl/blog/boventallig-verklaard-5-stappen.html)
+- [Zo houd je je WW veilig bij een VSO](https://eerstehulpbijvso.nl/blog/ww-veilig-bij-vso.html)
 
 ## Hulpmiddelen
 - [Transitievergoeding berekenen 2026](https://eerstehulpbijvso.nl/tools/transitievergoeding-berekenen.html)
+- [Wat is mijn VSO waard? Vergelijk je aanbod met de wettelijke bodem](https://eerstehulpbijvso.nl/tools/wat-is-mijn-vso-waard.html)
 - [Is jouw VSO WW-veilig? (scan)](https://eerstehulpbijvso.nl/tools/ww-veilig-scan.html)
 - [Hoeveel bedenktijd heb je nog?](https://eerstehulpbijvso.nl/tools/bedenktermijn-berekenen.html)
+- [Gratis gids: 10 valkuilen bij een VSO](https://eerstehulpbijvso.nl/10-valkuilen-bij-een-vso.html)
 
 ## Belangrijke feiten (Nederland, 2026)
 - Bedenktermijn na tekenen: 14 dagen, of 21 dagen als die termijn niet in de overeenkomst staat.
 - Maximale transitievergoeding 2026: € 102.000, of een bruto jaarsalaris als dat hoger is.
+- Transitievergoeding = een derde maandsalaris per gewerkt jaar; vakantiegeld en vaste toeslagen tellen mee.
 - WW blijft veilig als het ontslag op initiatief van de werkgever is, op een neutrale of bedrijfseconomische grond, zonder verwijt aan de werknemer, en de einddatum de fictieve opzegtermijn respecteert.
 - Bij een VSO is de transitievergoeding de bodem van de onderhandeling, niet het plafond.
+- In 2025 meldden 355 bedrijven een reorganisatie bij het UWV, het hoogste aantal in tien jaar; zwaarst geraakt: zakelijke dienstverlening, metaal en chemie.
+
+## Volledige index
+- [Sitemap](https://eerstehulpbijvso.nl/sitemap.xml): alle bedrijfs-, stad-, situatie- en kennisbankpagina's
 
 ## Contact
 - WhatsApp: +31 6 45733083
