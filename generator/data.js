@@ -164,7 +164,10 @@ const companies = [
     tone:"Je werkte aan geavanceerde techniek, en toch verandert je eigen situatie plots." },
   { slug:"vdl-groep", name:"VDL Groep", sector:"industrie & techniek", hq:"eindhoven", verified:false,
     reorg:"Industriële maakbedrijven zijn conjunctuurgevoelig. Na sterke jaren volgen correcties, waarbij ook in de Brainport-regio functies kunnen vervallen.",
-    tone:"Je stond in het hart van de Brabantse maakindustrie, en nu voelt de grond onvast." }
+    tone:"Je stond in het hart van de Brabantse maakindustrie, en nu voelt de grond onvast." },
+  { slug:"projective-group", name:"Projective Group", sector:"consultancy & financiële dienstverlening", hq:"amsterdam", verified:false,
+    reorg:"Consultancybureaus in de financiële sector schalen mee met klantopdrachten. Als projecten aflopen of de markt afkoelt, wordt er kritisch naar de bezetting gekeken.",
+    tone:"Je adviseerde anderen bij verandering, en nu sta je zelf voor die keuze." }
 ];
 
 // ---------------------------------------------------------------------------
