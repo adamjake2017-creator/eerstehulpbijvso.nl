@@ -9,6 +9,9 @@ const { WA, companies, cities, scenarios, companyNews, articles } = require("./d
 
 const ROOT = path.join(__dirname, "..");
 const SITE = "https://eerstehulpbijvso.nl";
+// Cache-buster op basis van de inhoud van style.css, zodat na elke CSS-wijziging
+// de verse stylesheet geladen wordt (voorkomt dat oude, gecachte CSS blijft hangen).
+const CSS_VER = require("crypto").createHash("md5").update(fs.readFileSync(path.join(__dirname, "..", "assets", "style.css"))).digest("hex").slice(0, 8);
 const ORG_LD = `<script type="application/ld+json">${JSON.stringify({
   "@context":"https://schema.org","@type":"LegalService","@id":SITE+"/#org",
   name:"Eerste hulp bij VSO", url:SITE+"/",
@@ -61,7 +64,7 @@ function head({title, desc, keywords, canonical, ogType="article", prefix, faq, 
 <meta property="og:url" content="${canonical}" />
 ${FONT}
 <link rel="icon" type="image/png" href="${prefix}assets/favicon.png" />
-<link rel="stylesheet" href="${prefix}assets/style.css" />
+<link rel="stylesheet" href="${prefix}assets/style.css?v=${CSS_VER}" />
 ${ORG_LD}
 ${crumbLd}
 ${faqLd}
