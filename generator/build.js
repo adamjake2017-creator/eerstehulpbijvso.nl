@@ -143,6 +143,11 @@ const steps = (a,b,c) => `<section class="block"><div class="wrap"><h2 class="bi
 
 const checklist = items => `<ul>${items.map(i=>`<li>${i}</li>`).join("")}</ul>`;
 
+// Vergelijkingstabel (snippet-vriendelijk). t = { head:[...], rows:[[...],...] }
+const cmpTable = t => `<table class="cmp"><thead><tr>${t.head.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>${
+  t.rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")
+}</tbody></table>`;
+
 function relatedBlock(prefix, links){
   return `<section class="block"><div class="wrap"><h2 class="big reveal">Lees ook <em>verder</em></h2><div class="prose reveal"><ul>${
     links.map(l=>`<li><a href="${prefix}${l.href}" style="color:var(--gold-deep)">${l.label}</a></li>`).join("")
@@ -214,6 +219,22 @@ ${newsBox(companyNews[co.slug])}
 <h3>Geldt er een sociaal plan?</h3><p>Bij grote reorganisaties is er vaak een sociaal plan met een vergoeding boven de wettelijke transitievergoeding. Ken je dat niet, dan onderhandel je in het duister.</p>
 <h3>Blijft je WW veilig?</h3><p>De overeenkomst moet duidelijk maken dat het ontslag op initiatief van de werkgever is, op neutrale gronden en zonder verwijt aan jou. Anders ontstaat een gat in je inkomen.</p>
 ${checklist(["Is je vergoeding marktconform en in lijn met het sociaal plan?","Word je vrijgesteld van werk met behoud van salaris?","Krijg je ruimte voor outplacement of omscholing?","Wat valt er onder de finale kwijting?"])}
+</div></div></section>
+
+<section class="block"><div class="wrap"><h2 class="big reveal">Het standaardvoorstel vs. <em>wat er vaak nog in zit</em></h2>
+<div class="prose reveal">
+<p>Veel vaststellingsovereenkomsten bij ${co.name} beginnen met een voorstel dat netjes oogt, maar waar in de ${co.sector} vaak meer in zit. Dit is waar wij standaard naar kijken voordat je tekent:</p>
+${cmpTable({
+  head:["Onderdeel","Het standaardvoorstel","Wat er vaak nog in zit"],
+  rows:[
+    ["Vergoeding","Rond de wettelijke transitievergoeding","Een hoger bedrag, marktconform voor de "+co.sector+", zeker met een sociaal plan"],
+    ["WW-zekerheid","Niet altijd waterdicht geformuleerd","Neutrale gronden en een correcte einddatum, zodat je WW veilig is"],
+    ["Vrijstelling van werk","Soms, tot de einddatum","Vrijstelling met behoud van salaris, plus uitbetaling van je vakantiedagen"],
+    ["Concurrentie- of relatiebeding","Blijft vaak ongewijzigd staan","Geschrapt of versoepeld, zodat je vrij verder kunt"],
+    ["Juridische kosten","Voor eigen rekening","Vergoed door de werkgever, vaak € 750 tot € 1.000"],
+    ["Bedenktijd","Druk om snel te tekenen","Je volledige 14 (of 21) dagen, rustig en goed geïnformeerd"]
+  ]
+})}
 </div></div></section>
 
 ${steps(
@@ -449,8 +470,11 @@ function buildArticle(a){
     publisher:{"@type":"Organization",name:"Eerste hulp bij VSO",logo:{"@type":"ImageObject",url:SITE+"/assets/logo.png"}},
     mainEntityOfPage:url
   })}</script>`;
-  const body = a.blocks.map(b => `<section class="block"><div class="wrap"><h2 class="big reveal">${b.h}</h2>
-<div class="prose reveal">${ b.list ? checklist(b.list) : `<p>${b.p}</p>` }</div></div></section>`).join("\n");
+  const body = a.blocks.map(b => {
+    const inner = b.table ? cmpTable(b.table) : b.list ? checklist(b.list) : `<p>${b.p}</p>`;
+    return `<section class="block"><div class="wrap"><h2 class="big reveal">${b.h}</h2>
+<div class="prose reveal">${inner}</div></div></section>`;
+  }).join("\n");
   const html = head({
     crumbs:[{name:"Home",url:SITE+"/"},{name:"Kennisbank",url:SITE+"/blog/"},{name:a.title,url}],
     extraLd:artLd,

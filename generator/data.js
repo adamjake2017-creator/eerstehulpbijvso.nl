@@ -625,6 +625,12 @@ const articles = [
     intro:"ASML, Heineken, ABN AMRO, ING, Philips, Achmea: de lijst met grote werkgevers die in 2026 reorganiseren wordt met de week langer. Als jij een vaststellingsovereenkomst op je bureau krijgt, is het goed om te weten dat je verre van machteloos bent.",
     blocks:[
       { h:"Waarom 2026 anders voelt", p:"In 2025 meldden 355 bedrijven een reorganisatie bij het UWV, het hoogste aantal in tien jaar en 42% meer dan het jaar ervoor. Bijna 25.000 werknemers kregen ermee te maken. De meeste meldingen kwamen uit de zakelijke dienstverlening, de metaalindustrie en de chemie. In 2026 zet die lijn door, mede aangejaagd door AI en kostenbesparingen." },
+      { h:"De cijfers achter de golf (UWV, 2025)", table:{ head:["Indicator","2025"], rows:[
+        ["Reorganisatiemeldingen bij het UWV","355 (+42% t.o.v. 2024)"],
+        ["Betrokken werknemers","± 25.000"],
+        ["Niveau","Hoogste in tien jaar"],
+        ["Zwaarst geraakte sectoren","Zakelijke dienstverlening, metaal, chemie"]
+      ] } },
       { h:"Boventallig betekent niet dat je iets fout deed", p:"Bij een reorganisatie vervalt je functie om bedrijfseconomische redenen, niet omdat je slecht presteert. Je werkgever moet meestal het afspiegelingsbeginsel volgen: binnen vergelijkbare functies bepaalt een combinatie van leeftijdsgroepen en diensttijd wie boventallig wordt. Gaat dat niet zorgvuldig, dan sta je sterker dan je denkt." },
       { h:"Je vier belangrijkste rechten", list:["Een wettelijke bedenktermijn van 14 dagen na ondertekening (21 dagen als die termijn niet in de overeenkomst staat).","Behoud van je WW-uitkering, mits de overeenkomst neutraal is opgesteld en het initiatief bij de werkgever ligt.","Minimaal de transitievergoeding, maar bij een sociaal plan vaak meer.","Ruimte om te onderhandelen over vergoeding, vrijstelling van werk, outplacement en de einddatum."] },
       { h:"Wat je nú kunt doen", p:"Teken niets onder druk. Laat je overeenkomst controleren voordat de bedenktermijn verstrijkt, en vergelijk het aanbod met het sociaal plan en de wettelijke bodem. Eén gesprek met een specialist kan duizenden euro's en je WW-zekerheid schelen." }
@@ -652,7 +658,15 @@ const articles = [
       { h:"De berekening", p:"De transitievergoeding bedraagt een derde maandsalaris per gewerkt jaar, naar rato voor de resterende maanden en dagen. Onder maandsalaris valt niet alleen je bruto loon, maar ook vakantiegeld en vaste toeslagen zoals een dertiende maand of ploegentoeslag." },
       { h:"Het maximum in 2026", p:"In 2026 is de transitievergoeding maximaal € 102.000 bruto. Verdien je meer dan dat op jaarbasis, dan is je maximum gelijk aan één bruto jaarsalaris." },
       { h:"Een bodem, geen plafond", p:"De transitievergoeding is wettelijk het minimum. Bij een vaststellingsovereenkomst, en zeker bij een reorganisatie met sociaal plan, valt er vaak meer te onderhandelen: een hogere vergoeding, vrijstelling van werk met behoud van salaris, of een bijdrage aan omscholing." },
-      { h:"Rekenvoorbeeld", p:"Verdien je € 4.000 bruto per maand (inclusief vakantiegeld) en werk je tien jaar in dienst, dan is je transitievergoeding ongeveer € 13.300. Krijg je minder aangeboden, dan ligt je aanbod onder de wettelijke bodem en valt er vrijwel zeker meer te halen." }
+      { h:"Rekenvoorbeeld", p:"Verdien je € 4.000 bruto per maand (inclusief vakantiegeld) en werk je tien jaar in dienst, dan is je transitievergoeding ongeveer € 13.300. Krijg je minder aangeboden, dan ligt je aanbod onder de wettelijke bodem en valt er vrijwel zeker meer te halen." },
+      { h:"Indicatie bij € 4.000 bruto per maand", table:{ head:["Dienstjaren","Indicatie transitievergoeding"], rows:[
+        ["5 jaar","± € 6.700"],
+        ["10 jaar","± € 13.300"],
+        ["15 jaar","± € 20.000"],
+        ["20 jaar","± € 26.700"],
+        ["25 jaar","± € 33.300"],
+        ["Maximum (2026)","€ 102.000, of één bruto jaarsalaris als dat hoger is"]
+      ] } }
     ],
     faq:[
       { q:"Telt mijn vakantiegeld mee?", a:"Ja. Vakantiegeld en vaste toeslagen tellen mee bij het bepalen van je maandsalaris voor de transitievergoeding." }
@@ -678,6 +692,12 @@ const articles = [
       { h:"Het initiatief moet bij de werkgever liggen", p:"Uit de overeenkomst moet duidelijk blijken dat het ontslag op initiatief van de werkgever is genomen. Neem je zelf ontslag, dan vervalt in de regel je recht op WW." },
       { h:"Neutrale, niet-verwijtbare gronden", p:"De reden moet neutraal zijn: bedrijfseconomisch of een verstoorde arbeidsrelatie zonder verwijt aan jou. Staat er een dringende reden of een verwijt in, dan brengt dat je WW in gevaar." },
       { h:"Respecteer de fictieve opzegtermijn", p:"De einddatum moet rekening houden met de opzegtermijn die zou gelden. Wordt die niet gerespecteerd, dan kan het UWV je WW een periode uitstellen, waardoor er een gat in je inkomen valt." },
+      { h:"WW veilig of in gevaar? De verschillen", table:{ head:["Voorwaarde","WW veilig","WW in gevaar"], rows:[
+        ["Initiatief","De werkgever","Jij zelf"],
+        ["Ontslaggrond","Neutraal of bedrijfseconomisch","Dringende reden of verwijt aan jou"],
+        ["Einddatum","Respecteert de fictieve opzegtermijn","Korter dan de opzegtermijn"],
+        ["Formulering","Geen erkenning van schuld","Erkenning van verwijtbaar handelen"]
+      ] } },
       { h:"Laat het controleren", p:"Deze voorwaarden lijken klein, maar één verkeerde formulering kan maanden WW kosten. Laat de tekst daarom altijd checken voordat je tekent." }
     ],
     faq:[
