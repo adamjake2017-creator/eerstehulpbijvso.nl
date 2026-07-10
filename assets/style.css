@@ -48,6 +48,7 @@ header.scrolled{background:rgba(243,236,224,.82);backdrop-filter:blur(14px);bord
 .topbar b{font-weight:600}
 .topbar:hover{background:var(--gold-deep)}
 .topbar .tb-msg{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);padding:0 16px;opacity:0;animation:tbrot 24s infinite}
+.topbar .tb-msg svg{width:15px;height:15px;vertical-align:-3px;margin-right:7px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .topbar .tb-msg:nth-child(2){animation-delay:6s}
 .topbar .tb-msg:nth-child(3){animation-delay:12s}
 .topbar .tb-msg:nth-child(4){animation-delay:18s}
