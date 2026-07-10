@@ -61,7 +61,7 @@ header.scrolled{background:rgba(243,236,224,.82);backdrop-filter:blur(14px);bord
 .crumb{font-size:12.5px;letter-spacing:.08em;color:var(--ink-mute);margin-bottom:22px}
 .crumb a:hover{color:var(--gold-deep)}
 .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:20px}
-h1.title{font-size:clamp(38px,6vw,74px);letter-spacing:-.02em}
+h1.title{font-size:clamp(38px,6vw,74px);letter-spacing:-.02em;overflow-wrap:break-word;hyphens:auto}
 h1.title em{font-style:italic;color:var(--gold-deep)}
 .lead{font-size:clamp(17px,2vw,20px);color:var(--ink-soft);font-weight:300;max-width:640px;margin-top:26px}
 section.block{position:relative;z-index:2;padding:60px 0}
