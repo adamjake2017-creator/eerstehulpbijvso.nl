@@ -593,7 +593,47 @@ const scenarios = [
     intro:"Twintig, dertig jaar bij dezelfde werkgever, en dan dit. Na zo'n lang dienstverband is een vertrek extra beladen, en staat er financieel veel op het spel.",
     body:"Bij een lang dienstverband is je transitievergoeding hoger en weegt je opgebouwde anciënniteit zwaar. Tegelijk is de weg naar nieuw werk soms langer. Let daarom scherp op de hoogte van de vergoeding, een eerlijke waardering van je jaren, en een goede overgang naar WW of ander werk. Loyaliteit mag beloond worden, niet afgestraft.",
     risk:"Je jarenlange inzet wordt niet vertaald in een passende vergoeding en zachte landing.",
-    check:["Telt je volledige diensttijd mee?","Is de vergoeding passend bij je jaren?","Is er hulp bij het vinden van nieuw werk?","Sluit je WW naadloos aan?"] }
+    check:["Telt je volledige diensttijd mee?","Is de vergoeding passend bij je jaren?","Is er hulp bij het vinden van nieuw werk?","Sluit je WW naadloos aan?"] },
+  { slug:"onder-druk-getekend", h1:"Onder druk gezet om je vaststellingsovereenkomst te tekenen?",
+    intro:"Je moet 'vandaag nog' tekenen, anders vervalt het bod. Of je krijgt een paar duizend euro extra als je meteen je handtekening zet. Herken je dat? Het is een bekende druktactiek, en je rechten veranderen er niets door.",
+    body:"Een deadline of een tekenbonus voelt als dwang, maar het is onderhandelingsstrategie. Je werkgever hoopt dat je onder tijdsdruk een minder goede beslissing neemt. In werkelijkheid heb je na ondertekening altijd nog een wettelijke bedenktermijn van 14 dagen, en 21 dagen als die termijn niet in de overeenkomst staat. Binnen die tijd mag je zonder opgaaf van reden terugkomen op je handtekening. Wat je wél doet: stuur alleen een korte ontvangstbevestiging, meld je zaak telefonisch bij je rechtsbijstandverzekering of vakbond, en loop niet zomaar boos weg, want dat kan als werkweigering worden uitgelegd.",
+    risk:"Het grootste risico is dat de tijdsdruk werkt en je tekent voordat iemand met verstand van zaken naar het voorstel heeft gekeken.",
+    check:["Staat er een 'teken vandaag'-deadline of een tekenbonus in?","Weet je je feitelijke bedenktermijn (14 of 21 dagen)?","Heb je alleen een ontvangstbevestiging gestuurd?","Heb je je rechtsbijstand of vakbond al telefonisch gebeld?"] },
+  { slug:"werkgever-dreigt-met-uwv", h1:"Werkgever dreigt met UWV of de rechter als je niet tekent",
+    intro:"'Teken je niet, dan starten we een ontslagprocedure bij het UWV of de kantonrechter.' Zo'n dreiging maakt indruk, maar is vaak eerder een teken van zwakte dan van kracht.",
+    body:"Een werkgever mag inderdaad een ontslagprocedure starten, maar dat kost tijd, geld en een sterk dossier. Juist omdat die route onzeker en duur is, biedt men liever een vaststellingsovereenkomst aan. Als de dreiging bedoeld is om je snel te laten tekenen, zegt dat iets over hun onderhandelingspositie. Laat je niet opjagen: laat eerst beoordelen hoe kansrijk een gang naar het UWV of de rechter werkelijk zou zijn. Vaak blijkt die veel minder hard dan het klinkt.",
+    risk:"Je tekent uit angst voor een procedure die de werkgever in werkelijkheid liever vermijdt.",
+    check:["Hoe sterk is het dossier van je werkgever echt?","Is er een geldige ontslaggrond voor het UWV of de rechter?","Wat zou een procedure voor jou betekenen?","Is het bod beter dan wat een rechter zou toekennen?"] },
+  { slug:"bedrijfsarts-adviseert-vso", h1:"Bedrijfsarts adviseert een vaststellingsovereenkomst: wat doe je vóór het HR-gesprek?",
+    intro:"Je zit in een burn-out of ziektetraject en ineens valt het woord vaststellingsovereenkomst, soms zelfs via de bedrijfsarts. Wees hier extra voorzichtig, want tekenen tijdens ziekte kan je uitkering kosten.",
+    body:"Een bedrijfsarts gaat over je herstel en re-integratie, niet over je ontslag. Een advies om een VSO te tekenen terwijl je ziek bent, hoor je dan ook nooit klakkeloos op te volgen. Tijdens ziekte geldt een opzegverbod, en meewerken aan je eigen ontslag kan zowel je Ziektewet- als je WW-rechten in gevaar brengen. Bereid je gesprek met HR voor: zet op een rij hoe het re-integratietraject is verlopen, vraag alles schriftelijk, en beslis niets in het gesprek zelf. Laat je situatie eerst rustig bekijken.",
+    risk:"Je raakt zowel je loon bij ziekte als je latere uitkering kwijt door tijdens ziekte in te stemmen met ontslag.",
+    check:["Geldt er een opzegverbod tijdens jouw ziekte?","Is de re-integratie volgens de regels verlopen?","Waarom komt dit voorstel juist nu?","Heb je alles schriftelijk gevraagd?"] },
+  { slug:"ziek-en-boventallig", h1:"Ziek én boventallig door een reorganisatie: wat nu?",
+    intro:"Je bent ziek en tegelijk kom je door een reorganisatie boventallig te staan. Twee zware dingen tegelijk, en juist deze combinatie vraagt om voorzichtigheid met je handtekening.",
+    body:"Tijdens ziekte geldt in beginsel een opzegverbod, ook bij een reorganisatie. Je werkgever kan je dan niet zomaar via het UWV ontslaan. Een vaststellingsovereenkomst omzeilt dat verbod, en daarom is het extra belangrijk om te weten wat je opgeeft. Vaak is het verstandiger om eerst je herstel en re-integratie af te wachten. Zit er een sociaal plan, dan kan er onder voorwaarden toch een verantwoorde regeling zijn, maar alleen als je Ziektewet- en WW-rechten goed geborgd zijn.",
+    risk:"Je geeft de bescherming van het opzegverbod op en valt tussen wal en schip: geen loon bij ziekte én geen volledige uitkering.",
+    check:["Geldt het opzegverbod tijdens ziekte voor jou?","Wat gebeurt er met je Ziektewet-rechten?","Is er een sociaal plan met bescherming bij ziekte?","Kun je beter je re-integratie afwachten?"] },
+  { slug:"ww-aanvragen-na-vso", h1:"WW aanvragen na je vaststellingsovereenkomst: zo pak je het aan",
+    intro:"De VSO is getekend, en nu? Je WW-uitkering gaat niet vanzelf in. Je moet die zelf op tijd aanvragen bij het UWV, en met de juiste gegevens, anders loop je inkomen mis.",
+    body:"Vraag je WW aan vanaf de eerste werkloze dag, en uiterlijk binnen een week na je laatste werkdag om geen uitkering te verspelen. Het UWV kijkt naar je arbeidsverleden, je gemiddeld aantal gewerkte uren en je laatstverdiende loon. Houd daarom je arbeidsovereenkomst, loonstroken en de VSO bij de hand. Let op de fictieve opzegtermijn: als de einddatum in je VSO te vroeg ligt, kan je WW later ingaan. Blijf beschikbaar voor werk en solliciteer aantoonbaar, want dat zijn voorwaarden voor je uitkering.",
+    risk:"Je vraagt te laat aan of met onvolledige gegevens, waardoor je weken zonder inkomen zit of een sanctie krijgt.",
+    check:["Vraag je WW binnen een week na je laatste werkdag aan?","Heb je je loonstroken en VSO bij de hand?","Is de fictieve opzegtermijn correct verwerkt?","Voldoe je aan de sollicitatieplicht?"] },
+  { slug:"is-mijn-vso-een-goede-deal", h1:"Is mijn vaststellingsovereenkomst een goede deal?",
+    intro:"Nul vergoeding en één maand salaris, of juist een mooi bedrag: hoe weet je of jouw voorstel goed is? Een deal beoordeel je niet op het bedrag alleen, maar op het geheel.",
+    body:"Een goed voorstel is meer dan een hoog getal. Kijk naar het totaalplaatje: is je WW veilig, klopt de einddatum en de fictieve opzegtermijn, word je vrijgesteld met behoud van salaris, vervallen je concurrentie- en relatiebeding, worden je vakantiedagen en bonus uitbetaald, en betaalt de werkgever je juridische kosten? Een op het oog nette regeling kan alsnog slecht uitpakken als één van deze punten wringt. Andersom kan een bescheiden bedrag prima zijn als de rest waterdicht is en je snel weer aan de slag kunt.",
+    risk:"Je staart je blind op het bedrag en mist een addertje, zoals een onveilige WW-grond of een beding dat blijft staan.",
+    check:["Is je WW volledig veiliggesteld?","Klopt de einddatum en de fictieve opzegtermijn?","Vervallen je concurrentie- en relatiebeding?","Worden je vakantiedagen, bonus en juridische kosten geregeld?"] },
+  { slug:"wat-is-gangbaar-onderhandelen", h1:"Wat is gangbaar om te vragen bij je vaststellingsovereenkomst?",
+    intro:"Je wilt niet blanco het gesprek in, maar wat kun je redelijkerwijs vragen? Deze punten komen bij een goede vertrekregeling telkens terug, zeker bij een reorganisatie.",
+    body:"Naast de wettelijke transitievergoeding als bodem, vragen mensen in de praktijk vaak om een aanvulling in de vorm van extra maanden salaris, een periode doorbetaald met vrijstelling van werk, en vergoeding van de kosten van hun jurist of advocaat, meestal tussen de 750 en 1.000 euro. Verder is het gangbaar om het concurrentie- en relatiebeding te laten vervallen, een positief getuigschrift af te spreken en een budget voor scholing of outplacement te vragen. Hoeveel er precies in zit, hangt af van je dienstjaren, de reden van het ontslag en hoe graag men van je af wil.",
+    risk:"Je vraagt te weinig omdat je niet weet wat gebruikelijk is, en laat zo geld en voorwaarden op tafel liggen.",
+    check:["Vraag je een aanvulling boven de transitievergoeding?","Zit er vrijstelling van werk met behoud van salaris in?","Worden je juridische kosten vergoed?","Vervallen de bedingen en krijg je scholing of outplacement?"] },
+  { slug:"vrijstelling-telt-als-vergoeding", h1:"'Vrijstelling van werk telt als je vergoeding': klopt dat wel?",
+    intro:"Soms staat er in een vaststellingsovereenkomst dat je geen ontslagvergoeding krijgt, omdat je al bent vrijgesteld van werk met behoud van salaris. Dat klinkt logisch, maar het is een valkuil.",
+    body:"Doorbetaald worden tot je einddatum is normaal loon voor de tijd dat je nog in dienst bent. Het is niet hetzelfde als een ontslagvergoeding, die bedoeld is als compensatie voor het verlies van je baan. Een clausule die de vrijstelling wegstreept tegen je vergoeding, verkoopt je in feite twee keer hetzelfde. Beoordeel beide onderdelen apart: je hebt recht op loon tijdens je dienstverband én je kunt onderhandelen over een vergoeding voor het einde ervan. Laat zo'n formulering altijd checken voordat je tekent.",
+    risk:"Je gaat akkoord met nul vergoeding omdat de vrijstelling als compensatie wordt gepresenteerd, terwijl dat gewoon je loon is.",
+    check:["Wordt je vrijstelling weggestreept tegen je vergoeding?","Is je loon tot de einddatum los geregeld?","Is er een aparte beëindigingsvergoeding besproken?","Heb je de clausule laten controleren?"] }
 ];
 
 // ---------------------------------------------------------------------------
@@ -705,4 +745,186 @@ const articles = [
     ] }
 ];
 
-module.exports = { WA, companies, cities, scenarios, companyNews, articles };
+// ---------------------------------------------------------------------------
+// ARBEIDSRECHT-CLUSTERS (/hulp/) — bredere hulp naast VSO. VSO blijft het
+// vlaggenschip; elk cluster kruislinkt ernaartoe waar het logisch uitmondt.
+// Uitbreiden = record toevoegen. Inhoud gebaseerd op Reddit/YouTube-onderzoek.
+// ---------------------------------------------------------------------------
+const helpClusters = [
+  { slug:"ontslag-op-staande-voet",
+    eyebrow:"Ontslag op staande voet · jouw rechten",
+    h1:"Ontslag op staande voet<br>gekregen of <em>gedreigd?</em>",
+    lead:"Van het ene op het andere moment sta je op straat: je loon stopt, je toegang wordt geblokkeerd en je hoort dat je geen WW krijgt. Ontslag op staande voet is het zwaarste middel dat een werkgever heeft, en juist daarom mag het lang niet altijd. Vaak houdt het geen stand.",
+    desc:"Ontslag op staande voet gekregen of gedreigd? Het mag alleen bij een dringende reden en houdt vaak geen stand. Teken niets, protesteer, en laat het gratis toetsen.",
+    keywords:"ontslag op staande voet, ontslag op staande voet terecht, ontslag op staande voet aanvechten, dringende reden ontslag, ww na ontslag op staande voet",
+    tableH:"Ontslag op staande voet vs. <em>gewoon ontslag</em>",
+    table:{ head:["Aspect","Ontslag op staande voet","Gewoon ontslag (UWV of rechter)"], rows:[
+      ["Opzegtermijn","Geen, het contract stopt per direct","De wettelijke opzegtermijn geldt"],
+      ["Toestemming vooraf","Niet nodig","UWV of kantonrechter beslist"],
+      ["Reden","Alleen bij een dringende reden","Bedrijfseconomisch, disfunctioneren, en meer"],
+      ["WW-uitkering","In beginsel niet","Blijft in de regel behouden"],
+      ["Vergoeding","Geen","Vaak een transitievergoeding"]
+    ] },
+    sections:[
+      { h:"Wat ontslag op staande voet <em>betekent</em>", p:"Bij ontslag op staande voet beëindigt je werkgever je contract per direct, zonder opzegtermijn en zonder toestemming van het UWV of de kantonrechter. Je loon stopt onmiddellijk en je hebt in beginsel geen recht op een transitievergoeding of een WW-uitkering. Dat klinkt hard, en dat is het ook. Maar dit alles geldt alleen als het ontslag terecht is gegeven, en juist daar gaat het in de praktijk vaak mis." },
+      { h:"Wanneer is het <em>terecht</em>, en wanneer niet?", p:"Voor een geldig ontslag op staande voet moet aan drie eisen tegelijk zijn voldaan. Ontbreekt er één, dan houdt het ontslag meestal geen stand en sta je veel sterker dan je denkt.", list:["Er is een <strong>dringende reden</strong>, zoals diefstal, fraude, mishandeling, bedreiging of hardnekkige werkweigering. Een meningsverschil of één misstap is dat meestal niet.","Het ontslag is <strong>onverwijld</strong> gegeven, dus vrijwel direct nadat de reden bekend werd. Wachtte je werkgever dagen of weken, dan verzwakt dat de zaak.","De reden is je <strong>meteen en duidelijk meegedeeld</strong>, zodat je precies weet waarom je bent ontslagen."] },
+      { h:"Wat je nu moet <em>doen</em>", p:"Accepteer het ontslag niet zomaar, ook al voel je je overrompeld of schuldig. Protesteer schriftelijk tegen het ontslag, geef aan dat je beschikbaar blijft voor werk, en onderteken niets. Bewaar alle communicatie en schakel snel een arbeidsrechtjurist, advocaat of je vakbond in. Er geldt een korte termijn om het ontslag aan te vechten, dus wacht niet af." }
+    ],
+    risk:"Je legt je neer bij een ontslag dat misschien niet rechtsgeldig is, en verliest zo je loon én je WW terwijl je in werkelijkheid sterker stond dan je dacht.",
+    check:["Is er echt een dringende reden, of valt het bij nader inzien mee?","Is het ontslag direct gegeven en de reden meteen meegedeeld?","Ben je eerder gewaarschuwd voor dit gedrag?","Heb je schriftelijk geprotesteerd en je beschikbaarheid gemeld?"],
+    faq:[
+      { q:"Krijg ik WW na ontslag op staande voet?", a:"In beginsel niet, omdat het UWV dit als verwijtbare werkloosheid ziet. Maar als het ontslag onterecht blijkt of wordt omgezet in een nette beëindiging, kan je WW-recht alsnog overeind blijven. Laat je situatie daarom toetsen voordat je je erbij neerlegt." },
+      { q:"Mijn werkgever dreigt met ontslag op staande voet. Wat nu?", a:"Een dreiging is nog geen ontslag. Vaak wordt ermee gedreigd om je onder druk te zetten of om je een vaststellingsovereenkomst te laten tekenen. Laat je niet opjagen, win eerst advies in en beslis niets in het gesprek zelf." },
+      { q:"Kan ik ontslag op staande voet aanvechten?", a:"Ja. Je kunt de kantonrechter binnen twee maanden vragen het ontslag te vernietigen, of in plaats daarvan een vergoeding eisen. Door die korte termijn is snel handelen belangrijk." }
+    ],
+    funnelH:"Wordt ermee <em>gedreigd</em>, of ligt er een VSO op tafel?",
+    funnelP:"Vaak wordt ontslag op staande voet gebruikt als drukmiddel, of omgezet in een vaststellingsovereenkomst. Dan is het een onderhandeling, geen voldongen feit, en staan wij ook daar naast je.",
+    funnelHref:"vaststellingsovereenkomst/onder-druk-getekend.html",
+    funnelLabel:"Lees: onder druk gezet om te tekenen" },
+  { slug:"ziekte-en-reintegratie",
+    eyebrow:"Ziekte & reïntegratie · jouw rechten",
+    h1:"Ziek, en het schuurt<br>met je <em>werkgever?</em>",
+    lead:"Ziek zijn is al zwaar genoeg. Komt er dan ook nog druk, een conflict of onduidelijkheid over je re-integratie bij, dan raak je het overzicht kwijt. Terwijl je rechten juist nu stevig zijn: je hebt bescherming die je werkgever niet zomaar opzij mag zetten.",
+    desc:"Ziek en gedoe met je werkgever over re-integratie, loon of de bedrijfsarts? Je hebt sterke rechten: een opzegverbod, loondoorbetaling en een zwaarwegend bedrijfsartsadvies. Gratis check.",
+    keywords:"ziek werkgever conflict, reintegratie rechten werknemer, bedrijfsarts advies werkgever, loondoorbetaling bij ziekte, spoor 2 reintegratie, deskundigenoordeel uwv",
+    tableH:"Re-integratie: <em>spoor 1 en spoor 2</em>",
+    table:{ head:["","Spoor 1","Spoor 2"], rows:[
+      ["Doel","Terug naar je eigen of ander werk bij je werkgever","Werk vinden bij een andere werkgever"],
+      ["Wanneer","Zolang er passend werk binnen het bedrijf is","Als werk bij je eigen werkgever niet meer lukt"],
+      ["Wie begeleidt","Je werkgever en jij samen","Vaak een extern re-integratiebureau"],
+      ["Jouw plicht","Meewerken aan passend herstel","Actief meewerken aan werk elders"]
+    ] },
+    sections:[
+      { h:"Je rechten als je <em>ziek</em> bent", p:"Zolang je ziek bent, sta je sterker dan je vaak voelt. De belangrijkste beschermingen op een rij:", list:["Tijdens de eerste twee jaar ziekte geldt een <strong>opzegverbod</strong>: je werkgever kan je in beginsel niet via het UWV ontslaan.","Je hebt recht op <strong>loondoorbetaling</strong> tot maximaal 104 weken, meestal minstens 70 procent, en volgens veel cao's het eerste jaar 100 procent.","Je werkgever en jij moeten samen werken aan je herstel volgens de <strong>Wet verbetering poortwachter</strong>, met een plan van aanpak en vaste evaluatiemomenten."] },
+      { h:"De bedrijfsarts <em>beslist</em> niet, maar weegt zwaar", p:"Over je belastbaarheid gaat de bedrijfsarts, niet je leidinggevende. Je werkgever neemt het besluit, maar moet het advies van de bedrijfsarts in de regel volgen. Ben je het oneens met dat advies, dan kun je een second opinion bij een andere bedrijfsarts vragen, of een deskundigenoordeel aanvragen bij het UWV. Wijkt je werkgever zonder goede reden af van het advies, dan riskeert die een loonsanctie." },
+      { h:"Re-integratie: <em>spoor 1 en spoor 2</em>", p:"Herstel je richting je eigen of ander werk binnen het bedrijf, dan heet dat spoor 1. Lukt dat niet, dan start spoor 2: begeleiding naar werk bij een andere werkgever. Ontstaat er een conflict, dan is mediation vaak de aangewezen weg, niet een vertrek onder druk. Laat je niet tijdens ziekte een beëindiging in rollen zonder dat iemand met je meekijkt." }
+    ],
+    risk:"Je laat je onder druk, of juist tijdens ziekte, een vertrek of vaststellingsovereenkomst in rollen, en verliest zo je loondoorbetaling, je opzegbescherming of je uitkering.",
+    check:["Volgt je werkgever het advies van de bedrijfsarts?","Loopt de re-integratie in spoor 1 en 2 zoals het hoort?","Is er een conflict dat eigenlijk om mediation vraagt?","Word je onder druk gezet om iets te tekenen terwijl je ziek bent?"],
+    faq:[
+      { q:"Mag mijn werkgever mij ontslaan als ik ziek ben?", a:"Tijdens de eerste twee jaar ziekte geldt een opzegverbod, met enkele uitzonderingen zoals een volledige bedrijfsbeëindiging. Een vaststellingsovereenkomst omzeilt dat opzegverbod, en daarom moet je tijdens ziekte nooit zomaar tekenen." },
+      { q:"Mijn werkgever negeert het advies van de bedrijfsarts. Mag dat?", a:"Het advies weegt zwaar. Ben je het er niet mee eens, dan kun je een deskundigenoordeel bij het UWV aanvragen. Wijkt je werkgever zonder goede grond af, dan kan dat een loonsanctie opleveren." },
+      { q:"Ik heb een conflict met mijn werkgever en ben ziek gemeld. Wat nu?", a:"Bij een conflict tijdens ziekte is mediation vaak de juiste route, niet een gedwongen vertrek. Teken geen beëindiging zonder dat je situatie is beoordeeld, want dat kan je uitkering raken." }
+    ],
+    funnelH:"Loopt het uit op een <em>vaststellingsovereenkomst?</em>",
+    funnelP:"Veel ziekte- en conflictsituaties eindigen met een VSO. Tekenen tijdens ziekte kan je Ziektewet- en WW-rechten kosten, dus doe dat nooit zonder dat wij ernaar hebben gekeken.",
+    funnelHref:"vaststellingsovereenkomst/tijdens-ziekte.html",
+    funnelLabel:"Lees: vaststellingsovereenkomst tijdens ziekte" },
+  { slug:"concurrentiebeding-en-andere-bedingen",
+    eyebrow:"Concurrentie-, relatie- en ronselbeding · jouw rechten",
+    h1:"Houdt een beding je <em>gevangen</em><br>bij je werkgever?",
+    lead:"Je wilt verder in je vak, maar een concurrentie- of relatiebeding lijkt je overal tegen te houden. Geruststelling: zulke bedingen zijn lang niet altijd houdbaar, en een rechter kan ze beperken of schrappen. Je zit er vaak minder aan vast dan je denkt.",
+    desc:"Houdt een concurrentiebeding, relatiebeding of ronselbeding je tegen bij een nieuwe baan? Ze zijn vaak te beperken of ongeldig. Laat je beding gratis checken voordat je tekent of vertrekt.",
+    keywords:"concurrentiebeding, relatiebeding, ronselbeding, concurrentiebeding ongeldig, concurrentiebeding matigen rechter, nieuwe baan concurrentiebeding",
+    tableH:"Concurrentie-, relatie- en <em>ronselbeding</em>",
+    table:{ head:["Beding","Wat het je verbiedt","Meestal houdbaar?"], rows:[
+      ["Concurrentiebeding","Werken bij of starten van een concurrent","Alleen als het redelijk begrensd is in tijd, gebied en werk"],
+      ["Relatiebeding","Zaken doen met klanten en relaties van je oude werkgever","Vaker, omdat het beperkter is, maar aanvechtbaar"],
+      ["Ronselbeding","Oud-collega's meenemen of benaderen","Relatief vaak, mits redelijk"]
+    ] },
+    sections:[
+      { h:"Concurrentie-, relatie- en ronselbeding: het <em>verschil</em>", p:"Deze drie bedingen worden vaak door elkaar gehaald, maar beperken je op verschillende manieren:", list:["<strong>Concurrentiebeding:</strong> je mag een bepaalde tijd niet bij een concurrent werken of een concurrerend bedrijf beginnen.","<strong>Relatiebeding:</strong> je mag geen zaken doen met klanten en relaties van je oude werkgever. Vaak beperkter, en daardoor eerder houdbaar, maar net zo goed aanvechtbaar.","<strong>Ronselbeding:</strong> je mag geen oud-collega's meenemen of benaderen voor je nieuwe werkgever."] },
+      { h:"Wanneer is een beding <em>(niet)</em> geldig?", p:"Een beding is niet automatisch waterdicht, ook al heb je getekend. Waar het op aankomt:", list:["Het moet <strong>schriftelijk</strong> zijn overeengekomen met een meerderjarige werknemer.","In een <strong>tijdelijk contract</strong> is een beding alleen geldig met een schriftelijke motivering van een zwaarwegend bedrijfsbelang. Ontbreekt die, dan is het meestal ongeldig.","De rechter weegt jouw belang tegen dat van je werkgever en kan een beding <strong>geheel of gedeeltelijk vernietigen</strong>, beperken in tijd of gebied, of je een vergoeding toekennen als het je zwaar belemmert.","Een beding mag je niet je vak onmogelijk maken. Een clausule die je praktisch je hele werkveld uitsluit, houdt vaak geen stand."] },
+      { h:"Wat je nu moet <em>doen</em>", p:"Teken een nieuw contract met een beding niet blind, en lees bij vertrek precies wat er staat. Laat het beding beoordelen voordat je overstapt, en probeer het bij je vertrek te laten schrappen of te versoepelen. Bewaar alle communicatie, en overleg soms met je nieuwe werkgever, die er belang bij heeft dat je vrij kunt beginnen." }
+    ],
+    risk:"Je laat je tegenhouden door een beding dat voor de rechter waarschijnlijk niet standhoudt, en loopt zo een baan, klanten of inkomen mis.",
+    check:["Staat het beding op papier en klopte je situatie toen je tekende?","Is het beperkt in tijd, gebied en soort werk, of veel te breed?","Bij een tijdelijk contract: staat er een motivering van zwaarwegend belang bij?","Kun je het beding laten schrappen in je vertrekregeling?"],
+    faq:[
+      { q:"Kan ik onder mijn concurrentiebeding uit?", a:"Vaak wel. Een rechter kan een beding matigen of vernietigen als het je onredelijk beperkt, en bij een vertrek is het bovendien onderhandelbaar. Laat je situatie beoordelen voordat je een baan afslaat." },
+      { q:"Wat is het verschil tussen een concurrentie- en een relatiebeding?", a:"Een concurrentiebeding verbiedt werken bij of starten van een concurrerend bedrijf. Een relatiebeding verbiedt zaken doen met klanten en relaties van je oude werkgever. Een relatiebeding is meestal beperkter, maar allebei zijn aanvechtbaar." },
+      { q:"Mag een beding in een tijdelijk contract staan?", a:"Alleen met een schriftelijke motivering van een zwaarwegend bedrijfsbelang. Ontbreekt die motivering, dan is het beding in een tijdelijk contract in de regel ongeldig." }
+    ],
+    funnelH:"Vertrek je met een <em>vaststellingsovereenkomst?</em>",
+    funnelP:"Bij een vertrekregeling is het beding bij uitstek onderhandelbaar. Laat het schrappen of beperken voordat je tekent, want daarna zit je eraan vast.",
+    funnelHref:"vaststellingsovereenkomst/concurrentiebeding.html",
+    funnelLabel:"Lees: VSO en je concurrentiebeding" },
+  { slug:"arbeidsconflict",
+    eyebrow:"Arbeidsconflict · bemiddeling en jouw rechten",
+    h1:"Een conflict op je werk<br>dat maar niet <em>overgaat?</em>",
+    lead:"Een aanvaring met je leidinggevende, het gevoel dat je wordt weggewerkt, of spanning die na een ziekmelding of reorganisatie hoog opliep. Een arbeidsconflict vreet energie en zet je positie onder druk. Vaak is het nog op te lossen, en anders zorgen we dat je er netjes en sterk uit komt.",
+    desc:"Vastgelopen in een conflict met je werkgever? Vaak is bemiddeling de oplossing, en anders zorgen we voor een nette, WW-veilige exit. Laat je situatie gratis en vertrouwelijk beoordelen.",
+    keywords:"arbeidsconflict werkgever, conflict met leidinggevende, verstoorde arbeidsrelatie, mediation arbeidsconflict, ziekmelden bij conflict, ontslag door conflict",
+    tableH:"Mediation vs. <em>procedure bij de rechter</em>",
+    table:{ head:["Aspect","Mediation","Procedure bij de rechter"], rows:[
+      ["Doel","Herstel van de relatie of nette afspraken","Een beslissing afdwingen"],
+      ["Sfeer","Samen, vertrouwelijk","Tegenover elkaar"],
+      ["Snelheid","Vaak binnen enkele weken","Kan maanden duren"],
+      ["De relatie erna","Blijft vaker werkbaar","Vaak definitief verstoord"]
+    ] },
+    sections:[
+      { h:"Wat een conflict met je <em>positie</em> doet", p:"Een verstoorde arbeidsrelatie is op zichzelf een geldige, neutrale grond om uit elkaar te gaan. Het gevaar zit in de schuldvraag: als de verstoring aan jou wordt toegerekend, kan dat je reputatie en je WW-recht raken. Neem daarom nooit in een opwelling zelf ontslag, want dat kost je in de regel je uitkering." },
+      { h:"Bemiddeling: vaak de beste <em>eerste stap</em>", p:"Voordat het over vertrek gaat, is herstel vaak nog mogelijk. Een neutrale bemiddelaar helpt daarbij:", list:["Een <strong>mediator</strong> zoekt samen met jullie naar herstel van de relatie, of naar nette afspraken als voortzetten geen optie is.","Ben je ziek geworden door het conflict, dan adviseert de <strong>bedrijfsarts</strong> vaak juist mediation, niet een gedwongen vertrek.","Meewerken aan mediation is verstandig: weigeren kan later tegen je worden gebruikt."] },
+      { h:"Wat je nu moet <em>doen</em>", p:"Blijf professioneel en leg belangrijke afspraken en gebeurtenissen schriftelijk vast. Meld je niet ziek puur als drukmiddel, maar wel als het echt niet gaat. En win advies in voordat je iets ondertekent of toezegt, want onder druk gedane uitspraken zijn moeilijk terug te draaien." }
+    ],
+    risk:"Je laat het conflict escaleren of neemt in een opwelling zelf ontslag, waardoor de schuld bij jou komt te liggen en je je WW-recht kwijtraakt.",
+    check:["Wordt de schuld van het conflict onterecht bij jou gelegd?","Is mediation al geprobeerd?","Meld je je ziek terwijl het eigenlijk een conflict is?","Heb je iets ondertekend of toegezegd onder druk?"],
+    faq:[
+      { q:"Kan ik ontslagen worden om een arbeidsconflict?", a:"Een verstoorde arbeidsrelatie is een geldige ontslaggrond, meestal via een vaststellingsovereenkomst of de kantonrechter. Belangrijk is dat de schuld niet bij jou wordt gelegd, dan blijft je WW in de regel veilig." },
+      { q:"Moet ik meewerken aan mediation?", a:"Meewerken is verstandig. Een neutrale bemiddelaar zoekt naar herstel of nette afspraken, en weigeren zonder goede reden kan later tegen je worden gebruikt." },
+      { q:"Ik ben ziek geworden door het conflict. Wat nu?", a:"Dat heet situatieve arbeidsongeschiktheid. De bedrijfsarts adviseert dan vaak mediation om het conflict op te lossen. Meld je niet ziek puur als drukmiddel, en laat je situatie beoordelen." }
+    ],
+    funnelH:"Komt het toch tot een <em>vertrek?</em>",
+    funnelP:"Lukt herstel niet, dan eindigt een conflict vaak in een vaststellingsovereenkomst. Wij zorgen dat je met een goede, WW-veilige regeling vertrekt.",
+    funnelHref:"vaststellingsovereenkomst/verstoorde-arbeidsrelatie.html",
+    funnelLabel:"Lees: VSO bij een verstoorde arbeidsrelatie" },
+  { slug:"loonvordering",
+    eyebrow:"Loonvordering · je geld terug",
+    h1:"Je baas betaalt je loon<br>niet (op tijd) <em>uit?</em>",
+    lead:"Je hebt gewerkt, maar je loon komt te laat, niet volledig, of helemaal niet. Dat is niet alleen vervelend, het is simpelweg fout. Je hebt recht op je geld, en vaak is één stevige brief al genoeg om het los te krijgen.",
+    desc:"Betaalt je werkgever je loon niet of te laat? Je hebt recht op je geld, plus een wettelijke verhoging en rente. Vaak is één stevige sommatiebrief al genoeg. Laat het gratis bekijken.",
+    keywords:"loon niet betaald, werkgever betaalt loon niet, loonvordering, salaris te laat, wettelijke verhoging loon, sommatiebrief loon",
+    tableH:"Wat je kunt <em>eisen</em>",
+    table:{ head:["Onderdeel","Waar je recht op hebt"], rows:[
+      ["Achterstallig loon","Het volledige bedrag dat je nog tegoed hebt"],
+      ["Wettelijke verhoging","Tot maximaal 50 procent bij te late betaling"],
+      ["Wettelijke rente","Over het bedrag dat te laat is betaald"],
+      ["Eindafrekening","Vakantiegeld en niet-opgenomen vakantiedagen"]
+    ] },
+    sections:[
+      { h:"Waar je recht op <em>hebt</em>", p:"Je loon hoort op de afgesproken datum op je rekening te staan. Gebeurt dat niet, dan staat de wet aan jouw kant:", list:["Je hebt recht op je <strong>volledige loon</strong> op de afgesproken betaaldatum.","Bij te late betaling kan er een <strong>wettelijke verhoging</strong> van maximaal 50 procent bovenop je loon komen, plus wettelijke rente.","Ook je <strong>eindafrekening</strong> telt mee: vakantiegeld, niet-opgenomen vakantiedagen en een eventuele bonus."] },
+      { h:"Vaak is één stevige <em>brief</em> genoeg", p:"De meeste werkgevers betalen alsnog zodra er een formele sommatie met een duidelijke termijn ligt. Zo'n brief stellen we voor een klein bedrag op. Betaalt je werkgever dan nog niet, dan kunnen we naar de kantonrechter. En omdat de te late betaling aan je werkgever ligt, proberen we die kosten op hem te verhalen." },
+      { h:"Wat je nu moet <em>doen</em>", p:"Meld het gemis schriftelijk bij je werkgever en stel een redelijke betaaltermijn. Bewaar je loonstroken, je contract en je urenregistratie, want dat is je bewijs. En wacht niet te lang: hoe eerder je formeel aandringt, hoe sterker je staat." }
+    ],
+    risk:"Je blijft aandringen zonder formele stappen te zetten, terwijl elke maand telt en je met een simpele sommatie je loon plus de wettelijke verhoging kunt opeisen.",
+    check:["Is je loon te laat, onvolledig of helemaal niet betaald?","Heb je je loonstroken, contract en urenregistratie bij de hand?","Heb je je werkgever al schriftelijk in gebreke gesteld?","Gaat het ook om vakantiegeld of niet-opgenomen dagen?"],
+    faq:[
+      { q:"Krijg ik extra geld als mijn loon te laat is?", a:"Ja. Bij te late betaling kan bovenop je loon een wettelijke verhoging van maximaal 50 procent komen, plus wettelijke rente. Dat maakt aandringen ook financieel de moeite waard." },
+      { q:"Wat kost het mij om mijn loon op te eisen?", a:"Vaak weinig. Meestal is een stevige sommatiebrief al genoeg, en die stellen we voor een klein bedrag op. Omdat de te late betaling aan je werkgever ligt, proberen we die kosten op hem te verhalen." },
+      { q:"Mijn oude werkgever betaalt mijn laatste loon niet. Kan ik nog iets doen?", a:"Ja. Ook na je uitdiensttreding kun je je loon, vakantiegeld en niet-opgenomen dagen opeisen. Wacht er niet te lang mee, want dat maakt het lastiger." }
+    ],
+    funnelH:"Vertrek je met een <em>regeling?</em>",
+    funnelP:"Zorg dat openstaand loon, vakantiegeld en niet-opgenomen dagen apart zijn geregeld voordat je een vaststellingsovereenkomst met finale kwijting tekent, anders ben je ze kwijt.",
+    funnelHref:"vaststellingsovereenkomst/finale-kwijting.html",
+    funnelLabel:"Lees: finale kwijting, teken je rechten niet weg" },
+  { slug:"ongelijke-behandeling",
+    eyebrow:"Ongelijke behandeling · gelijk loon, gelijke kansen",
+    h1:"Zelfde werk,<br>minder <em>loon?</em>",
+    lead:"Een collega doet hetzelfde werk maar verdient meer, je wordt stelselmatig gepasseerd, of je voelt je anders behandeld om wie je bent. Dat knaagt. En vaak is het meer dan een gevoel: gelijk werk hoort gelijk beloond te worden, en onderscheid maken mag lang niet altijd.",
+    desc:"Zelfde functie, minder loon? Of anders behandeld om wie je bent? Ongelijke behandeling mag niet zomaar. Vaak lost een stevige brief het al op. Laat je situatie gratis en vertrouwelijk bekijken.",
+    keywords:"ongelijke behandeling werk, ongelijk salaris zelfde functie, gelijk loon gelijk werk, loonkloof, discriminatie werkvloer, gepasseerd voor promotie",
+    tableH:"Waar leg je je zaak <em>voor?</em>",
+    table:{ head:["Aspect","College voor de Rechten van de Mens","Civiele rechter"], rows:[
+      ["Kosten","Kosteloos","Griffierecht en eventueel advocaatkosten"],
+      ["Uitkomst","Een oordeel (juridisch niet bindend, wel gezaghebbend)","Een bindend vonnis"],
+      ["Drempel","Laag, ook zonder advocaat","Hoger"],
+      ["Doorlooptijd","Meestal enkele maanden","Vaak langer"]
+    ] },
+    sections:[
+      { h:"Wat telt als ongelijke <em>behandeling</em>", p:"Niet elk verschil is verboden, maar zonder goede reden mag het niet. Denk aan:", list:["<strong>Ongelijk loon</strong> voor gelijk of gelijkwaardig werk, zonder objectieve rechtvaardiging.","Onderscheid op grond van <strong>geslacht, leeftijd, afkomst, geloof, handicap of seksuele gerichtheid</strong>.","Nadeel omdat je in <strong>deeltijd</strong> werkt of een tijdelijk contract hebt, terwijl het werk hetzelfde is."] },
+      { h:"Wat je kunt <em>doen</em>", p:"Verzamel eerst bewijs: functieomschrijvingen, salarisverschillen en beoordelingen. Bespreek het intern, en werkt dat niet, dan kun je je zaak voorleggen aan het College voor de Rechten van de Mens, dat laagdrempelig en kosteloos een oordeel geeft. Ook een civiele procedure is mogelijk. Maar vaak is een goed onderbouwde brief al genoeg om het op te lossen." },
+      { h:"Eerlijk over de <em>kosten</em>", p:"De kosten zijn hier vaak eerst voor jezelf, dat zeggen we er eerlijk bij. Maar krijg je gelijk, dan kun je een deel van de proceskosten terugvorderen, en het komt lang niet altijd tot een procedure. Een stevige, goed onderbouwde brief lost het vaak al op, en de baten wegen doorgaans op tegen de lasten." }
+    ],
+    risk:"Je legt je neer bij een onterecht verschil omdat je denkt dat je toch niets kunt doen, terwijl gelijk werk gelijk beloond hoort te worden.",
+    check:["Doe je aantoonbaar gelijk of gelijkwaardig werk als een beter betaalde collega?","Is er een objectieve reden voor het verschil, of niet?","Gaat het om onderscheid op grond van bijvoorbeeld geslacht, leeftijd of contractvorm?","Heb je het verschil met bewijs onderbouwd?"],
+    faq:[
+      { q:"Mag mijn werkgever mij minder betalen voor hetzelfde werk?", a:"Niet zonder objectieve rechtvaardiging. Gelijk of gelijkwaardig werk hoort gelijk beloond te worden. Een verschil op grond van bijvoorbeeld geslacht, leeftijd of contractvorm is verboden onderscheid." },
+      { q:"Wat kost het mij?", a:"De kosten zijn hier vaak eerst voor jezelf. Maar krijg je gelijk, dan kun je een deel van de proceskosten terugvorderen, en vaak is een stevige, goed onderbouwde brief al genoeg om het op te lossen." },
+      { q:"Waar kan ik terecht?", a:"Naast een brief of een procedure kun je je zaak voorleggen aan het College voor de Rechten van de Mens. Dat geeft laagdrempelig en kosteloos een oordeel over of er sprake is van verboden onderscheid." }
+    ],
+    funnelH:"Loopt het uit op een <em>vertrek?</em>",
+    funnelP:"Escaleert de situatie tot een vertrek, dan zorgen wij voor een goede, WW-veilige regeling. Ook dan staan we naast je.",
+    funnelHref:"vaststellingsovereenkomst/index.html",
+    funnelLabel:"Bekijk alle situaties rond je VSO" }
+];
+
+module.exports = { WA, companies, cities, scenarios, companyNews, articles, helpClusters };

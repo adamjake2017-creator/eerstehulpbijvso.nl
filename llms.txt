@@ -8,7 +8,9 @@ Kernwaarden: kwaliteit, service, volledige ontzorging en rust. Hulp is beschikba
 - [Home](https://eerstehulpbijvso.nl/): wat we doen en hoe het werkt
 - [Alle onderwerpen](https://eerstehulpbijvso.nl/overzicht.html): volledig overzicht van alle pagina's
 - [Ontslag door reorganisatie](https://eerstehulpbijvso.nl/reorganisatie/): rechten bij boventalligheid, met een aparte pagina per bedrijf (128 bedrijven, o.a. ASML, Heineken, ABN AMRO, ING, Philips, Achmea)
-- [Vaststellingsovereenkomst — alle situaties](https://eerstehulpbijvso.nl/vaststellingsovereenkomst/): ziekte, zwangerschap, concurrentiebeding, bedenktermijn, WW, disfunctioneren, en meer
+- [Vaststellingsovereenkomst — alle situaties](https://eerstehulpbijvso.nl/vaststellingsovereenkomst/): 25 situaties, o.a. ziekte, zwangerschap, concurrentiebeding, onder druk gezet, werkgever dreigt met UWV, ziek én boventallig, is mijn VSO een goede deal, wat is gangbaar om te vragen, WW aanvragen na VSO
+- [Eerste hulp bij arbeidsrecht](https://eerstehulpbijvso.nl/hulp/): bredere hulp naast VSO. [Ontslag op staande voet](https://eerstehulpbijvso.nl/hulp/ontslag-op-staande-voet.html), [ziekte en reïntegratie](https://eerstehulpbijvso.nl/hulp/ziekte-en-reintegratie.html), [concurrentiebeding en andere bedingen](https://eerstehulpbijvso.nl/hulp/concurrentiebeding-en-andere-bedingen.html), [arbeidsconflict](https://eerstehulpbijvso.nl/hulp/arbeidsconflict.html), [loonvordering](https://eerstehulpbijvso.nl/hulp/loonvordering.html), [ongelijke behandeling](https://eerstehulpbijvso.nl/hulp/ongelijke-behandeling.html)
+- [Hulpmiddelen](https://eerstehulpbijvso.nl/tools/): alle gratis rekentools en checks op een rij
 - [VSO-hulp per stad](https://eerstehulpbijvso.nl/vso-hulp/): lokale hulp in 52 steden in heel Nederland
 - [Voor werkgevers](https://eerstehulpbijvso.nl/voor-werkgevers.html): begeleiding van reorganiserende bedrijven bij VSO-trajecten
 
@@ -22,10 +24,12 @@ Heldere artikelen over de vaststellingsovereenkomst.
 - [Zo houd je je WW veilig bij een VSO](https://eerstehulpbijvso.nl/blog/ww-veilig-bij-vso.html)
 
 ## Hulpmiddelen
+- [Alle hulpmiddelen op een rij](https://eerstehulpbijvso.nl/tools/)
 - [Transitievergoeding berekenen 2026](https://eerstehulpbijvso.nl/tools/transitievergoeding-berekenen.html)
 - [Wat is mijn VSO waard? Vergelijk je aanbod met de wettelijke bodem](https://eerstehulpbijvso.nl/tools/wat-is-mijn-vso-waard.html)
 - [Is jouw VSO WW-veilig? (scan)](https://eerstehulpbijvso.nl/tools/ww-veilig-scan.html)
 - [Hoeveel bedenktijd heb je nog?](https://eerstehulpbijvso.nl/tools/bedenktermijn-berekenen.html)
+- [Word je onder druk gezet om te tekenen? (check)](https://eerstehulpbijvso.nl/tools/mag-mijn-werkgever-druk-zetten.html)
 - [Gratis gids: 10 valkuilen bij een VSO](https://eerstehulpbijvso.nl/10-valkuilen-bij-een-vso.html)
 
 ## Belangrijke feiten (Nederland, 2026)
