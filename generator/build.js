@@ -73,7 +73,12 @@ ${moreLd}
 }
 
 function header(prefix, waText){
-  return `<header id="hdr"><a class="topbar" href="${prefix}10-valkuilen-bij-een-vso.html">📄 <b>Gratis gids:</b> 10 valkuilen bij een VSO →</a><div class="bar">
+  return `<header id="hdr"><a class="topbar" href="${prefix}aanmelden.html" aria-label="Gratis en vrijblijvend een specialist spreken">
+<span class="tb-msg">💶 <b>Gratis</b>, en meestal geen kosten voor jou →</span>
+<span class="tb-msg">🤝 Een specialist die <b>jouw kant</b> kiest →</span>
+<span class="tb-msg">📈 Het eerste bod is <b>zelden het beste</b> →</span>
+<span class="tb-msg">💬 <b>Gratis en vrijblijvend</b>, binnen 15 min antwoord →</span>
+</a><div class="bar">
 <a href="${prefix}index.html" class="brand"><img class="mark" src="${prefix}assets/logo.png" alt="Eerste hulp bij VSO" /><span>Eerste hulp<br><b>bij VSO</b></span></a>
 <nav class="pnav">
 <a href="${prefix}reorganisatie/index.html">Reorganisatie</a>
@@ -485,6 +490,7 @@ function buildHelpCluster(c){
   const waText = `Hoi, ik heb een vraag over ${labelFromSlug(c.slug).toLowerCase()} en wil graag een gratis check.`;
   const howToLd = `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"HowTo",name:"In 3 stappen van probleem naar een goede oplossing",step:[{"@type":"HowToStep",position:1,name:"Deel je situatie",text:"Stuur ons een appje en vertel kort wat er speelt. Binnen 15 minuten heb je een specialist aan de lijn."},{"@type":"HowToStep",position:2,name:"Wij beoordelen je situatie",text:"We beoordelen je situatie en leggen precies uit waar je staat en wat je opties zijn."},{"@type":"HowToStep",position:3,name:"Wij staan naast je",text:"We komen op voor je rechten en, waar dat kan, regelen we dat de kosten door de werkgever worden gedragen."}]})}</script>`;
   const related = [
+    ...(c.extraRelated || []),
     { href:c.funnelHref, label:c.funnelLabel },
     { href:`vaststellingsovereenkomst/index.html`, label:"Alles over de vaststellingsovereenkomst" },
     { href:`tools/mag-mijn-werkgever-druk-zetten.html`, label:"Word je onder druk gezet? Doe de check" }
@@ -611,6 +617,68 @@ ${band(prefix, "Liever direct een <em>antwoord?</em>", "Stuur ons je situatie. B
   + footer(prefix) + waFloat() + SCRIPT;
   write("tools/index.html", html);
   return { url, label:"Hulpmiddelen", rel:"tools/index.html" };
+}
+
+// ---- SOMMATIEBRIEF (bestellen, zonder directe betaling) --------------------
+function buildSommatiebrief(){
+  const prefix = "";
+  const url = `${SITE}/sommatiebrief.html`;
+  const waText = "Hoi, ik wil graag een brief laten opstellen (loon niet betaald of ongelijke behandeling). Kunnen jullie me helpen?";
+  const faq = [
+    { q:"Wat kost het?", a:"Een klein, vast bedrag. Je hoort de exacte prijs vooraf en je betaalt niets totdat je akkoord bent. Gaat het om onbetaald loon, dan proberen we de kosten bovendien op je werkgever te verhalen." },
+    { q:"Wat gebeurt er nadat ik bestel?", a:"We nemen contact met je op, stellen een paar korte vragen en stellen de brief op maat voor je op. Je verstuurt die zelf, of wij doen dat namens jou." },
+    { q:"Werkt zo'n brief echt?", a:"Vaak wel. Een formele brief van een jurist met een duidelijke termijn zet veel werkgevers alsnog aan tot betalen of een oplossing, zonder dat het tot een procedure hoeft te komen." }
+  ];
+  const html = head({
+    crumbs:[{name:"Home",url:SITE+"/"},{name:"Brief laten opstellen",url}],
+    title:"Laat een stevige brief opstellen door een jurist | Eerste hulp bij VSO",
+    desc:"Loon niet betaald of ongelijk behandeld? Laat een jurist een stevige brief voor je opstellen, voor een klein bedrag. Vaak is dat al genoeg. Je betaalt pas na akkoord.",
+    keywords:"sommatiebrief, ingebrekestelling loon, incassobrief werkgever, brief loon niet betaald, juridische brief laten opstellen, stevige brief werkgever",
+    canonical:url, prefix, faq, ogType:"website"
+  })
+  + header(prefix, waText)
+  + `<main><section class="page"><div class="wrap">
+<p class="crumb reveal"><a href="index.html">Home</a> › Brief laten opstellen</p>
+<p class="eyebrow reveal">Voor een klein bedrag · je betaalt pas na akkoord</p>
+<h1 class="title reveal">Vaak is één stevige<br>brief al <em>genoeg</em></h1>
+<p class="lead reveal">Betaalt je werkgever je loon niet of te laat, of word je ongelijk behandeld? Een formele brief van een jurist, met een duidelijke termijn en de juiste onderbouwing, zet vaak alles alsnog in beweging. Wij stellen die brief voor een klein bedrag op maat voor je op.</p>
+</div></section>
+
+<section class="block"><div class="wrap"><h2 class="big reveal">Hoe het <em>werkt</em></h2>
+<div class="grid3">
+<div class="step reveal"><div class="num">01</div><h3>Je vraagt de brief aan</h3><p>Vul hieronder kort in wat er speelt. Je zit nog nergens aan vast en betaalt nu niets.</p></div>
+<div class="step reveal"><div class="num">02</div><h3>Wij stellen 'm op maat op</h3><p>Een jurist schrijft een stevige, juridisch kloppende brief, afgestemd op jouw situatie. De prijs hoor je vooraf.</p></div>
+<div class="step reveal"><div class="num">03</div><h3>De brief gaat de deur uit</h3><p>Je verstuurt de brief zelf, of wij doen dat namens jou. Gaat het om onbetaald loon, dan proberen we de kosten op je werkgever te verhalen.</p></div>
+</div></div></section>
+
+<section class="block" style="padding-top:10px"><div class="wrap">
+<form action="verstuur.php" method="post" enctype="multipart/form-data" class="card reveal">
+<input type="hidden" name="onderwerp" value="Bestelling: brief laten opstellen" />
+<div class="field"><label for="naam">Je naam</label><input id="naam" name="naam" type="text" required autocomplete="name" /></div>
+<div class="calc" style="gap:20px">
+<div class="field"><label for="email">E-mailadres</label><input id="email" name="email" type="email" required autocomplete="email" /></div>
+<div class="field"><label for="telefoon">Telefoonnummer</label><input id="telefoon" name="telefoon" type="tel" required autocomplete="tel" /></div>
+</div>
+<div class="field"><label for="brief_type">Waar gaat je brief over?</label>
+<select id="brief_type" name="brief_type">
+<option value="">Kies wat van toepassing is</option>
+<option>Loon dat niet of te laat is betaald</option>
+<option>Ongelijke behandeling of ongelijk loon</option>
+<option>Een concurrentie- of relatiebeding</option>
+<option>Iets anders</option>
+</select></div>
+<div class="field"><label for="situatie">Beschrijf kort je situatie</label><textarea id="situatie" name="situatie" required placeholder="Bijvoorbeeld: mijn werkgever heeft mijn loon van vorige maand nog niet betaald, ondanks herhaald vragen."></textarea></div>
+<input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" />
+<label class="consent"><input type="checkbox" name="toestemming" required /><span>Ik geef toestemming om mijn gegevens te verwerken en te delen met de specialist die mijn brief opstelt. Ik heb de <a href="privacy.html" style="color:var(--gold-deep)">privacyverklaring</a> gelezen.</span></label>
+<button type="submit" class="btn btn-primary">Vraag de brief aan</button>
+<p class="hint" style="margin-top:16px">Je betaalt niets totdat je de prijs kent en akkoord bent. Liever direct contact? <a href="${waLink(waText)}" style="color:var(--gold-deep)">Stuur ons een WhatsApp</a>.</p>
+</form>
+</div></section>
+${band(prefix, "Liever eerst even <em>overleggen?</em>", "Stuur ons een appje met wat er speelt. We kijken gratis mee en zeggen eerlijk of een brief in jouw geval de beste stap is.", waText)}
+</main>`
+  + footer(prefix) + waFloat() + SCRIPT;
+  write("sommatiebrief.html", html);
+  return { url, label:"Brief laten opstellen", rel:"sommatiebrief.html" };
 }
 
 // ---- KENNISBANK (BLOG) -----------------------------------------------------
@@ -763,8 +831,9 @@ const blogIndexPage = buildBlogIndex();
 const toolsHubPage = buildToolsHub();
 const helpClusterPages = helpClusters.map(buildHelpCluster);
 const helpHubPage = buildHelpHub(helpClusterPages);
+const sommatiebriefPage = buildSommatiebrief();
 
-const reorgScenarioSlugs = ["reorganisatie","boventallig-verklaard","ziek-en-boventallig","onder-druk-getekend","werkgever-dreigt-met-uwv","ontslag-door-ai","na-overname-of-fusie"];
+const reorgScenarioSlugs = ["reorganisatie","boventallig-verklaard","collectief-ontslag","ziek-en-boventallig","onder-druk-getekend","werkgever-dreigt-met-uwv","ontslag-door-ai","na-overname-of-fusie"];
 const reorgScenarioPages = scenarioPages.filter(p => reorgScenarioSlugs.some(s => p.rel.endsWith(`/${s}.html`)));
 
 const pillarReorg = buildPillar({
@@ -826,7 +895,7 @@ const pillarCity = buildPillar({
 const pillars = [pillarReorg, pillarVso, pillarCity];
 
 buildOverview({ companies:companyPages, cities:cityPages, scenarios:scenarioPages, combos:comboPages, articles:articlePages, help:helpClusterPages });
-buildSitemap([...pillars, toolsHubPage, helpHubPage, ...helpClusterPages, blogIndexPage, ...articlePages, ...companyPages, ...cityPages, ...scenarioPages, ...comboPages]);
+buildSitemap([...pillars, toolsHubPage, helpHubPage, ...helpClusterPages, sommatiebriefPage, blogIndexPage, ...articlePages, ...companyPages, ...cityPages, ...scenarioPages, ...comboPages]);
 
 console.log("Gegenereerd:");
 console.log(`  ${pillars.length} pillar-pagina's + tools-hub + arbeidsrecht-hub`);

@@ -29,6 +29,8 @@ $status     = schoon($_POST["vso_status"] ?? "");
 $gezondheid = schoon($_POST["gezondheid"] ?? "");
 $situatie   = trim((string)($_POST["situatie"] ?? ""));
 $akkoord    = isset($_POST["toestemming"]);
+$onderwerp_in = schoon($_POST["onderwerp"] ?? "");   // optioneel label, bv. bij een briefbestelling
+$brief_type   = schoon($_POST["brief_type"] ?? "");  // optioneel: waar de brief over gaat
 
 // Server-side validatie
 $fouten = [];
@@ -81,12 +83,13 @@ if (isset($_FILES["bestand"]) && isset($_FILES["bestand"]["name"]) && is_array($
     }
 }
 
-$onderwerp = "Nieuwe VSO-aanmelding via de website";
+$onderwerp = $onderwerp_in !== "" ? $onderwerp_in : "Nieuwe VSO-aanmelding via de website";
 
-$bericht  = "Nieuwe aanmelding via eerstehulpbijvso.nl\n\n";
+$bericht  = ($onderwerp_in !== "" ? $onderwerp_in : "Nieuwe aanmelding") . " via eerstehulpbijvso.nl\n\n";
 $bericht .= "Naam: " . $naam . "\n";
 $bericht .= "E-mail: " . $email . "\n";
 $bericht .= "Telefoon: " . $telefoon . "\n";
+if ($brief_type !== "") $bericht .= "Onderwerp van de brief: " . $brief_type . "\n";
 $bericht .= "VSO-status: " . ($status !== "" ? $status : "niet opgegeven") . "\n";
 $bericht .= "Ziekte of zwangerschap: " . ($gezondheid !== "" ? $gezondheid : "niet opgegeven") . "\n\n";
 $bericht .= "Situatie:\n" . strip_tags($situatie) . "\n\n";

@@ -126,10 +126,16 @@
   .cta-top{background:var(--ink);color:var(--cream);padding:12px 22px;border-radius:var(--r);font-size:13px;font-weight:500;letter-spacing:.03em;white-space:nowrap;transition:.2s}
   .cta-top:hover{background:var(--gold-deep)}
   header.scrolled{background:rgba(243,236,224,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-  .topbar{display:flex;align-items:center;justify-content:center;gap:7px;background:var(--ink);color:var(--cream);font-size:13px;padding:9px 16px;text-decoration:none;text-align:center;line-height:1.3;transition:.2s}
+  .topbar{position:relative;display:block;min-height:38px;background:var(--ink);color:var(--cream);font-size:13px;text-decoration:none;text-align:center;line-height:1.3;transition:background .2s}
   .topbar b{font-weight:600}
   .topbar:hover{background:var(--gold-deep)}
-  @media(max-width:520px){.topbar{font-size:11.5px;padding:8px 12px}}
+  .topbar .tb-msg{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);padding:0 16px;opacity:0;animation:tbrot 24s infinite}
+  .topbar .tb-msg:nth-child(2){animation-delay:6s}
+  .topbar .tb-msg:nth-child(3){animation-delay:12s}
+  .topbar .tb-msg:nth-child(4){animation-delay:18s}
+  @keyframes tbrot{0%{opacity:0}2%{opacity:1}23%{opacity:1}25%{opacity:0}100%{opacity:0}}
+  @media(max-width:520px){.topbar{font-size:11.5px;min-height:34px}.topbar .tb-msg{padding:0 12px}}
+  @media(prefers-reduced-motion:reduce){.topbar .tb-msg{animation:none}.topbar .tb-msg:first-child{position:relative;top:auto;transform:none;opacity:1;padding:9px 16px}.topbar .tb-msg:not(:first-child){display:none}}
   .menu-btn{display:none}
   .navtoggle{display:none;background:none;border:none;cursor:pointer;padding:8px;flex:none;position:relative;z-index:41}
   .navtoggle span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px;transition:.3s}
@@ -278,7 +284,12 @@
 <div class="float fl4"><span></span></div>
 <div class="float fl5"></div>
 
-<header id="hdr"><a class="topbar" href="10-valkuilen-bij-een-vso.html">📄 <b>Gratis gids:</b> 10 valkuilen bij een VSO →</a><div class="bar">
+<header id="hdr"><a class="topbar" href="aanmelden.html" aria-label="Gratis en vrijblijvend een specialist spreken">
+<span class="tb-msg">💶 <b>Gratis</b>, en meestal geen kosten voor jou →</span>
+<span class="tb-msg">🤝 Een specialist die <b>jouw kant</b> kiest →</span>
+<span class="tb-msg">📈 Het eerste bod is <b>zelden het beste</b> →</span>
+<span class="tb-msg">💬 <b>Gratis en vrijblijvend</b>, binnen 15 min antwoord →</span>
+</a><div class="bar">
 <a href="index.html" class="brand"><img class="mark" src="assets/logo.png" alt="Eerste hulp bij VSO" /><span>Eerste hulp<br><b>bij VSO</b></span></a>
 <nav class="pnav">
 <a href="reorganisatie/index.html">Reorganisatie</a>
@@ -419,7 +430,7 @@
     <div class="wrap">
       <p class="kicker reveal">Gratis hulpmiddelen</p>
       <h2 class="big reveal">Ontdek in twee minuten<br>waar je <em>staat</em>.</h2>
-      <p class="lede reveal" style="max-width:620px">Nog voordat je met ons praat, kun je zelf al drie dingen helder krijgen: waar je financieel recht op hebt, of je uitkering veilig is, en hoeveel bedenktijd je nog hebt. Gratis, en zonder verplichtingen.</p>
+      <p class="lede reveal" style="max-width:640px">Nog voordat je met ons praat, kun je zelf al veel helder krijgen: waar je financieel recht op hebt, of je uitkering veilig is, hoeveel bedenktijd je nog hebt en of je onder druk wordt gezet. Gratis, en zonder verplichtingen.</p>
       <div class="guar" style="margin-top:44px;grid-template-columns:repeat(2,1fr)">
         <a href="tools/transitievergoeding-berekenen.html" class="g reveal">
           <div class="ic">€</div>
@@ -440,6 +451,16 @@
           <div class="ic">⚖</div>
           <h3>Wat is mijn VSO waard?</h3>
           <p>Vergelijk je aangeboden vergoeding met de wettelijke bodem en zie of er meer in zit.</p>
+        </a>
+        <a href="tools/mag-mijn-werkgever-druk-zetten.html" class="g reveal">
+          <div class="ic">!</div>
+          <h3>Word je onder druk gezet?</h3>
+          <p>Vink aan wat je werkgever doet en zie meteen waarom een deadline of tekenbonus je rechten niet verandert.</p>
+        </a>
+        <a href="tools/index.html" class="g reveal">
+          <div class="ic">→</div>
+          <h3>Alle hulpmiddelen</h3>
+          <p>Bekijk alle gratis rekentools en checks bij elkaar, en de gratis gids met de tien valkuilen.</p>
         </a>
       </div>
     </div>
@@ -527,7 +548,7 @@
 </div>
 </div>
 <div class="footcols">
-<div class="footcol"><h4>Jouw situatie</h4><div class="linkgrid solo"><a href="vaststellingsovereenkomst/reorganisatie.html">Reorganisatie</a><a href="vaststellingsovereenkomst/boventallig-verklaard.html">Boventallig verklaard</a><a href="vaststellingsovereenkomst/onder-druk-getekend.html">Onder druk getekend</a><a href="vaststellingsovereenkomst/tijdens-ziekte.html">Tijdens ziekte</a><a href="vaststellingsovereenkomst/ziek-en-boventallig.html">Ziek en boventallig</a><a href="vaststellingsovereenkomst/is-mijn-vso-een-goede-deal.html">Is mijn VSO een goede deal</a><a href="vaststellingsovereenkomst/wat-is-gangbaar-onderhandelen.html">Wat is gangbaar onderhandelen</a><a href="vaststellingsovereenkomst/transitievergoeding-onderhandelen.html">Transitievergoeding onderhandelen</a><a href="vaststellingsovereenkomst/ww-aanvragen-na-vso.html">WW aanvragen na VSO</a><a href="vaststellingsovereenkomst/werkgever-dreigt-met-uwv.html">Werkgever dreigt met uwv</a><a href="vaststellingsovereenkomst/concurrentiebeding.html">Concurrentiebeding</a><a href="vaststellingsovereenkomst/vrijstelling-van-werk.html">Vrijstelling van werk</a><a href="vaststellingsovereenkomst/finale-kwijting.html">Finale kwijting</a><a href="vaststellingsovereenkomst/vso-en-belasting.html">VSO en belasting</a><a class="foot-all" href="vaststellingsovereenkomst/index.html">Alle 25 situaties →</a></div></div>
+<div class="footcol"><h4>Jouw situatie</h4><div class="linkgrid solo"><a href="vaststellingsovereenkomst/reorganisatie.html">Reorganisatie</a><a href="vaststellingsovereenkomst/boventallig-verklaard.html">Boventallig verklaard</a><a href="vaststellingsovereenkomst/onder-druk-getekend.html">Onder druk getekend</a><a href="vaststellingsovereenkomst/tijdens-ziekte.html">Tijdens ziekte</a><a href="vaststellingsovereenkomst/ziek-en-boventallig.html">Ziek en boventallig</a><a href="vaststellingsovereenkomst/is-mijn-vso-een-goede-deal.html">Is mijn VSO een goede deal</a><a href="vaststellingsovereenkomst/wat-is-gangbaar-onderhandelen.html">Wat is gangbaar onderhandelen</a><a href="vaststellingsovereenkomst/transitievergoeding-onderhandelen.html">Transitievergoeding onderhandelen</a><a href="vaststellingsovereenkomst/ww-aanvragen-na-vso.html">WW aanvragen na VSO</a><a href="vaststellingsovereenkomst/werkgever-dreigt-met-uwv.html">Werkgever dreigt met uwv</a><a href="vaststellingsovereenkomst/concurrentiebeding.html">Concurrentiebeding</a><a href="vaststellingsovereenkomst/vrijstelling-van-werk.html">Vrijstelling van werk</a><a href="vaststellingsovereenkomst/finale-kwijting.html">Finale kwijting</a><a href="vaststellingsovereenkomst/vso-en-belasting.html">VSO en belasting</a><a class="foot-all" href="vaststellingsovereenkomst/index.html">Alle 34 situaties →</a></div></div>
 <div class="footcol"><h4>Hulpmiddelen</h4><div class="linkgrid solo"><a href="tools/transitievergoeding-berekenen.html">Transitievergoeding berekenen</a><a href="tools/wat-is-mijn-vso-waard.html">Wat is mijn VSO waard?</a><a href="tools/ww-veilig-scan.html">WW-veilig-scan</a><a href="tools/bedenktermijn-berekenen.html">Bedenktermijn berekenen</a><a href="tools/mag-mijn-werkgever-druk-zetten.html">Word je onder druk gezet?</a><a href="10-valkuilen-bij-een-vso.html">Gratis gids: 10 valkuilen</a><a class="foot-all" href="tools/index.html">Alle hulpmiddelen →</a></div></div>
 <div class="footcol"><h4>Hulp per stad</h4><div class="linkgrid solo"><a href="vso-hulp/amsterdam.html">Amsterdam</a><a href="vso-hulp/rotterdam.html">Rotterdam</a><a href="vso-hulp/den-haag.html">Den Haag</a><a href="vso-hulp/utrecht.html">Utrecht</a><a href="vso-hulp/eindhoven.html">Eindhoven</a><a href="vso-hulp/veldhoven.html">Veldhoven</a><a href="vso-hulp/amersfoort.html">Amersfoort</a><a href="vso-hulp/arnhem.html">Arnhem</a><a href="vso-hulp/nijmegen.html">Nijmegen</a><a href="vso-hulp/tilburg.html">Tilburg</a><a href="vso-hulp/breda.html">Breda</a><a href="vso-hulp/den-bosch.html">'s-Hertogenbosch</a><a href="vso-hulp/groningen.html">Groningen</a><a href="vso-hulp/zwolle.html">Zwolle</a><a href="vso-hulp/enschede.html">Enschede</a><a class="foot-all" href="vso-hulp/index.html">Alle 52 steden →</a></div></div>
 <div class="footcol"><h4>Ontslag per bedrijf</h4><div class="linkgrid solo"><a href="reorganisatie/vaststellingsovereenkomst-heineken.html">Heineken</a><a href="reorganisatie/vaststellingsovereenkomst-asml.html">ASML</a><a href="reorganisatie/vaststellingsovereenkomst-abn-amro.html">ABN AMRO</a><a href="reorganisatie/vaststellingsovereenkomst-ing.html">ING</a><a href="reorganisatie/vaststellingsovereenkomst-de-volksbank.html">de Volksbank (ASN, SNS, RegioBank)</a><a href="reorganisatie/vaststellingsovereenkomst-philips.html">Philips</a><a href="reorganisatie/vaststellingsovereenkomst-kpn.html">KPN</a><a href="reorganisatie/vaststellingsovereenkomst-rabobank.html">Rabobank</a><a href="reorganisatie/vaststellingsovereenkomst-shell.html">Shell</a><a href="reorganisatie/vaststellingsovereenkomst-achmea.html">Achmea</a><a href="reorganisatie/vaststellingsovereenkomst-klm.html">KLM</a><a href="reorganisatie/vaststellingsovereenkomst-ns.html">NS</a><a href="reorganisatie/vaststellingsovereenkomst-unilever.html">Unilever</a><a href="reorganisatie/vaststellingsovereenkomst-capgemini.html">Capgemini</a><a href="reorganisatie/vaststellingsovereenkomst-booking-com.html">Booking.com</a><a class="foot-all" href="reorganisatie/index.html">Alle 128 bedrijven →</a></div></div>
