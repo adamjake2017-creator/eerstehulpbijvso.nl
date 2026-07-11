@@ -110,7 +110,8 @@ const FOOTER_TOOLS = [
   { href:"tools/ww-veilig-scan.html", label:"WW-veilig-scan" },
   { href:"tools/bedenktermijn-berekenen.html", label:"Bedenktermijn berekenen" },
   { href:"tools/mag-mijn-werkgever-druk-zetten.html", label:"Word je onder druk gezet?" },
-  { href:"10-valkuilen-bij-een-vso.html", label:"Gratis gids: 10 valkuilen" }
+  { href:"10-valkuilen-bij-een-vso.html", label:"Gratis gids: 10 valkuilen" },
+  { href:"hulp/gevonden-worden-op-linkedin.html", label:"Gevonden worden op LinkedIn" }
 ];
 const coBySlug = Object.fromEntries(companies.map(c => [c.slug, c]));
 const scenBySlug = Object.fromEntries(scenarios.map(s => [s.slug, s]));
