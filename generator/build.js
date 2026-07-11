@@ -147,7 +147,7 @@ function footer(prefix, note, wrapClass){
 <a href="${prefix}vso-hulp/index.html">Steden</a>
 <a href="${prefix}overzicht.html">Alles</a>
 <a href="${prefix}blog/index.html">Kennisbank</a>
-<a href="${prefix}voor-werkgevers.html">Voor werkgevers</a>
+<a href="${prefix}voor-werkgevers.html">Voor werkgevers</a><a href="${prefix}stage.html">Stage</a>
 <a href="${waLink("Hoi, ik heb een vaststellingsovereenkomst gekregen en wil graag een gratis check.")}">WhatsApp</a>
 <a href="mailto:hello@eerstehulpbijvso.nl">E-mail</a>
 <a href="https://www.linkedin.com/company/eerstehulpbijvso/" target="_blank" rel="noopener">LinkedIn</a>
