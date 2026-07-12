@@ -109,7 +109,14 @@ function header(prefix, waText){
 <a href="${prefix}tools/wat-is-mijn-vso-waard.html">Wat is mijn VSO waard?</a>
 <a href="${prefix}tools/index.html">Alle hulpmiddelen &rarr;</a>
 </div></div>
-<a href="${prefix}blog/index.html">Kennisbank</a>
+<div class="ddwrap"><a href="${prefix}hulp/index.html" class="ddtrigger">Kennisbank</a><div class="ddmenu">
+<a href="${prefix}hulp/ontslaggronden.html">De 9 ontslaggronden</a>
+<a href="${prefix}hulp/billijke-vergoeding.html">Billijke vergoeding</a>
+<a href="${prefix}hulp/ontslag-op-staande-voet.html">Ontslag op staande voet</a>
+<a href="${prefix}hulp/onterecht-ontslag.html">Onterecht ontslagen?</a>
+<a href="${prefix}blog/index.html">Blog &amp; actueel</a>
+<a href="${prefix}hulp/index.html">Alle artikelen &rarr;</a>
+</div></div>
 <a href="${prefix}aanmelden.html" class="hl">Aanmelden</a>
 </nav>
 <a href="${waLink(waText)}" class="cta-top">Gratis check →</a>
@@ -154,11 +161,11 @@ function footer(prefix, note, wrapClass){
 <div class="flinks">
 <a href="${prefix}reorganisatie/index.html">Reorganisatie</a>
 <a href="${prefix}vaststellingsovereenkomst/index.html">Situaties</a><a href="${prefix}wat-is-een-vaststellingsovereenkomst.html">Wat is een VSO?</a>
-<a href="${prefix}hulp/index.html">Arbeidsrecht</a>
+<a href="${prefix}hulp/index.html">Kennisbank</a>
 <a href="${prefix}tools/index.html">Hulpmiddelen</a>
 <a href="${prefix}vso-hulp/index.html">Steden</a>
 <a href="${prefix}overzicht.html">Alles</a><a href="${prefix}transitievergoeding.html">Transitievergoeding</a>
-<a href="${prefix}blog/index.html">Kennisbank</a>
+<a href="${prefix}blog/index.html">Blog</a>
 <a href="${prefix}voor-werkgevers.html">Voor werkgevers</a><a href="${prefix}werken-bij.html">Werken bij ons</a>
 <a href="${waLink("Hoi, ik heb een vaststellingsovereenkomst gekregen en wil graag een gratis check.")}">WhatsApp</a>
 <a href="mailto:hello@eerstehulpbijvso.nl">E-mail</a>
@@ -531,7 +538,7 @@ function buildHelpCluster(c){
   })
   + header(prefix, waText)
   + `<main><section class="page"><div class="wrap">
-<p class="crumb reveal"><a href="${prefix}index.html">Home</a> › <a href="${prefix}hulp/index.html">Arbeidsrecht</a> › ${labelFromSlug(c.slug)}</p>
+<p class="crumb reveal"><a href="${prefix}index.html">Home</a> › <a href="${prefix}hulp/index.html">Kennisbank</a> › ${labelFromSlug(c.slug)}</p>
 <p class="eyebrow reveal">${c.eyebrow}</p>
 <h1 class="title reveal">${c.h1}</h1>
 <p class="lead reveal">${c.lead}</p>
@@ -736,7 +743,7 @@ function buildArticle(a){
   })
   + header(prefix, waText)
   + `<main><section class="page"><div class="wrap">
-<p class="crumb reveal"><a href="${prefix}index.html">Home</a> › <a href="${prefix}blog/index.html">Kennisbank</a> › ${a.cat}</p>
+<p class="crumb reveal"><a href="${prefix}index.html">Home</a> › <a href="${prefix}blog/index.html">Blog</a> › ${a.cat}</p>
 <p class="eyebrow reveal">${a.cat} · ${fmtDate(a.date)} · ${a.read} min lezen</p>
 <h1 class="title reveal">${a.h1}</h1>
 <p class="lead reveal">${a.intro}</p>
