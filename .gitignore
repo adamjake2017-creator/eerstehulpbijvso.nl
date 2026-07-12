@@ -14,3 +14,6 @@ ARCHITECTUUR.md
 vso-uploads/*
 !vso-uploads/.htaccess
 !vso-uploads/index.html
+
+# runtime feedback-log (bevat vrije tekst van bezoekers, niet in git)
+feedback/feedback-log.csv

@@ -93,7 +93,7 @@ function header(prefix, waText){
 <a href="${prefix}index.html" class="brand"><img class="mark" src="${prefix}assets/logo.png" alt="Eerste hulp bij VSO" /><span>Eerste hulp<br><b>bij VSO</b></span></a>
 <nav class="pnav">
 <a href="${prefix}reorganisatie/index.html">Reorganisatie</a>
-<a href="${prefix}vaststellingsovereenkomst/index.html">Situaties</a>
+<a href="${prefix}vaststellingsovereenkomst/index.html">Situaties</a><a href="${prefix}wat-is-een-vaststellingsovereenkomst.html">Wat is een VSO?</a>
 <a href="${prefix}hulp/index.html">Arbeidsrecht</a>
 <a href="${prefix}tools/index.html">Hulpmiddelen</a>
 <a href="${prefix}vso-hulp/index.html">Steden</a>
@@ -141,7 +141,7 @@ function footer(prefix, note, wrapClass){
 <p class="foot-intro">Van paniek naar een goede, veilige deal, met een specialist die jouw kant kiest. Meestal zonder kosten voor jou.</p>
 <div class="flinks">
 <a href="${prefix}reorganisatie/index.html">Reorganisatie</a>
-<a href="${prefix}vaststellingsovereenkomst/index.html">Situaties</a>
+<a href="${prefix}vaststellingsovereenkomst/index.html">Situaties</a><a href="${prefix}wat-is-een-vaststellingsovereenkomst.html">Wat is een VSO?</a>
 <a href="${prefix}hulp/index.html">Arbeidsrecht</a>
 <a href="${prefix}tools/index.html">Hulpmiddelen</a>
 <a href="${prefix}vso-hulp/index.html">Steden</a>
