@@ -187,9 +187,15 @@ footer .flinks a:hover{color:var(--gold-deep)}
 /* Nav-dropdowns (licht, desktop) */
 .ddwrap{position:relative;display:inline-flex}
 .ddtrigger::after{content:"\25BE";font-size:9px;margin-left:5px;opacity:.55}
-.ddmenu{position:absolute;top:100%;left:0;min-width:236px;background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:8px;display:none;flex-direction:column;gap:2px;z-index:60}
-.ddwrap:hover .ddmenu,.ddwrap:focus-within .ddmenu{display:flex}
+.ddmenu{position:absolute;top:100%;left:0;min-width:236px;background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:8px;display:flex;flex-direction:column;gap:2px;z-index:60;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .16s ease,transform .16s ease,visibility 0s .16s}
+.ddwrap:hover .ddmenu,.ddwrap:focus-within .ddmenu{opacity:1;visibility:visible;transform:none;transition:opacity .16s ease,transform .16s ease}
 nav.pnav .ddmenu a{padding:9px 12px;border-radius:9px;font-size:13px;line-height:1.3;color:var(--ink-soft);white-space:nowrap;background:none}
 nav.pnav .ddmenu a:hover{background:var(--cream);color:var(--ink)}
 .mobilemenu .ddtrigger::after{display:none}
 
+/* subtiele fade op feedback-widget state-changes */
+@keyframes ehvfade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.ehv-fb .fb-more:not([hidden]),.ehv-fb .fb-thanks:not([hidden]){animation:ehvfade .22s ease}
+
+/* toegankelijkheid: respecteer prefers-reduced-motion overal */
+@media(prefers-reduced-motion:reduce){*,::before,::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
