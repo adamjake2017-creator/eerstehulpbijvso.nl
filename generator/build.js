@@ -95,7 +95,6 @@ function header(prefix, waText){
 <a href="${prefix}wat-is-een-vaststellingsovereenkomst.html">Wat is een VSO?</a>
 <a href="${prefix}transitievergoeding.html">Transitievergoeding</a>
 <a href="${prefix}vaststellingsovereenkomst/index.html">Situaties</a>
-<a href="${prefix}vso-hulp/index.html">Steden</a>
 <a href="${prefix}tools/index.html">Hulpmiddelen</a>
 <a href="${prefix}blog/index.html">Kennisbank</a>
 <a href="${prefix}aanmelden.html" class="hl">Aanmelden</a>
