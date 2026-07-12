@@ -92,11 +92,11 @@ function header(prefix, waText){
 </a><div class="bar">
 <a href="${prefix}index.html" class="brand"><img class="mark" src="${prefix}assets/logo.png" alt="Eerste hulp bij VSO" /><span>Eerste hulp<br><b>bij VSO</b></span></a>
 <nav class="pnav">
-<a href="${prefix}reorganisatie/index.html">Reorganisatie</a>
-<a href="${prefix}vaststellingsovereenkomst/index.html">Situaties</a><a href="${prefix}wat-is-een-vaststellingsovereenkomst.html">Wat is een VSO?</a>
-<a href="${prefix}hulp/index.html">Arbeidsrecht</a>
-<a href="${prefix}tools/index.html">Hulpmiddelen</a>
+<a href="${prefix}wat-is-een-vaststellingsovereenkomst.html">Wat is een VSO?</a>
+<a href="${prefix}transitievergoeding.html">Transitievergoeding</a>
+<a href="${prefix}vaststellingsovereenkomst/index.html">Situaties</a>
 <a href="${prefix}vso-hulp/index.html">Steden</a>
+<a href="${prefix}tools/index.html">Hulpmiddelen</a>
 <a href="${prefix}blog/index.html">Kennisbank</a>
 <a href="${prefix}aanmelden.html" class="hl">Aanmelden</a>
 </nav>
@@ -145,7 +145,7 @@ function footer(prefix, note, wrapClass){
 <a href="${prefix}hulp/index.html">Arbeidsrecht</a>
 <a href="${prefix}tools/index.html">Hulpmiddelen</a>
 <a href="${prefix}vso-hulp/index.html">Steden</a>
-<a href="${prefix}overzicht.html">Alles</a>
+<a href="${prefix}overzicht.html">Alles</a><a href="${prefix}transitievergoeding.html">Transitievergoeding</a>
 <a href="${prefix}blog/index.html">Kennisbank</a>
 <a href="${prefix}voor-werkgevers.html">Voor werkgevers</a><a href="${prefix}werken-bij.html">Werken bij ons</a>
 <a href="${waLink("Hoi, ik heb een vaststellingsovereenkomst gekregen en wil graag een gratis check.")}">WhatsApp</a>
