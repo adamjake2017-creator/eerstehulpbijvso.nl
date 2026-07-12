@@ -15,7 +15,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:title" content="Vaststellingsovereenkomst Belastingdienst Den Haag | Gratis" /><meta property="og:description" content="Werk je bij Belastingdienst in Den Haag en kreeg je een VSO? Teken niets. Binnen 15 minuten een specialist die je WW veiligstelt en een betere deal onderhandelt." />
 <meta property="og:url" content="https://eerstehulpbijvso.nl/reorganisatie/vso-belastingdienst-in-den-haag.html" />
 <link rel="icon" type="image/png" href="../assets/favicon.png" />
-<link rel="stylesheet" href="../assets/style.css?v=ab17f1c0" />
+<link rel="stylesheet" href="../assets/style.css?v=83d41c62" />
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","@id":"https://eerstehulpbijvso.nl/#org","name":"Eerste hulp bij VSO","url":"https://eerstehulpbijvso.nl/","logo":"https://eerstehulpbijvso.nl/assets/logo.png","image":"https://eerstehulpbijvso.nl/assets/logo.png","address":{"@type":"PostalAddress","streetAddress":"Vlierweg 12","postalCode":"1032 LG","addressLocality":"Amsterdam","addressCountry":"NL"},"description":"Platform dat werknemers met een vaststellingsovereenkomst binnen 15 minuten koppelt aan een arbeidsrechtspecialist voor een betere, WW-veilige deal.","areaServed":"NL","availableLanguage":"nl","telephone":"+31645733083","priceRange":"Gratis check, kosten meestal vergoed door werkgever","sameAs":["https://www.linkedin.com/company/eerstehulpbijvso/"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://eerstehulpbijvso.nl/"},{"@type":"ListItem","position":2,"name":"Reorganisatie","item":"https://eerstehulpbijvso.nl/reorganisatie/"},{"@type":"ListItem","position":3,"name":"Belastingdienst in Den Haag","item":"https://eerstehulpbijvso.nl/reorganisatie/vso-belastingdienst-in-den-haag.html"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Ik werk bij Belastingdienst in Den Haag, kan ik snel hulp krijgen?","acceptedAnswer":{"@type":"Answer","text":"Ja, binnen 15 minuten heb je een specialist aan de lijn die zowel je werkgever als de regionale arbeidsmarkt kent."}},{"@type":"Question","name":"Behoud ik mijn WW?","acceptedAnswer":{"@type":"Answer","text":"Als de overeenkomst neutraal is opgesteld en het initiatief bij de werkgever ligt, blijft je WW in de regel veilig. Wij controleren dat vóór je tekent."}}]}</script>
@@ -34,8 +34,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <nav class="pnav">
 <a href="../wat-is-een-vaststellingsovereenkomst.html">Wat is een VSO?</a>
 <a href="../transitievergoeding.html">Transitievergoeding</a>
-<a href="../vaststellingsovereenkomst/index.html">Situaties</a>
-<a href="../tools/index.html">Hulpmiddelen</a>
+<div class="ddwrap"><a href="../vaststellingsovereenkomst/index.html" class="ddtrigger">Situaties</a><div class="ddmenu">
+<a href="../vaststellingsovereenkomst/reorganisatie.html">Reorganisatie</a>
+<a href="../vaststellingsovereenkomst/onder-druk-getekend.html">Onder druk getekend</a>
+<a href="../vaststellingsovereenkomst/tijdens-ziekte.html">Bij ziekte</a>
+<a href="../vaststellingsovereenkomst/ww-uitkering-behouden.html">WW behouden</a>
+<a href="../vaststellingsovereenkomst/transitievergoeding-onderhandelen.html">Vergoeding onderhandelen</a>
+<a href="../vaststellingsovereenkomst/index.html">Alle situaties &rarr;</a>
+</div></div>
+<div class="ddwrap"><a href="../tools/index.html" class="ddtrigger">Hulpmiddelen</a><div class="ddmenu">
+<a href="../tools/transitievergoeding-berekenen.html">Transitievergoeding berekenen</a>
+<a href="../tools/ww-veilig-scan.html">WW-veilig-scan</a>
+<a href="../tools/bedenktermijn-berekenen.html">Bedenktermijn berekenen</a>
+<a href="../tools/wat-is-mijn-vso-waard.html">Wat is mijn VSO waard?</a>
+<a href="../tools/index.html">Alle hulpmiddelen &rarr;</a>
+</div></div>
 <a href="../blog/index.html">Kennisbank</a>
 <a href="../aanmelden.html" class="hl">Aanmelden</a>
 </nav>
@@ -93,5 +106,5 @@ const hdr=document.getElementById('hdr');addEventListener('scroll',()=>hdr.class
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:0,rootMargin:"0px 0px -40px 0px"});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 document.getElementById('yr').textContent=new Date().getFullYear();
-(function(){var t=document.querySelector('.navtoggle');if(!t)return;var m=document.createElement('div');m.className='mobilemenu';document.querySelectorAll('.pnav a, nav.pills a').forEach(function(a){m.appendChild(a.cloneNode(true))});var c=document.querySelector('.cta-top');if(c){var cc=c.cloneNode(true);cc.classList.remove('cta-top');cc.classList.add('btn-wa');m.appendChild(cc)}document.body.appendChild(m);function cl(){m.classList.remove('open');document.body.classList.remove('menu-open');t.classList.remove('on')}t.addEventListener('click',function(){var o=m.classList.toggle('open');document.body.classList.toggle('menu-open',o);t.classList.toggle('on',o)});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',cl)})})();
+(function(){var t=document.querySelector('.navtoggle');if(!t)return;var m=document.createElement('div');m.className='mobilemenu';document.querySelectorAll('.pnav > a, .pnav > .ddwrap > a, nav.pills a').forEach(function(a){m.appendChild(a.cloneNode(true))});var c=document.querySelector('.cta-top');if(c){var cc=c.cloneNode(true);cc.classList.remove('cta-top');cc.classList.add('btn-wa');m.appendChild(cc)}document.body.appendChild(m);function cl(){m.classList.remove('open');document.body.classList.remove('menu-open');t.classList.remove('on')}t.addEventListener('click',function(){var o=m.classList.toggle('open');document.body.classList.toggle('menu-open',o);t.classList.toggle('on',o)});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',cl)})})();
 </script></body></html>

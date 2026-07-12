@@ -136,6 +136,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   nav.pills a:hover,nav.pnav a:hover{background:#fff;color:var(--ink)}
   nav.pills a.hl,nav.pnav a.hl{background:var(--gold);color:#fff}
   nav.pills a.hl:hover,nav.pnav a.hl:hover{background:var(--gold-deep);color:#fff}
+
+/* Nav-dropdowns (licht, desktop) */
+.ddwrap{position:relative;display:inline-flex}
+.ddtrigger::after{content:"\25BE";font-size:9px;margin-left:5px;opacity:.55}
+.ddmenu{position:absolute;top:100%;left:0;min-width:236px;background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:8px;display:none;flex-direction:column;gap:2px;z-index:60}
+.ddwrap:hover .ddmenu,.ddwrap:focus-within .ddmenu{display:flex}
+nav.pnav .ddmenu a{padding:9px 12px;border-radius:9px;font-size:13px;line-height:1.3;color:var(--ink-soft);white-space:nowrap;background:none}
+nav.pnav .ddmenu a:hover{background:var(--cream);color:var(--ink)}
+.mobilemenu .ddtrigger::after{display:none}
+
   .cta-top{background:var(--ink);color:var(--cream);padding:12px 22px;border-radius:var(--r);font-size:13px;font-weight:500;letter-spacing:.03em;white-space:nowrap;transition:.2s}
   .cta-top:hover{background:var(--gold-deep)}
   header.scrolled{background:rgba(243,236,224,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
@@ -313,8 +323,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <nav class="pnav">
 <a href="wat-is-een-vaststellingsovereenkomst.html">Wat is een VSO?</a>
 <a href="transitievergoeding.html">Transitievergoeding</a>
-<a href="vaststellingsovereenkomst/index.html">Situaties</a>
-<a href="tools/index.html">Hulpmiddelen</a>
+<div class="ddwrap"><a href="vaststellingsovereenkomst/index.html" class="ddtrigger">Situaties</a><div class="ddmenu">
+<a href="vaststellingsovereenkomst/reorganisatie.html">Reorganisatie</a>
+<a href="vaststellingsovereenkomst/onder-druk-getekend.html">Onder druk getekend</a>
+<a href="vaststellingsovereenkomst/tijdens-ziekte.html">Bij ziekte</a>
+<a href="vaststellingsovereenkomst/ww-uitkering-behouden.html">WW behouden</a>
+<a href="vaststellingsovereenkomst/transitievergoeding-onderhandelen.html">Vergoeding onderhandelen</a>
+<a href="vaststellingsovereenkomst/index.html">Alle situaties &rarr;</a>
+</div></div>
+<div class="ddwrap"><a href="tools/index.html" class="ddtrigger">Hulpmiddelen</a><div class="ddmenu">
+<a href="tools/transitievergoeding-berekenen.html">Transitievergoeding berekenen</a>
+<a href="tools/ww-veilig-scan.html">WW-veilig-scan</a>
+<a href="tools/bedenktermijn-berekenen.html">Bedenktermijn berekenen</a>
+<a href="tools/wat-is-mijn-vso-waard.html">Wat is mijn VSO waard?</a>
+<a href="tools/index.html">Alle hulpmiddelen &rarr;</a>
+</div></div>
 <a href="blog/index.html">Kennisbank</a>
 <a href="aanmelden.html" class="hl">Aanmelden</a>
 </nav>
@@ -605,7 +628,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 
   document.getElementById('yr').textContent=new Date().getFullYear();
-  (function(){var t=document.querySelector('.navtoggle');if(!t)return;var m=document.createElement('div');m.className='mobilemenu';document.querySelectorAll('.pnav a, nav.pills a').forEach(function(a){m.appendChild(a.cloneNode(true))});var c=document.querySelector('.cta-top');if(c){var cc=c.cloneNode(true);cc.classList.remove('cta-top');cc.classList.add('btn-wa');m.appendChild(cc)}document.body.appendChild(m);function cl(){m.classList.remove('open');document.body.classList.remove('menu-open');t.classList.remove('on')}t.addEventListener('click',function(){var o=m.classList.toggle('open');document.body.classList.toggle('menu-open',o);t.classList.toggle('on',o)});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',cl)})})();
+  (function(){var t=document.querySelector('.navtoggle');if(!t)return;var m=document.createElement('div');m.className='mobilemenu';document.querySelectorAll('.pnav > a, .pnav > .ddwrap > a, nav.pills a').forEach(function(a){m.appendChild(a.cloneNode(true))});var c=document.querySelector('.cta-top');if(c){var cc=c.cloneNode(true);cc.classList.remove('cta-top');cc.classList.add('btn-wa');m.appendChild(cc)}document.body.appendChild(m);function cl(){m.classList.remove('open');document.body.classList.remove('menu-open');t.classList.remove('on')}t.addEventListener('click',function(){var o=m.classList.toggle('open');document.body.classList.toggle('menu-open',o);t.classList.toggle('on',o)});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',cl)})})();
 </script>
 </body>
 </html>

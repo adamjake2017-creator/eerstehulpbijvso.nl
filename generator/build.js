@@ -94,8 +94,21 @@ function header(prefix, waText){
 <nav class="pnav">
 <a href="${prefix}wat-is-een-vaststellingsovereenkomst.html">Wat is een VSO?</a>
 <a href="${prefix}transitievergoeding.html">Transitievergoeding</a>
-<a href="${prefix}vaststellingsovereenkomst/index.html">Situaties</a>
-<a href="${prefix}tools/index.html">Hulpmiddelen</a>
+<div class="ddwrap"><a href="${prefix}vaststellingsovereenkomst/index.html" class="ddtrigger">Situaties</a><div class="ddmenu">
+<a href="${prefix}vaststellingsovereenkomst/reorganisatie.html">Reorganisatie</a>
+<a href="${prefix}vaststellingsovereenkomst/onder-druk-getekend.html">Onder druk getekend</a>
+<a href="${prefix}vaststellingsovereenkomst/tijdens-ziekte.html">Bij ziekte</a>
+<a href="${prefix}vaststellingsovereenkomst/ww-uitkering-behouden.html">WW behouden</a>
+<a href="${prefix}vaststellingsovereenkomst/transitievergoeding-onderhandelen.html">Vergoeding onderhandelen</a>
+<a href="${prefix}vaststellingsovereenkomst/index.html">Alle situaties &rarr;</a>
+</div></div>
+<div class="ddwrap"><a href="${prefix}tools/index.html" class="ddtrigger">Hulpmiddelen</a><div class="ddmenu">
+<a href="${prefix}tools/transitievergoeding-berekenen.html">Transitievergoeding berekenen</a>
+<a href="${prefix}tools/ww-veilig-scan.html">WW-veilig-scan</a>
+<a href="${prefix}tools/bedenktermijn-berekenen.html">Bedenktermijn berekenen</a>
+<a href="${prefix}tools/wat-is-mijn-vso-waard.html">Wat is mijn VSO waard?</a>
+<a href="${prefix}tools/index.html">Alle hulpmiddelen &rarr;</a>
+</div></div>
 <a href="${prefix}blog/index.html">Kennisbank</a>
 <a href="${prefix}aanmelden.html" class="hl">Aanmelden</a>
 </nav>
@@ -171,7 +184,7 @@ const hdr=document.getElementById('hdr');addEventListener('scroll',()=>hdr.class
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:0,rootMargin:"0px 0px -40px 0px"});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 document.getElementById('yr').textContent=new Date().getFullYear();
-(function(){var t=document.querySelector('.navtoggle');if(!t)return;var m=document.createElement('div');m.className='mobilemenu';document.querySelectorAll('.pnav a, nav.pills a').forEach(function(a){m.appendChild(a.cloneNode(true))});var c=document.querySelector('.cta-top');if(c){var cc=c.cloneNode(true);cc.classList.remove('cta-top');cc.classList.add('btn-wa');m.appendChild(cc)}document.body.appendChild(m);function cl(){m.classList.remove('open');document.body.classList.remove('menu-open');t.classList.remove('on')}t.addEventListener('click',function(){var o=m.classList.toggle('open');document.body.classList.toggle('menu-open',o);t.classList.toggle('on',o)});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',cl)})})();
+(function(){var t=document.querySelector('.navtoggle');if(!t)return;var m=document.createElement('div');m.className='mobilemenu';document.querySelectorAll('.pnav > a, .pnav > .ddwrap > a, nav.pills a').forEach(function(a){m.appendChild(a.cloneNode(true))});var c=document.querySelector('.cta-top');if(c){var cc=c.cloneNode(true);cc.classList.remove('cta-top');cc.classList.add('btn-wa');m.appendChild(cc)}document.body.appendChild(m);function cl(){m.classList.remove('open');document.body.classList.remove('menu-open');t.classList.remove('on')}t.addEventListener('click',function(){var o=m.classList.toggle('open');document.body.classList.toggle('menu-open',o);t.classList.toggle('on',o)});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',cl)})})();
 </script></body></html>`;
 
 const steps = (a,b,c) => `<section class="block"><div class="wrap"><h2 class="big reveal">Zo helpen we je, <em>vandaag nog</em></h2><div class="grid3">
