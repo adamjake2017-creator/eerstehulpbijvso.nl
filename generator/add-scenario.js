@@ -490,12 +490,30 @@ function addToSitemap(slug) {
   return "toegevoegd";
 }
 
+// ---- Overzicht-integratie ---------------------------------------------------
+const OVERZICHT = path.join(ROOT, "overzicht.html");
+function addToOverzicht(slug, title) {
+  if (!fs.existsSync(OVERZICHT)) return "geen overzicht";
+  let s = fs.readFileSync(OVERZICHT, "utf8");
+  if (s.includes(`"${slug}.html"`)) return "al aanwezig";
+  const marker = 'Veelgestelde vragen &amp; begrippen</h2><div class="prose reveal"><ul>';
+  const idx = s.indexOf(marker);
+  if (idx === -1) return "sectie ontbreekt";
+  const ulEnd = s.indexOf("</ul>", idx);
+  if (ulEnd === -1) return "anker ontbreekt";
+  const li = `<li><a href="${slug}.html" style="color:var(--gold-deep)">${esc(title)}</a></li>`;
+  s = s.slice(0, ulEnd) + li + s.slice(ulEnd);
+  fs.writeFileSync(OVERZICHT, s);
+  return "toegevoegd";
+}
+
 // ---- Uitvoeren --------------------------------------------------------------
 let n = 0;
 for (const c of SCENARIOS) {
   fs.writeFileSync(path.join(ROOT, `${c.slug}.html`), render(c));
   const sm = addToSitemap(c.slug);
-  console.log(`  ${c.slug}.html geschreven  |  sitemap: ${sm}`);
+  const ov = addToOverzicht(c.slug, c.title);
+  console.log(`  ${c.slug}.html geschreven  |  sitemap: ${sm}  |  overzicht: ${ov}`);
   n++;
 }
 console.log(`Klaar: ${n} pagina('s). Tip: link ze ook vanaf een verwante pagina (bijv. transitievergoeding.html) voor interne linkkracht.`);
