@@ -261,6 +261,91 @@ const SCENARIOS = [
       { href: "einde-ww-uitkering-wat-nu.html", label: "Einde WW-uitkering: wat nu?" },
       { href: "vaststellingsovereenkomst/ww-uitkering-behouden.html", label: "Je WW behouden na een VSO" }
     ]
+  },
+  {
+    slug: "onverwijld-betekenis",
+    title: "Onverwijld: wat betekent dat juridisch?",
+    desc: "Wat betekent onverwijld in het arbeidsrecht? Het betekent zonder uitstel, direct. Vooral bij ontslag op staande voet is onverwijld cruciaal. Zo zit het.",
+    keywords: "onverwijld betekenis, wat betekent onverwijld, onverwijld ontslag op staande voet, onverwijld mededelen, onverwijld juridisch, hoe snel is onverwijld",
+    eyebrow: "Begrip · arbeidsrecht",
+    h1: "Wat betekent <em>onverwijld?</em>",
+    lead: "Onverwijld betekent: zonder uitstel, direct. Je komt het woord vooral tegen bij ontslag op staande voet, en juist daar is het bepalend of een ontslag geldig is. Zo zit het.",
+    sections: [
+      { h: "Onverwijld = <em>zonder uitstel</em>", html: "<p>Onverwijld betekent letterlijk \"zonder te wachten\": meteen, direct, zonder onnodig uitstel. In het dagelijks taalgebruik zeg je \"direct\" of \"per omgaande\". In de wet heeft het woord een scherpe lading, want het bepaalt of iemand op tijd heeft gehandeld.</p>" },
+      { h: "Onverwijld bij <em>ontslag op staande voet</em>", html: "<p>Het woord is het belangrijkst bij ontslag op staande voet. De wet (artikel 7:677 BW) stelt twee onverwijld-eisen: (1) de werkgever moet <strong>onverwijld opzeggen</strong> nadat de dringende reden zich voordoet, en (2) hij moet de reden <strong>onverwijld meedelen</strong> aan de werknemer. Voldoet het ontslag niet aan beide, dan is het vaak niet rechtsgeldig. Dezelfde eis geldt trouwens voor jou: wil je zelf op staande voet ontslag nemen wegens een dringende reden, dan moet ook dat onverwijld.</p>" },
+      { h: "Hoe snel is <em>onverwijld?</em>", html: "<p>Er staat geen vast aantal dagen in de wet. Het gaat om \"voortvarend handelen\". Een werkgever mag kort de tijd nemen om de feiten te onderzoeken, juridisch advies in te winnen of hoor en wederhoor toe te passen, mits hij dan vlot doorpakt. Loopt er te veel tijd overheen zonder goede reden, dan is niet meer aan de onverwijld-eis voldaan en sneuvelt het ontslag vaak bij de rechter.</p>" },
+      { h: "Wat betekent dit <em>voor jou?</em>", html: "<p>Ben je op staande voet ontslagen? Check dan of de werkgever wel onverwijld heeft gehandeld en de reden direct heeft genoemd. Twijfel je, teken dan niets en laat je situatie beoordelen. Een ontslag op staande voet raakt je WW hard, dus het is het waard om goed te laten controleren of het klopt.</p>" }
+    ],
+    faq: [
+      { q: "Wat betekent onverwijld?", a: "Onverwijld betekent zonder uitstel, direct, zonder onnodig te wachten. In het arbeidsrecht bepaalt het of iemand op tijd heeft gehandeld, vooral bij ontslag op staande voet." },
+      { q: "Waarom is onverwijld belangrijk bij ontslag op staande voet?", a: "De wet eist dat de werkgever onverwijld opzegt na de dringende reden en de reden onverwijld meedeelt. Gebeurt dat niet, dan is het ontslag op staande voet vaak niet rechtsgeldig." },
+      { q: "Hoe snel is onverwijld precies?", a: "Er staat geen vast aantal dagen in de wet. De werkgever mag kort onderzoek doen of advies inwinnen, maar moet daarna voortvarend doorpakken. Te veel uitstel zonder goede reden betekent dat niet aan de eis is voldaan." }
+    ],
+    related: [
+      { href: "hulp/ontslag-op-staande-voet.html", label: "Ontslag op staande voet: je rechten" },
+      { href: "hulp/ontslaggronden.html", label: "De 9 ontslaggronden op een rij" },
+      { href: "verwijtbaar-werkloos.html", label: "Verwijtbaar werkloos: en je WW?" }
+    ]
+  },
+  {
+    slug: "fictieve-opzegtermijn",
+    title: "Fictieve opzegtermijn en je WW: wat is het?",
+    desc: "De fictieve opzegtermijn bepaalt wanneer je WW ingaat na een vaststellingsovereenkomst. Reken je einddatum verkeerd, dan mis je weken WW. Zo voorkom je dat.",
+    keywords: "fictieve opzegtermijn, fictieve opzegtermijn ww, fictieve opzegtermijn berekenen, einddatum vaststellingsovereenkomst ww, opzegtermijn vso ww, wanneer gaat mijn ww in",
+    eyebrow: "WW · einddatum",
+    h1: "De <em>fictieve opzegtermijn</em> en je WW",
+    lead: "De fictieve opzegtermijn klinkt technisch, maar hij bepaalt iets belangrijks: wanneer je WW ingaat. Reken je de einddatum in je vaststellingsovereenkomst verkeerd, dan kun je zomaar weken WW mislopen.",
+    sections: [
+      { h: "Wat is de <em>fictieve opzegtermijn?</em>", html: "<p>Als je met een vaststellingsovereenkomst uit elkaar gaat, zeg je het contract niet echt op. Maar het UWV doet <strong>alsof</strong> er wel is opgezegd, en houdt rekening met de opzegtermijn die de werkgever had moeten aanhouden. Dat is de fictieve opzegtermijn. Je WW gaat pas in nadat die termijn is verstreken.</p>" },
+      { h: "Waarom is dit <em>belangrijk?</em>", html: "<p>Staat er in je overeenkomst een einddatum die de fictieve opzegtermijn niet respecteert, dan schuift het UWV de start van je WW gewoon op. Die weken krijg je meestal niet betaald, niet door je werkgever en niet via de WW. Zo val je zonder inkomen. Een correcte einddatum is daarom een van de eerste dingen die wij controleren.</p>" },
+      { h: "Hoe bereken je de <em>einddatum?</em>", html: "<p>De opzegtermijn van de werkgever hangt af van hoe lang je in dienst bent: grofweg &eacute;&eacute;n maand tot vier maanden. Belangrijk: de dag van ondertekening telt mee, en meestal wordt tegen het einde van de maand opgezegd. De overeenkomst hoort een einddatum te noemen die hier netjes op aansluit, zodat je WW direct kan ingaan. Twijfel je? Laat de datum narekenen voordat je tekent.</p>" }
+    ],
+    table: {
+      caption: "Opzegtermijn werkgever (indicatie, tenzij CAO anders bepaalt)",
+      head: ["Lengte dienstverband", "Wettelijke opzegtermijn werkgever"],
+      rows: [
+        ["Korter dan 5 jaar", "1 maand"],
+        ["5 tot 10 jaar", "2 maanden"],
+        ["10 tot 15 jaar", "3 maanden"],
+        ["15 jaar of langer", "4 maanden"]
+      ]
+    },
+    faq: [
+      { q: "Wat is de fictieve opzegtermijn?", a: "Bij een vaststellingsovereenkomst doet het UWV alsof er is opgezegd en houdt het rekening met de opzegtermijn die de werkgever had moeten aanhouden. Je WW gaat pas in nadat die fictieve opzegtermijn is verstreken." },
+      { q: "Waarom is de fictieve opzegtermijn belangrijk voor mijn WW?", a: "Respecteert de einddatum in je overeenkomst de fictieve opzegtermijn niet, dan schuift het UWV de start van je WW op. Die weken worden meestal niet betaald, waardoor je zonder inkomen kunt vallen." },
+      { q: "Hoe lang is de fictieve opzegtermijn?", a: "Die is gelijk aan de opzegtermijn van de werkgever, grofweg 1 tot 4 maanden afhankelijk van hoe lang je in dienst bent, tenzij de CAO iets anders bepaalt. Laat de einddatum narekenen voordat je tekent." }
+    ],
+    related: [
+      { href: "vaststellingsovereenkomst/ww-uitkering-behouden.html", label: "Je WW-uitkering behouden na een VSO" },
+      { href: "vaststellingsovereenkomst/opzegtermijn.html", label: "Opzegtermijn bij een vaststellingsovereenkomst" },
+      { href: "vaststellingsovereenkomst/ww-aanvragen-na-vso.html", label: "WW aanvragen na een VSO" },
+      { href: "verwijtbaar-werkloos.html", label: "Verwijtbaar werkloos: en je WW?" }
+    ]
+  },
+  {
+    slug: "verwijtbaar-werkloos",
+    title: "Verwijtbaar werkloos: geen WW? Zo voorkom je het",
+    desc: "Ben je verwijtbaar werkloos, dan weigert het UWV je WW. Dit betekent het, wanneer het speelt en hoe een goede vaststellingsovereenkomst het voorkomt.",
+    keywords: "verwijtbaar werkloos, verwijtbaar werkloos ww, geen ww verwijtbaar, wanneer verwijtbaar werkloos, verwijtbaar werkloos vaststellingsovereenkomst, zelf ontslag nemen ww",
+    eyebrow: "WW · valkuil",
+    h1: "<em>Verwijtbaar werkloos:</em> en je WW?",
+    lead: "Verwijtbaar werkloos zijn is de belangrijkste reden waarom het UWV een WW-uitkering weigert. Bij een vaststellingsovereenkomst is het daarom cruciaal dat je dit voorkomt. Zo zit het.",
+    sections: [
+      { h: "Wat betekent <em>verwijtbaar werkloos?</em>", html: "<p>Je bent verwijtbaar werkloos als je werkloosheid je eigen schuld is in de ogen van het UWV. De twee klassieke gevallen: je <strong>neemt zelf ontslag</strong> zonder dringende reden, of je bent ontslagen om een <strong>dringende reden</strong> die jou te verwijten valt (bijvoorbeeld ontslag op staande voet). In beide gevallen kan het UWV je WW weigeren.</p>" },
+      { h: "Waarom een VSO juist <em>neutraal</em> moet zijn", html: "<p>Hier zit de kern. Een vaststellingsovereenkomst is een be&euml;indiging met wederzijds goedvinden. Als die verkeerd is geformuleerd, kan het lijken alsof jij zelf koos om te stoppen: verwijtbaar dus. Daarom hoort er in de overeenkomst te staan dat het initiatief bij de <strong>werkgever</strong> ligt, op een <strong>neutrale grond</strong> (bijvoorbeeld bedrijfseconomisch of een verstoorde arbeidsrelatie) en <strong>zonder verwijt</strong> aan jou. Die formulering beschermt je WW.</p>" },
+      { h: "Zo <em>voorkom</em> je het", html: "<p>Teken nooit een vaststellingsovereenkomst zonder dat iemand de WW-formulering heeft gecontroleerd. Let op de grond van het ontslag, de afwezigheid van verwijt, en een correcte einddatum die de <a href=\"fictieve-opzegtermijn.html\" style=\"color:var(--gold-deep)\">fictieve opzegtermijn</a> respecteert. Dit is precies waar wij standaard naar kijken, zodat je je uitkering niet misloopt.</p>" }
+    ],
+    faq: [
+      { q: "Wat betekent verwijtbaar werkloos?", a: "Je bent verwijtbaar werkloos als je werkloosheid je eigen schuld is volgens het UWV: je neemt zelf ontslag zonder dringende reden, of je wordt ontslagen om een dringende reden die jou te verwijten valt. Het UWV kan dan je WW weigeren." },
+      { q: "Ben ik verwijtbaar werkloos bij een vaststellingsovereenkomst?", a: "Niet als de overeenkomst goed is geformuleerd. Er moet in staan dat het initiatief bij de werkgever ligt, op een neutrale grond en zonder verwijt aan jou. Dan blijft je WW veilig. Een verkeerde formulering kan je juist wel verwijtbaar maken." },
+      { q: "Krijg ik geen WW als ik zelf ontslag neem?", a: "In de regel niet. Zelf ontslag nemen zonder dringende reden maakt je verwijtbaar werkloos, waardoor het UWV je WW weigert. Wil je uit elkaar, regel het dan via een goed geformuleerde vaststellingsovereenkomst." }
+    ],
+    related: [
+      { href: "vaststellingsovereenkomst/ww-uitkering-behouden.html", label: "Je WW-uitkering behouden na een VSO" },
+      { href: "vaststellingsovereenkomst/ontslag-met-wederzijds-goedvinden.html", label: "Ontslag met wederzijds goedvinden" },
+      { href: "fictieve-opzegtermijn.html", label: "De fictieve opzegtermijn en je WW" },
+      { href: "zelf-een-vaststellingsovereenkomst-aanvragen.html", label: "Zelf een vaststellingsovereenkomst aanvragen?" }
+    ]
   }
 ];
 
