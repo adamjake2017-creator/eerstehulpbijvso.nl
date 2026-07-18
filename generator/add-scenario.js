@@ -18,6 +18,8 @@ const ROOT = path.join(__dirname, "..");
 const SITEMAP = path.join(ROOT, "sitemap.xml");
 const CSS_VER = "67f61170";
 const today = new Date().toISOString().slice(0, 10);
+const MAANDEN = ["januari","februari","maart","april","mei","juni","juli","augustus","september","oktober","november","december"];
+const MAAND = MAANDEN[new Date().getMonth()] + " " + new Date().getFullYear();
 const waGeneric = encodeURIComponent("Hoi, ik heb een vaststellingsovereenkomst gekregen en wil graag een gratis check.");
 
 // ---- Pagina's ---------------------------------------------------------------
@@ -191,7 +193,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","@id":"https://eerstehulpbijvso.nl/#org","name":"Eerste hulp bij VSO","url":"https://eerstehulpbijvso.nl/","logo":"https://eerstehulpbijvso.nl/assets/logo.png","image":"https://eerstehulpbijvso.nl/assets/logo.png","address":{"@type":"PostalAddress","streetAddress":"Vlierweg 12","postalCode":"1032 LG","addressLocality":"Amsterdam","addressCountry":"NL"},"description":"Platform dat werknemers met een vaststellingsovereenkomst binnen 15 minuten koppelt aan een arbeidsrechtspecialist voor een betere, WW-veilige deal.","areaServed":"NL","availableLanguage":"nl","telephone":"+31645733083","priceRange":"Gratis check, kosten meestal vergoed door werkgever","sameAs":["https://www.linkedin.com/company/eerstehulpbijvso/"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://eerstehulpbijvso.nl/"},{"@type":"ListItem","position":2,"name":"${esc(c.title)}","item":"https://eerstehulpbijvso.nl/${c.slug}.html"}]}</script>
 <script type="application/ld+json">${faqJson}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"${esc(c.title)}","description":"${esc(c.desc)}","author":{"@type":"Organization","name":"Eerste hulp bij VSO"},"publisher":{"@type":"Organization","name":"Eerste hulp bij VSO","logo":{"@type":"ImageObject","url":"https://eerstehulpbijvso.nl/assets/logo.png"}},"mainEntityOfPage":"https://eerstehulpbijvso.nl/${c.slug}.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"${esc(c.title)}","description":"${esc(c.desc)}","datePublished":"${today}","dateModified":"${today}","author":{"@type":"Organization","name":"Eerste hulp bij VSO"},"publisher":{"@type":"Organization","name":"Eerste hulp bij VSO","logo":{"@type":"ImageObject","url":"https://eerstehulpbijvso.nl/assets/logo.png"}},"mainEntityOfPage":"https://eerstehulpbijvso.nl/${c.slug}.html"}</script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -239,7 +241,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <main><section class="page"><div class="wrap">
 <p class="crumb reveal"><a href="index.html">Home</a> › ${esc(c.title)}</p>
-<p class="eyebrow reveal">${esc(c.eyebrow)}</p>
+<p class="eyebrow reveal">${esc(c.eyebrow)} &middot; bijgewerkt ${MAAND}</p>
 <h1 class="title reveal">${c.h1}</h1>
 <p class="lead reveal">${esc(c.lead)}</p>
 <div class="cta-row reveal"><a class="btn btn-wa" href="https://wa.me/31645733083?text=${waGeneric}">Laat je situatie gratis checken</a><a class="btn btn-ghost" href="tools/transitievergoeding-berekenen.html">Bereken je vergoeding</a></div>
