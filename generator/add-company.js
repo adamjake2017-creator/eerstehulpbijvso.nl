@@ -1,0 +1,247 @@
+// ============================================================================
+//  add-company.js  -  voegt VEILIG nieuwe bedrijfspagina's toe
+//  ----------------------------------------------------------------------------
+//  Nieuwsjacking-motor: zie een reorganisatie in het nieuws bij een NL-werkgever,
+//  voeg hieronder een record toe aan NEW_COMPANIES, en draai:
+//
+//      node generator/add-company.js
+//
+//  Genereert reorganisatie/vaststellingsovereenkomst-<slug>.html in de bestaande
+//  huisstijl. Raakt GEEN andere pagina's aan (anders dan build.js). Bestaat de
+//  pagina al, dan wordt die overschreven met dezelfde template.
+//
+//  Criteria voor een pagina (filter!): (1) NL-werkgever, (2) echte banen weg /
+//  VSO-risico, (3) genoeg mensen geraakt om zoekvraag te hebben.
+// ============================================================================
+
+const fs = require("fs");
+const path = require("path");
+const ROOT = path.join(__dirname, "..");
+const OUT = path.join(ROOT, "reorganisatie");
+
+// ---- Voeg hier nieuwe bedrijven toe -----------------------------------------
+const NEW_COMPANIES = [
+  {
+    slug: "qbuzz",
+    name: "Qbuzz",
+    sector: "het openbaar vervoer",           // gebruikt in lopende tekst
+    city: "Amersfoort",                          // voor de "Lees ook"-stadlink
+    reorgNote: "Qbuzz heeft een reorganisatie aangekondigd waarbij fors in functies wordt gesneden. Vakbond CNV maakt zich grote zorgen over de gevolgen voor het personeel. In het openbaar vervoer staan de marges al langer onder druk door aanbestedingen en bezuinigingen, en dat raakt zowel rijdend als ondersteunend personeel.",
+    sourceNote: "Bron: RTV Noord en CNV, juli 2026.",
+    toneLead: "Je rijdt al jaren betrouwbaar je dienst, en toch staat je functie ineens op de tocht.",
+    pressureNote: "In het openbaar vervoer letten we bovendien extra op je opgebouwde dienstjaren, je rooster- en onregelmatigheidstoeslagen en de afspraken uit de CAO, want die bepalen mee wat een eerlijke vergoeding is."
+  }
+];
+
+// ---- Template ---------------------------------------------------------------
+const wa = s => encodeURIComponent(s);
+const CSS_VER = "67f61170"; // gelijk aan de rest van de site
+
+function faq(c) {
+  return [
+    { q: `Wat betekent een reorganisatie bij ${c.name} voor mijn vergoeding?`,
+      a: `Bij een reorganisatie is er vaak meer mogelijk dan de wettelijke transitievergoeding, zeker met een sociaal plan. Wij controleren of het bod van ${c.name} marktconform is en onderhandelen waar er meer in zit.` },
+    { q: `Waar moet mijn vaststellingsovereenkomst bij ${c.name} aan voldoen?`,
+      a: `De overeenkomst moet je WW veiligstellen (neutrale grond, correcte einddatum), aansluiten op een eventueel sociaal plan, en helder zijn over vergoeding, vrijstelling van werk en finale kwijting. Wij lopen elk punt met je na voordat je tekent.` },
+    { q: `Ik ben boventallig verklaard bij ${c.name}. Wat nu?`,
+      a: `Teken nog niets. Controleer eerst of de afspiegeling klopt en of herplaatsing echt is onderzocht. Vaak sta je sterker dan je denkt. Wij beoordelen je situatie gratis en onderhandelen namens jou.` }
+  ];
+}
+
+function render(c) {
+  const nameLower = c.name.toLowerCase();
+  const waMsg = wa(`Hoi, ik werk bij ${c.name} en heb een vaststellingsovereenkomst gekregen. Ik wil graag een gratis check.`);
+  const waGeneric = wa("Hoi, ik heb een vaststellingsovereenkomst gekregen en wil graag een gratis check.");
+  const f = faq(c);
+  const faqJson = JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage",
+    mainEntity: f.map(x => ({ "@type": "Question", name: x.q, acceptedAnswer: { "@type": "Answer", text: x.a } })) });
+  const cityLink = c.city ? `<li><a href="../vso-hulp/${c.city.toLowerCase().replace(/[' ]/g, "-")}.html" style="color:var(--gold-deep)">VSO-hulp in ${c.city}</a></li>` : "";
+  const source = c.sourceNote ? ` <em>${c.sourceNote}</em>` : "";
+
+  return `<!DOCTYPE html><html lang="nl"><head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P37MWPW4');</script>
+<!-- End Google Tag Manager -->
+<title>Vaststellingsovereenkomst bij ${c.name}? Gratis check</title>
+<meta name="description" content="Kreeg je een vaststellingsovereenkomst bij ${c.name}? Teken niets. Binnen 15 minuten een specialist die je WW veiligstelt en een betere deal onderhandelt. Gratis check via WhatsApp." />
+<meta name="keywords" content="vaststellingsovereenkomst ${nameLower}, ontslag ${nameLower}, reorganisatie ${nameLower}, boventallig ${nameLower}" />
+<link rel="canonical" href="https://eerstehulpbijvso.nl/reorganisatie/vaststellingsovereenkomst-${c.slug}.html" />
+<meta property="og:type" content="article" /><meta property="og:locale" content="nl_NL" />
+<meta property="og:title" content="Vaststellingsovereenkomst bij ${c.name}? Gratis check" /><meta property="og:description" content="Kreeg je een vaststellingsovereenkomst bij ${c.name}? Teken niets. Binnen 15 minuten een specialist die je WW veiligstelt en een betere deal onderhandelt." />
+<meta property="og:url" content="https://eerstehulpbijvso.nl/reorganisatie/vaststellingsovereenkomst-${c.slug}.html" />
+<link rel="icon" type="image/png" href="../assets/favicon.png" />
+<link rel="stylesheet" href="../assets/style.css?v=${CSS_VER}" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","@id":"https://eerstehulpbijvso.nl/#org","name":"Eerste hulp bij VSO","url":"https://eerstehulpbijvso.nl/","logo":"https://eerstehulpbijvso.nl/assets/logo.png","image":"https://eerstehulpbijvso.nl/assets/logo.png","address":{"@type":"PostalAddress","streetAddress":"Vlierweg 12","postalCode":"1032 LG","addressLocality":"Amsterdam","addressCountry":"NL"},"description":"Platform dat werknemers met een vaststellingsovereenkomst binnen 15 minuten koppelt aan een arbeidsrechtspecialist voor een betere, WW-veilige deal.","areaServed":"NL","availableLanguage":"nl","telephone":"+31645733083","priceRange":"Gratis check, kosten meestal vergoed door werkgever","sameAs":["https://www.linkedin.com/company/eerstehulpbijvso/"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://eerstehulpbijvso.nl/"},{"@type":"ListItem","position":2,"name":"Reorganisatie","item":"https://eerstehulpbijvso.nl/reorganisatie/"},{"@type":"ListItem","position":3,"name":"${c.name}","item":"https://eerstehulpbijvso.nl/reorganisatie/vaststellingsovereenkomst-${c.slug}.html"}]}</script>
+<script type="application/ld+json">${faqJson}</script>
+</head><body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P37MWPW4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --><div class="grain"></div><header id="hdr"><a class="topbar" href="../aanmelden.html" aria-label="Gratis en vrijblijvend een specialist spreken">
+<span class="tb-msg"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15 9.3a3.5 3.5 0 1 0 0 5.4"/><path d="M8 11h5M8 13.4h5"/></svg><b>Gratis</b>, en meestal geen kosten voor jou →</span>
+<span class="tb-msg"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Een specialist die <b>jouw kant</b> kiest →</span>
+<span class="tb-msg"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M3 17l6-6 4 4 7-7"/><path d="M17 7h4v4"/></svg>Het eerste bod is <b>zelden het beste</b> →</span>
+<span class="tb-msg"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L3 21l1.8-6.5A8 8 0 1 1 21 11.5z"/></svg><b>Gratis en vrijblijvend</b>, binnen 15 min antwoord →</span>
+</a><div class="bar">
+<a href="../index.html" class="brand"><img class="mark" src="../assets/logo.png" alt="Eerste hulp bij VSO" /><span>Eerste hulp<br><b>bij VSO</b></span></a>
+<nav class="pnav">
+<a href="../wat-is-een-vaststellingsovereenkomst.html">Wat is een VSO?</a>
+<a href="../transitievergoeding.html">Transitievergoeding</a>
+<div class="ddwrap"><a href="../vaststellingsovereenkomst/index.html" class="ddtrigger">Situaties</a><div class="ddmenu">
+<a href="../vaststellingsovereenkomst/reorganisatie.html">Reorganisatie</a>
+<a href="../vaststellingsovereenkomst/onder-druk-getekend.html">Onder druk getekend</a>
+<a href="../vaststellingsovereenkomst/tijdens-ziekte.html">Bij ziekte</a>
+<a href="../vaststellingsovereenkomst/ww-uitkering-behouden.html">WW behouden</a>
+<a href="../vaststellingsovereenkomst/transitievergoeding-onderhandelen.html">Vergoeding onderhandelen</a>
+<a href="../vaststellingsovereenkomst/index.html">Alle situaties &rarr;</a>
+</div></div>
+<div class="ddwrap"><a href="../tools/index.html" class="ddtrigger">Hulpmiddelen</a><div class="ddmenu">
+<a href="../tools/transitievergoeding-berekenen.html">Transitievergoeding berekenen</a>
+<a href="../tools/ww-veilig-scan.html">WW-veilig-scan</a>
+<a href="../tools/bedenktermijn-berekenen.html">Bedenktermijn berekenen</a>
+<a href="../tools/wat-is-mijn-vso-waard.html">Wat is mijn VSO waard?</a>
+<a href="../tools/index.html">Alle hulpmiddelen &rarr;</a>
+</div></div>
+<div class="ddwrap"><a href="../hulp/index.html" class="ddtrigger">Kennisbank</a><div class="ddmenu">
+<a href="../hulp/ontslaggronden.html">De 9 ontslaggronden</a>
+<a href="../hulp/billijke-vergoeding.html">Billijke vergoeding</a>
+<a href="../hulp/ontslag-op-staande-voet.html">Ontslag op staande voet</a>
+<a href="../hulp/onterecht-ontslag.html">Onterecht ontslagen?</a>
+<a href="../blog/index.html">Blog &amp; actueel</a>
+<a href="../hulp/index.html">Alle artikelen &rarr;</a>
+</div></div>
+<a href="../aanmelden.html" class="hl">Aanmelden</a>
+</nav>
+<a href="https://wa.me/31645733083?text=${waMsg}" class="cta-top">Gratis check →</a>
+<button class="navtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</div></header><main><section class="page"><div class="wrap">
+<p class="crumb reveal"><a href="../index.html">Home</a> › Reorganisatie › ${c.name}</p>
+<p class="eyebrow reveal">Reorganisatie · jouw rechten</p>
+<h1 class="title reveal">Vaststellingsovereenkomst bij ${c.name}?<br><em>Adem.</em> Teken nog niets.</h1>
+<p class="lead reveal">${c.toneLead} Maar een reorganisatie betekent niet dat je akkoord hoeft te gaan met het eerste voorstel. Juist bij een grote ontslagronde is er ruimte om te onderhandelen, en is het extra belangrijk dat je WW veilig is. Wij staan naast je, van het eerste gesprek tot je handtekening.</p>
+<div class="cta-row reveal"><a class="btn btn-wa" href="https://wa.me/31645733083?text=${waMsg}">Stuur ons een WhatsApp</a><a class="btn btn-ghost" href="../tools/transitievergoeding-berekenen.html">Bereken je vergoeding</a></div>
+</div></section>
+
+<section class="block"><div class="wrap"><h2 class="big reveal">Wat er nu bij ${c.name} <em>speelt</em></h2>
+<div class="prose reveal"><p>${c.reorgNote}${source}</p><p>Als jou een vaststellingsovereenkomst wordt voorgelegd, is dat het moment om even pas op de plaats te maken. Niet uit wantrouwen, maar omdat de details in ${c.sector} duizenden euro's en je uitkering kunnen bepalen.</p></div>
+</div></section>
+
+<section class="block"><div class="wrap"><h2 class="big reveal">Laat je niet <em>onder druk zetten</em></h2>
+<div class="prose reveal"><p>Krijg je bij ${c.name} te horen dat je vandaag nog moet tekenen? Dat is juist het moment om even pas op de plaats te maken. Een vaststellingsovereenkomst teken je nooit onder druk, en de wet geeft je daar bewust ruimte voor. ${c.pressureNote}</p><h3>Je wettelijke bedenktermijn</h3><p>Na ondertekening heb je een bedenktermijn van veertien dagen waarin je je handtekening zonder opgaaf van reden kunt terugtrekken. Staat die termijn niet in de overeenkomst, dan wordt het zelfs eenentwintig dagen. Je zit dus nooit meteen vast.</p><h3>Druk is geen geldig argument</h3><p>Werkgevers zetten soms bewust een korte deadline om je snel te laten tekenen. Juridisch heeft die haast geen enkele grond. Ook bij ${c.name} mag je altijd eerst je overeenkomst laten controleren voordat je iets ondertekent.</p><h3>Wat wij in die tijd doen</h3><p>Binnen &eacute;&eacute;n werkdag beoordelen wij of het voorstel klopt en of je WW veilig is. Zo gebruik je de tijd die je hebt om vanuit rust te beslissen, met de juiste informatie in plaats van vanuit druk.</p></div></div></section>
+
+<section class="block"><div class="wrap"><h2 class="big reveal">Het standaardvoorstel vs. <em>wat er vaak nog in zit</em></h2>
+<div class="prose reveal"><p>Veel vaststellingsovereenkomsten bij ${c.name} beginnen met een voorstel dat netjes oogt, maar waar in ${c.sector} vaak meer in zit. Dit is waar wij standaard naar kijken voordat je tekent:</p><table class="cmp"><thead><tr><th>Onderdeel</th><th>Het standaardvoorstel</th><th>Wat er vaak nog in zit</th></tr></thead><tbody><tr><td>Vergoeding</td><td>Rond de wettelijke transitievergoeding</td><td>Een hoger bedrag, marktconform voor ${c.sector}, zeker met een sociaal plan</td></tr><tr><td>WW-zekerheid</td><td>Niet altijd waterdicht geformuleerd</td><td>Neutrale gronden en een correcte einddatum, zodat je WW veilig is</td></tr><tr><td>Vrijstelling van werk</td><td>Soms, tot de einddatum</td><td>Vrijstelling met behoud van salaris, plus uitbetaling van je vakantiedagen</td></tr><tr><td>Concurrentie- of relatiebeding</td><td>Blijft vaak ongewijzigd staan</td><td>Geschrapt of versoepeld, zodat je vrij verder kunt</td></tr><tr><td>Juridische kosten</td><td>Voor eigen rekening</td><td>Vergoed door de werkgever, vaak &euro; 750 tot &euro; 1.000 of meer</td></tr><tr><td>Bedenktijd</td><td>Druk om snel te tekenen</td><td>Je volledige 14 (of 21) dagen, rustig en goed ge&iuml;nformeerd</td></tr></tbody></table></div></div></section>
+
+<section class="block"><div class="wrap"><h2 class="big reveal">Zo helpen we je, <em>vandaag nog</em></h2><div class="grid3">
+<div class="step reveal"><div class="num">01</div><h3>Deel je situatie</h3><p>Stuur ons een appje. Binnen 15 minuten heb je een specialist aan de lijn die je geruststelt.</p></div>
+<div class="step reveal"><div class="num">02</div><h3>Wij analyseren alles</h3><p>We toetsen je overeenkomst aan het sociaal plan, checken je WW en zoeken waar meer te halen valt.</p></div>
+<div class="step reveal"><div class="num">03</div><h3>Wij onderhandelen</h3><p>Je specialist haalt eruit wat erin zit en regelt dat de kosten door de werkgever worden gedragen.</p></div>
+</div></div></section>
+
+<section class="block"><div class="wrap"><h2 class="big reveal">Veelgestelde vragen over je VSO bij <em>${c.name}</em></h2>
+<div class="prose reveal"><h3>${f[0].q}</h3><p>${f[0].a}</p><h3>${f[1].q}</h3><p>${f[1].a}</p><h3>${f[2].q}</h3><p>${f[2].a}</p></div></div></section>
+<section class="block"><div class="wrap"><h2 class="big reveal">Lees ook <em>verder</em></h2><div class="prose reveal"><ul>${cityLink}<li><a href="../arbeidsrecht-2026.html" style="color:var(--gold-deep)">Arbeidsrecht 2026: wat verandert er voor werknemers?</a></li><li><a href="../vaststellingsovereenkomst/reorganisatie.html" style="color:var(--gold-deep)">Vaststellingsovereenkomst bij een reorganisatie</a></li><li><a href="../vaststellingsovereenkomst/boventallig-verklaard.html" style="color:var(--gold-deep)">Boventallig verklaard: wat nu?</a></li><li><a href="../tools/transitievergoeding-berekenen.html" style="color:var(--gold-deep)">Bereken je transitievergoeding 2026</a></li></ul></div></div></section>
+<div class="band reveal"><h2>Je hebt jaren gegeven.<br>Kom nu op voor <em>jezelf</em>.</h2><p>Gratis, vrijblijvend en zonder dat je vandaag iets hoeft te beslissen. E&eacute;n appje en je staat er niet meer alleen voor.</p><a class="btn btn-primary" href="https://wa.me/31645733083?text=${waMsg}">Stuur ons een WhatsApp</a></div>
+</main><footer><div class="wrap-wide">
+<div class="foottop">
+<a href="../index.html" class="brand"><img class="mark" src="../assets/logo.png" alt="Eerste hulp bij VSO" /><span>Eerste hulp<br><b>bij VSO</b></span></a>
+<p class="foot-intro">Van paniek naar een goede, veilige deal, met een specialist die jouw kant kiest. Meestal zonder kosten voor jou.</p>
+<div class="flinks">
+<a href="../reorganisatie/index.html">Reorganisatie</a>
+<a href="../vaststellingsovereenkomst/index.html">Situaties</a><a href="../wat-is-een-vaststellingsovereenkomst.html">Wat is een VSO?</a>
+<a href="../hulp/index.html">Kennisbank</a>
+<a href="../tools/index.html">Hulpmiddelen</a>
+<a href="../vso-hulp/index.html">Steden</a>
+<a href="../overzicht.html">Alles</a><a href="../transitievergoeding.html">Transitievergoeding</a>
+<a href="../blog/index.html">Blog</a>
+<a href="../voor-werkgevers.html">Voor werkgevers</a><a href="../werken-bij.html">Werken bij ons</a>
+<a href="https://wa.me/31645733083?text=${waGeneric}">WhatsApp</a>
+<a href="mailto:hello@eerstehulpbijvso.nl">E-mail</a>
+<a href="https://www.linkedin.com/company/eerstehulpbijvso/" target="_blank" rel="noopener">LinkedIn</a>
+</div>
+</div>
+<div class="footcols">
+<div class="footcol"><h4>Jouw situatie</h4><div class="linkgrid solo"><a href="../vaststellingsovereenkomst/reorganisatie.html">Reorganisatie</a><a href="../vaststellingsovereenkomst/boventallig-verklaard.html">Boventallig verklaard</a><a href="../vaststellingsovereenkomst/onder-druk-getekend.html">Onder druk getekend</a><a href="../vaststellingsovereenkomst/tijdens-ziekte.html">Tijdens ziekte</a><a href="../vaststellingsovereenkomst/ziek-en-boventallig.html">Ziek en boventallig</a><a href="../vaststellingsovereenkomst/is-mijn-vso-een-goede-deal.html">Is mijn VSO een goede deal</a><a href="../vaststellingsovereenkomst/wat-is-gangbaar-onderhandelen.html">Wat is gangbaar onderhandelen</a><a href="../vaststellingsovereenkomst/transitievergoeding-onderhandelen.html">Transitievergoeding onderhandelen</a><a href="../vaststellingsovereenkomst/ww-aanvragen-na-vso.html">WW aanvragen na VSO</a><a href="../vaststellingsovereenkomst/werkgever-dreigt-met-uwv.html">Werkgever dreigt met uwv</a><a href="../vaststellingsovereenkomst/concurrentiebeding.html">Concurrentiebeding</a><a href="../vaststellingsovereenkomst/vrijstelling-van-werk.html">Vrijstelling van werk</a><a href="../vaststellingsovereenkomst/finale-kwijting.html">Finale kwijting</a><a href="../vaststellingsovereenkomst/vso-en-belasting.html">VSO en belasting</a><a class="foot-all" href="../vaststellingsovereenkomst/index.html">Alle 34 situaties →</a></div></div>
+<div class="footcol"><h4>Hulpmiddelen</h4><div class="linkgrid solo"><a href="../tools/transitievergoeding-berekenen.html">Transitievergoeding berekenen</a><a href="../tools/wat-is-mijn-vso-waard.html">Wat is mijn VSO waard?</a><a href="../tools/ww-veilig-scan.html">WW-veilig-scan</a><a href="../tools/bedenktermijn-berekenen.html">Bedenktermijn berekenen</a><a href="../tools/mag-mijn-werkgever-druk-zetten.html">Word je onder druk gezet?</a><a href="../10-valkuilen-bij-een-vso.html">Gratis gids: 10 valkuilen</a><a href="../hulp/gevonden-worden-op-linkedin.html">Gevonden worden op LinkedIn</a><a class="foot-all" href="../tools/index.html">Alle hulpmiddelen →</a></div></div>
+<div class="footcol"><h4>Hulp per stad</h4><div class="linkgrid solo"><a href="../vso-hulp/amsterdam.html">Amsterdam</a><a href="../vso-hulp/rotterdam.html">Rotterdam</a><a href="../vso-hulp/den-haag.html">Den Haag</a><a href="../vso-hulp/utrecht.html">Utrecht</a><a href="../vso-hulp/eindhoven.html">Eindhoven</a><a href="../vso-hulp/veldhoven.html">Veldhoven</a><a href="../vso-hulp/amersfoort.html">Amersfoort</a><a href="../vso-hulp/arnhem.html">Arnhem</a><a href="../vso-hulp/nijmegen.html">Nijmegen</a><a href="../vso-hulp/tilburg.html">Tilburg</a><a href="../vso-hulp/breda.html">Breda</a><a href="../vso-hulp/den-bosch.html">'s-Hertogenbosch</a><a href="../vso-hulp/groningen.html">Groningen</a><a href="../vso-hulp/zwolle.html">Zwolle</a><a href="../vso-hulp/enschede.html">Enschede</a><a class="foot-all" href="../vso-hulp/index.html">Alle 52 steden →</a></div></div>
+<div class="footcol"><h4>Ontslag per bedrijf</h4><div class="linkgrid solo"><a href="../reorganisatie/vaststellingsovereenkomst-heineken.html">Heineken</a><a href="../reorganisatie/vaststellingsovereenkomst-asml.html">ASML</a><a href="../reorganisatie/vaststellingsovereenkomst-abn-amro.html">ABN AMRO</a><a href="../reorganisatie/vaststellingsovereenkomst-ing.html">ING</a><a href="../reorganisatie/vaststellingsovereenkomst-philips.html">Philips</a><a href="../reorganisatie/vaststellingsovereenkomst-shell.html">Shell</a><a href="../reorganisatie/vaststellingsovereenkomst-klm.html">KLM</a><a href="../reorganisatie/vaststellingsovereenkomst-rabobank.html">Rabobank</a><a href="../reorganisatie/vaststellingsovereenkomst-kpn.html">KPN</a><a href="../reorganisatie/vaststellingsovereenkomst-capgemini.html">Capgemini</a><a href="../reorganisatie/vaststellingsovereenkomst-qbuzz.html">Qbuzz</a><a class="foot-all" href="../reorganisatie/index.html">Alle 128 bedrijven →</a></div></div>
+</div>
+<div class="fbot"><span>© <span id="yr"></span> Eerste hulp bij VSO · Vlierweg 12, 1032 LG Amsterdam · KvK 64043770</span><span><a href="../privacy.html">Privacyverklaring</a> · <a href="../voorwaarden.html">Algemene voorwaarden</a></span><span>Onafhankelijke informatie voor werknemers. Geen offici&euml;le uiting van of namens ${c.name}.</span></div>
+</div></footer><a class="wa" href="https://wa.me/31645733083?text=${waGeneric}" target="_blank" rel="noopener" aria-label="Stuur een WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.6.2s-.7.9-.9 1.1c-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5s-.6-1.5-.9-2.1c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.8.8-1 1.9-.6 3 .5 1.4 1.3 2.6 2.5 3.8 1.7 1.7 3.2 2.3 4.6 2.7.9.2 1.6.2 2.2-.1.6-.3 1.7-1 1.9-1.6.2-.5.2-1 .1-1.1-.1-.1-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-2.9.8.8-2.8-.2-.3a8.2 8.2 0 1 1 7.1 4z"/></svg><span class="lbl">Stuur ons een <b>WhatsApp</b></span></a><script>
+const hdr=document.getElementById('hdr');addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>30));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:0,rootMargin:"0px 0px -40px 0px"});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.getElementById('yr').textContent=new Date().getFullYear();
+(function(){var t=document.querySelector('.navtoggle');if(!t)return;var m=document.createElement('div');m.className='mobilemenu';document.querySelectorAll('.pnav > a, .pnav > .ddwrap > a, nav.pills a').forEach(function(a){m.appendChild(a.cloneNode(true))});var c=document.querySelector('.cta-top');if(c){var cc=c.cloneNode(true);cc.classList.remove('cta-top');cc.classList.add('btn-wa');m.appendChild(cc)}document.body.appendChild(m);function cl(){m.classList.remove('open');document.body.classList.remove('menu-open');t.classList.remove('on')}t.addEventListener('click',function(){var o=m.classList.toggle('open');document.body.classList.toggle('menu-open',o);t.classList.toggle('on',o)});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',cl)})})();
+</script></body></html>`;
+}
+
+// ---- Automatische integratie (hub, overzicht, sitemap, telling) -------------
+const HUB = path.join(OUT, "index.html");
+const OVERZICHT = path.join(ROOT, "overzicht.html");
+const SITEMAP = path.join(ROOT, "sitemap.xml");
+const SYNC_COUNTS = true;                 // zet op false om de "Alle N bedrijven"-telling niet site-breed bij te werken
+const today = new Date().toISOString().slice(0, 10);
+
+// Voegt iets één keer toe (idempotent): al aanwezig -> overslaan.
+function insertOnce(file, presentMarker, findRe, makeInsert) {
+  if (!fs.existsSync(file)) return "bestand ontbreekt";
+  let s = fs.readFileSync(file, "utf8");
+  if (s.includes(presentMarker)) return "al aanwezig";
+  let done = false;
+  s = s.replace(findRe, m => { done = true; return makeInsert(m); });
+  if (!done) return "ANKER NIET GEVONDEN (handmatig checken)";
+  fs.writeFileSync(file, s);
+  return "toegevoegd";
+}
+
+function integrate(c) {
+  const link = `vaststellingsovereenkomst-${c.slug}.html`;
+  const hub = insertOnce(HUB, link,
+    /<li><a href="\.\.\/reorganisatie\/vaststellingsovereenkomst-[a-z0-9-]+\.html" style="color:var\(--gold-deep\)">Vaststellingsovereenkomst bij [^<]+<\/a><\/li>/,
+    m => m + `<li><a href="../reorganisatie/${link}" style="color:var(--gold-deep)">Vaststellingsovereenkomst bij ${c.name}</a></li>`);
+  const ov = insertOnce(OVERZICHT, link,
+    /<li><a href="reorganisatie\/vaststellingsovereenkomst-[a-z0-9-]+\.html" style="color:var\(--gold-deep\)">Vaststellingsovereenkomst bij [^<]+<\/a><\/li>/,
+    m => m + `<li><a href="reorganisatie/${link}" style="color:var(--gold-deep)">Vaststellingsovereenkomst bij ${c.name}</a></li>`);
+  const sm = insertOnce(SITEMAP, `reorganisatie/${link}`, /<\/urlset>/,
+    () => `<url><loc>https://eerstehulpbijvso.nl/reorganisatie/${link}</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq></url>\n</urlset>`);
+  console.log(`    hub: ${hub} | overzicht: ${ov} | sitemap: ${sm}`);
+}
+
+function walkHtml(dir, acc = []) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (e.name === ".git" || e.name === "node_modules") continue;
+    const p = path.join(dir, e.name);
+    if (e.isDirectory()) walkHtml(p, acc);
+    else if (e.name.endsWith(".html")) acc.push(p);
+  }
+  return acc;
+}
+
+// Zet "Alle <getal> bedrijven" overal op het werkelijke aantal bedrijfspagina's.
+function syncCounts() {
+  const count = fs.readdirSync(OUT).filter(f => /^vaststellingsovereenkomst-.+\.html$/.test(f)).length;
+  let changed = 0;
+  for (const f of walkHtml(ROOT)) {
+    const s = fs.readFileSync(f, "utf8");
+    const s2 = s.replace(/Alle \d+ bedrijven/g, `Alle ${count} bedrijven`);
+    if (s2 !== s) { fs.writeFileSync(f, s2); changed++; }
+  }
+  console.log(`  Telling gesynct naar ${count} bedrijven (${changed} bestand(en) bijgewerkt).`);
+}
+
+// ---- Uitvoeren --------------------------------------------------------------
+let n = 0;
+for (const c of NEW_COMPANIES) {
+  fs.writeFileSync(path.join(OUT, `vaststellingsovereenkomst-${c.slug}.html`), render(c));
+  console.log("  geschreven: reorganisatie/vaststellingsovereenkomst-" + c.slug + ".html");
+  integrate(c);
+  n++;
+}
+if (SYNC_COUNTS) syncCounts();
+console.log(`Klaar: ${n} bedrijfspagina('s), volledig geintegreerd (hub + overzicht + sitemap).`);
