@@ -154,6 +154,113 @@ const SCENARIOS = [
       { href: "vaststellingsovereenkomst/ww-aanvragen-na-vso.html", label: "WW aanvragen na een VSO" },
       { href: "vaststellingsovereenkomst/ontslag-met-wederzijds-goedvinden.html", label: "Ontslag met wederzijds goedvinden" }
     ]
+  },
+  {
+    slug: "ww-stopzetten-of-pauzeren",
+    title: "WW stopzetten of pauzeren: hoe werkt dat?",
+    desc: "Kun je je WW-uitkering zelf stopzetten of pauzeren? Kort: niet zomaar, je WW is gekoppeld aan of je werkt. Zo werkt stopzetten, verrekenen en herleven.",
+    keywords: "ww stopzetten, ww tijdelijk stopzetten, ww uitkering pauzeren, ww stopzetten en herleven, ww uitkering stopzetten zonder werk, kan ik mijn ww stopzetten",
+    eyebrow: "WW · stopzetten",
+    h1: "WW <em>stopzetten</em> of pauzeren?",
+    lead: "Kun je je WW-uitkering zelf stopzetten of even op pauze zetten? Kort: niet zomaar, want je WW hangt samen met of je werkt en wat je verdient. Zo zit het.",
+    sections: [
+      { h: "Je WW stopt <em>vanzelf</em> als je gaat werken", html: "<p>Je zet je WW niet met een knop stop. Je geeft je gewerkte uren en inkomsten door aan het UWV (via Mijn UWV), en je uitkering wordt daarop aangepast. Werk je volledig, dan stopt je WW; werk je deels, dan krijg je vaak nog een gedeeltelijke uitkering. Geef wijzigingen altijd op tijd door, anders riskeer je een terugvordering en een boete.</p>" },
+      { h: "Kun je je WW tijdelijk <em>pauzeren?</em>", html: "<p>Vrijwillig \"op pauze\" zetten kan niet. Maar er is wel iets belangrijks: stopt je WW doordat je (tijdelijk) werk vindt, en word je daarna opnieuw werkloos, dan kan je oude recht onder voorwaarden <strong>herleven</strong>. Je gooit je opgebouwde WW dus niet zomaar weg.</p>" },
+      { h: "WW laten <em>herleven</em>", html: "<p>Word je binnen de looptijd van je oude WW-recht opnieuw werkloos en heb je nog niet genoeg nieuwe rechten opgebouwd, dan kan je oude uitkering herleven in plaats van dat je helemaal opnieuw moet aanvragen. Meld je dan opnieuw bij het UWV. De precieze termijnen en voorwaarden staan op uwv.nl, dus check daar je eigen situatie.</p>" }
+    ],
+    faq: [
+      { q: "Kun je je WW-uitkering zelf stopzetten?", a: "Niet met een knop. Je WW stopt automatisch zodra je gaat werken: je geeft je uren en inkomsten door aan het UWV en de uitkering wordt aangepast of stopgezet. Geef wijzigingen op tijd door om een terugvordering te voorkomen." },
+      { q: "Kan ik mijn WW tijdelijk pauzeren?", a: "Vrijwillig pauzeren kan niet. Maar als je WW stopt doordat je werk vindt en je wordt later opnieuw werkloos, kan je oude recht onder voorwaarden herleven." },
+      { q: "Wat is het herleven van een WW-uitkering?", a: "Als je binnen de looptijd van je oude WW-recht opnieuw werkloos wordt zonder voldoende nieuwe rechten, kan je oude uitkering herleven in plaats van dat je opnieuw moet aanvragen. Meld je opnieuw bij het UWV; de exacte voorwaarden staan op uwv.nl." }
+    ],
+    related: [
+      { href: "ww-aanvraag-intrekken-of-annuleren.html", label: "WW-aanvraag intrekken of annuleren" },
+      { href: "einde-ww-uitkering-wat-nu.html", label: "Einde WW-uitkering: wat nu?" },
+      { href: "vaststellingsovereenkomst/ww-uitkering-behouden.html", label: "Je WW behouden na een VSO" }
+    ]
+  },
+  {
+    slug: "ww-aanvraag-intrekken-of-annuleren",
+    title: "WW-aanvraag intrekken of annuleren",
+    desc: "Heb je WW aangevraagd maar toch werk gevonden of wil je je aanvraag terugtrekken? Zo trek je je WW-aanvraag in, en wat betekent dat voor je resterende recht.",
+    keywords: "ww aanvraag intrekken, ww aanvraag annuleren, ww afmelden, ww opzeggen, ww aanvraag terugtrekken",
+    eyebrow: "WW · aanvraag",
+    h1: "Je WW-aanvraag <em>intrekken</em> of annuleren",
+    lead: "Heb je WW aangevraagd, maar toch (weer) werk gevonden? Of wil je je aanvraag terugtrekken? Zo doe je dat, en dit betekent het voor je opgebouwde recht.",
+    sections: [
+      { h: "Aanvraag intrekken <em>vóór</em> toekenning", html: "<p>Heb je WW aangevraagd maar is die nog niet toegekend, en heb je toch werk gevonden? Dan trek je de aanvraag in via Mijn UWV of door het UWV te bellen. Geef door dat je niet meer werkloos bent.</p>" },
+      { h: "Al een uitkering, maar <em>weer aan het werk?</em>", html: "<p>Krijg je al WW en ga je (deels) werken? Dan trek je niet in, maar geef je je werk en inkomsten door. Je uitkering wordt dan verrekend of stopgezet. Lees hoe dat werkt op onze pagina over <a href=\"ww-stopzetten-of-pauzeren.html\" style=\"color:var(--gold-deep)\">WW stopzetten of pauzeren</a>.</p>" },
+      { h: "Let op je <em>resterende recht</em>", html: "<p>Trek je in of stopt je WW doordat je gaat werken, dan ben je je opgebouwde recht niet per se kwijt: het kan later herleven als je opnieuw werkloos wordt. Gooi je rechten dus niet zomaar weg en informeer bij twijfel bij het UWV.</p>" }
+    ],
+    faq: [
+      { q: "Hoe trek ik mijn WW-aanvraag in?", a: "Via Mijn UWV of door het UWV te bellen. Geef aan dat je je aanvraag wilt intrekken omdat je niet meer werkloos bent." },
+      { q: "Kan ik mijn WW-uitkering opzeggen?", a: "Krijg je al een uitkering en ga je werken, dan zeg je niet op, maar geef je je werk en inkomsten door. De uitkering wordt dan verrekend of stopgezet." },
+      { q: "Verlies ik mijn recht als ik mijn aanvraag intrek?", a: "Niet per se. Je opgebouwde WW-recht kan later herleven als je binnen de looptijd opnieuw werkloos wordt. Informeer bij het UWV naar je situatie." }
+    ],
+    related: [
+      { href: "ww-stopzetten-of-pauzeren.html", label: "WW stopzetten of pauzeren" },
+      { href: "vaststellingsovereenkomst/ww-aanvragen-na-vso.html", label: "WW aanvragen na een VSO" },
+      { href: "einde-ww-uitkering-wat-nu.html", label: "Einde WW-uitkering: wat nu?" }
+    ]
+  },
+  {
+    slug: "einde-ww-uitkering-wat-nu",
+    title: "Einde WW-uitkering: wat nu?",
+    desc: "Loopt je WW af en heb je nog geen werk? Dan is er mogelijk bijstand via je gemeente. Zo vraag je het aan, en dit is het belangrijke verschil met de WW.",
+    keywords: "einde ww uitkering wat dan, na de ww, van ww naar bijstand, geen ww meer wat nu, wat na ww uitkering, uitkering na ww, einde ww en dan",
+    eyebrow: "WW · einde",
+    h1: "Je WW <em>stopt</em>. Wat nu?",
+    lead: "Loopt je WW-uitkering af en heb je nog geen nieuw werk? Dan zijn er een paar routes. De belangrijkste is meestal bijstand via je gemeente, maar let op: die werkt anders dan de WW.",
+    sections: [
+      { h: "Bijstand aanvragen bij je <em>gemeente</em>", html: "<p>Eindigt je WW en heb je onvoldoende inkomen, dan kun je bijstand (Participatiewet) aanvragen bij je gemeente. Doe dit <strong>op tijd, liefst voordat je WW stopt</strong>, zodat je geen periode zonder inkomen hebt. De aanvraag loopt via je gemeente, niet via het UWV.</p>" },
+      { h: "Bijstand is <em>anders</em> dan WW", html: "<p>Belangrijk verschil: bij bijstand kijkt de gemeente naar je <strong>vermogen</strong> (spaargeld, bezittingen) en naar het <strong>inkomen van je partner of huishouden</strong>. Heb je spaargeld boven de grens of een verdienende partner, dan krijg je mogelijk geen of minder bijstand. Bij de WW speelt dat niet. Ook geldt bij bijstand een sollicitatie- en re-integratieplicht.</p>" },
+      { h: "Andere <em>routes</em>", html: "<p>Voor oudere werklozen bestaan onder voorwaarden de IOAW of IOW, met soepeler regels dan de bijstand. Kijk ook naar toeslagen (zorg-, huurtoeslag) en naar scholing of omscholing. Je gemeente en het UWV kunnen je vertellen wat in jouw geval mogelijk is.</p>" }
+    ],
+    table: {
+      caption: "WW versus bijstand in het kort",
+      head: ["", "WW", "Bijstand"],
+      rows: [
+        ["Wie regelt het", "UWV", "Je gemeente"],
+        ["Gebaseerd op", "Je arbeidsverleden en laatste loon", "Je inkomen en vermogen nu"],
+        ["Vermogen (spaargeld) telt mee", "Nee", "Ja"],
+        ["Inkomen partner telt mee", "Nee", "Ja"]
+      ]
+    },
+    faq: [
+      { q: "Wat gebeurt er als mijn WW-uitkering stopt?", a: "Heb je nog geen werk en onvoldoende inkomen, dan kun je bijstand aanvragen bij je gemeente. Doe dit op tijd, liefst voordat je WW eindigt, om een gat zonder inkomen te voorkomen." },
+      { q: "Kan ik van WW naar bijstand?", a: "Ja, maar bijstand werkt anders: de gemeente kijkt naar je vermogen en het inkomen van je partner. Heb je spaargeld boven de grens of een verdienende partner, dan krijg je mogelijk geen of minder bijstand." },
+      { q: "Heb ik recht op bijstand met spaargeld?", a: "Boven een bepaald vermogen (spaargeld en bezittingen) krijg je geen bijstand. De exacte grens hangt af van je situatie; je gemeente bepaalt dit." },
+      { q: "Wat is de IOW of IOAW?", a: "Dit zijn uitkeringen voor oudere werklozen, met onder voorwaarden soepeler regels dan de bijstand (bijvoorbeeld geen of een lichtere vermogenstoets). Vraag het UWV of je gemeente of je hiervoor in aanmerking komt." }
+    ],
+    related: [
+      { href: "ww-stopzetten-of-pauzeren.html", label: "WW stopzetten of pauzeren" },
+      { href: "sollicitatieplicht-ww.html", label: "Sollicitatieplicht in de WW" },
+      { href: "vaststellingsovereenkomst/ww-uitkering-behouden.html", label: "Je WW behouden na een VSO" }
+    ]
+  },
+  {
+    slug: "sollicitatieplicht-ww",
+    title: "Sollicitatieplicht in de WW: wat moet je doen?",
+    desc: "Met een WW-uitkering moet je actief solliciteren. Doe je dat niet, dan kan het UWV korten of stopzetten. Wat wordt er verwacht en wanneer geldt een uitzondering?",
+    keywords: "sollicitatieplicht ww, ww stopzetten sollicitatieplicht, ontheffing sollicitatieplicht ww, hoeveel sollicitaties ww, ww sollicitatieplicht ontheffing",
+    eyebrow: "WW · plichten",
+    h1: "De <em>sollicitatieplicht</em> in de WW",
+    lead: "Met een WW-uitkering moet je actief werk zoeken. Houd je je daar niet aan, dan kan het UWV je uitkering korten of zelfs stopzetten. Dit wordt er van je verwacht.",
+    sections: [
+      { h: "Wat moet je <em>doen?</em>", html: "<p>Je staat ingeschreven als werkzoekende en zoekt aantoonbaar naar werk: solliciteren, reageren op vacatures en je inschrijven bij bijvoorbeeld uitzendbureaus. In de regel wordt verwacht dat je meerdere sollicitatie-activiteiten per vier weken doet. Houd je sollicitaties bij, want het UWV kan ernaar vragen. De precieze afspraken kunnen per situatie verschillen, dus volg wat het UWV met jou afspreekt.</p>" },
+      { h: "Gevolgen als je het <em>niet</em> doet", html: "<p>Solliciteer je te weinig of werk je niet mee aan je re-integratie, dan kan het UWV een maatregel opleggen: een tijdelijke korting op je uitkering of, bij herhaling, stopzetting. Reageer daarom altijd op oproepen van het UWV en houd je aan de afspraken.</p>" },
+      { h: "Uitzonderingen en <em>ontheffing</em>", html: "<p>In sommige situaties gelden aangepaste afspraken, bijvoorbeeld bij ziekte, bij scholing die het UWV heeft goedgekeurd, of bij vrijwilligerswerk onder voorwaarden. Denk je dat een uitzondering voor jou geldt? Bespreek het dan vooraf met het UWV in plaats van er zelf van uit te gaan.</p>" }
+    ],
+    faq: [
+      { q: "Hoeveel moet ik solliciteren in de WW?", a: "In de regel wordt verwacht dat je meerdere sollicitatie-activiteiten per vier weken doet en ingeschreven staat als werkzoekende. De precieze afspraken kunnen per situatie verschillen; volg wat het UWV met jou afspreekt en houd je sollicitaties bij." },
+      { q: "Wat gebeurt er als ik niet genoeg solliciteer?", a: "Het UWV kan een maatregel opleggen: een tijdelijke korting op je uitkering of, bij herhaling, stopzetting. Reageer altijd op oproepen en houd je aan de afspraken." },
+      { q: "Kan ik ontheffing krijgen van de sollicitatieplicht?", a: "In bepaalde situaties gelden aangepaste afspraken, bijvoorbeeld bij ziekte, goedgekeurde scholing of vrijwilligerswerk onder voorwaarden. Bespreek dit vooraf met het UWV." }
+    ],
+    related: [
+      { href: "ww-stopzetten-of-pauzeren.html", label: "WW stopzetten of pauzeren" },
+      { href: "einde-ww-uitkering-wat-nu.html", label: "Einde WW-uitkering: wat nu?" },
+      { href: "vaststellingsovereenkomst/ww-uitkering-behouden.html", label: "Je WW behouden na een VSO" }
+    ]
   }
 ];
 
