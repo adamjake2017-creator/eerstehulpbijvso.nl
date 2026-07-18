@@ -71,6 +71,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a class="btn btn-wa" href="https://wa.me/31645733083?text=Hoi%2C%20ik%20heb%20me%20zojuist%20aangemeld%20via%20de%20website.">Stuur ons alvast een WhatsApp</a>
         <a class="btn btn-ghost" href="index.html">Terug naar home</a>
       </div>
+      <div class="reveal" id="gd-thanks" style="margin-top:28px;padding:18px 22px;border:1px solid var(--line,#e7dcc9);border-radius:14px;background:#fff;display:none;text-align:left">
+        <p style="margin:0;font-size:1.05rem"><span style="font-size:1.25rem">&#128155;</span> Dankzij jou gaat <b>&euro;33</b> naar <b id="gd-doel">een goed doel</b>.</p>
+        <p style="margin:.45rem 0 0;color:var(--ink-soft,#5c5346);font-size:.9rem">Jouw afscheid, iemands nieuwe begin. <a href="een-nieuw-begin.html" style="color:var(--gold-deep)">Bekijk onze impact &rarr;</a></p>
+      </div>
     </div>
   </section>
 </main>
@@ -80,6 +84,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>30));
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  (function(){var d=new URLSearchParams(location.search).get('doel');if(d){var el=document.getElementById('gd-doel');el.textContent=d;document.getElementById('gd-thanks').style.display='block';}})();
 </script>
 </body>
 </html>

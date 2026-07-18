@@ -31,6 +31,7 @@ $situatie   = trim((string)($_POST["situatie"] ?? ""));
 $akkoord    = isset($_POST["toestemming"]);
 $onderwerp_in = schoon($_POST["onderwerp"] ?? "");   // optioneel label, bv. bij een briefbestelling
 $brief_type   = schoon($_POST["brief_type"] ?? "");  // optioneel: waar de brief over gaat
+$goed_doel    = schoon($_POST["goed_doel"] ?? "");   // gekozen goed doel (Een nieuw begin)
 
 // Server-side validatie
 $fouten = [];
@@ -94,6 +95,7 @@ $bericht .= "VSO-status: " . ($status !== "" ? $status : "niet opgegeven") . "\n
 $bericht .= "Ziekte of zwangerschap: " . ($gezondheid !== "" ? $gezondheid : "niet opgegeven") . "\n\n";
 $bericht .= "Situatie:\n" . strip_tags($situatie) . "\n\n";
 $bericht .= "Bijlage: " . $bestandinfo . "\n\n";
+$bericht .= "Gekozen goed doel (Een nieuw begin): " . ($goed_doel !== "" ? $goed_doel : "niet gekozen") . "\n";
 $bericht .= "Toestemming gegeven: ja\n";
 $bericht .= "Tijdstip: " . date("Y-m-d H:i:s") . "\n";
 
@@ -104,5 +106,5 @@ $headers .= "MIME-Version: 1.0\r\n";
 
 @mail($ontvanger, $onderwerp, $bericht, $headers);
 
-header("Location: bedankt.html");
+header("Location: bedankt.html?doel=" . rawurlencode($goed_doel));
 exit;
